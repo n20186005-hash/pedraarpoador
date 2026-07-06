@@ -14,7 +14,7 @@ const tourist = JSON.stringify({
   '@context': 'https://schema.org', '@type': 'TouristAttraction',
   name: 'Pedra do Arpoador', description: descMap[lang],
   image: new URL('/gallery/pedra-do-arpoador%20(1).jpg', Astro.site).href,
-  address: { '@type': 'PostalAddress', addressLocality: 'Rio de Janeiro', addressRegion: 'RJ', addressCountry: 'BR' },
+  address: { '@type': 'PostalAddress', streetAddress: 'Av. Francisco Bhering, s/n', addressLocality: 'Rio de Janeiro', addressRegion: 'RJ', postalCode: '22080-050', addressCountry: 'BR' },
   geo: { '@type': 'GeoCoordinates', latitude: -22.9869, longitude: -43.2004 },
   aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '32786' },
   openingHours: 'Mo-Su 00:00-23:59',

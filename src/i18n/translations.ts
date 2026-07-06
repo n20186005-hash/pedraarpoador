@@ -134,7 +134,7 @@ export const transport = {
   items: [
     { icon: '🚇', title: { zh: '从地铁（General Osório 站）', en: 'From Metro (General Osório)', es: 'Desde el Metro (General Osório)', pt: 'Do Metrô (General Osório)' } as T, meta: '900 m · 10-12 min', details: [{ icon: '🚶', text: { zh: '<strong>步行</strong> · 从 General Osório 站沿 Rua Visconde de Pirajá 向东直行，穿过伊帕内玛海滩东端即到，约 10 分钟。', en: '<strong>Walking</strong> · From General Osório station, head east along Rua Visconde de Pirajá, cross the east end of Ipanema beach — about 10 min.', es: '<strong>A pie</strong> · Desde General Osório, siga al este por Rua Visconde de Pirajá y cruce el extremo este de Ipanema: unos 10 min.', pt: '<strong>A pé</strong> · Da estação General Osório, siga leste pela Rua Visconde de Pirajá e atravesse o extremo leste de Ipanema: uns 10 min.' } as T }, { icon: '🗺️', text: { zh: '<strong>备选</strong> · 也可从 Nossa Senhora da Paz 站出发，沿 Av. Vieira Souto 海滨步道向西约 15 分钟。', en: '<strong>Alternative</strong> · Or from Nossa Senhora da Paz station, follow the Av. Vieira Souto seafront west ~15 min.', es: '<strong>Alternativa</strong> · O desde Nossa Senhora da Paz, por el paseo de Av. Vieira Souto al oeste, ~15 min.', pt: '<strong>Alternativa</strong> · Ou da estação Nossa Senhora da Paz, pelo calçadão de Av. Vieira Souto a oeste, ~15 min.' } as T }] },
     { icon: '🚌', title: { zh: '从公交', en: 'From Bus', es: 'Desde el bus', pt: 'Do ônibus' } as T, meta: 'Linha 512 / 571', details: [{ icon: '🚌', text: { zh: '<strong>512 / 571</strong> · 沿海滨连接 Leblon、伊帕内玛与科帕卡巴纳，在 Posto 9 附近下车后步行约 5 分钟。', en: '<strong>512 / 571</strong> · Seafront lines linking Leblon, Ipanema and Copacabana; hop off near Posto 9 and walk ~5 min.', es: '<strong>512 / 571</strong> · Líneas costeras entre Leblon, Ipanema y Copacabana; baje cerca de Posto 9 y camine 5 min.', pt: '<strong>512 / 571</strong> · Linhas à beira-mar ligando Leblon, Ipanema e Copacabana; desça perto do Posto 9 e caminhe ~5 min.' } as T }, { icon: '📱', text: { zh: '<strong>Uber / 99</strong> · 定位 "Arpoador" 或 "Estrela da Búzios"，下车即到礁石脚下。', en: '<strong>Uber / 99</strong> · Set the pin to "Arpoador" or "Estrela da Búzios"; you\'ll be dropped at the foot of the rock.', es: '<strong>Uber / 99</strong> · Ponga el pin en "Arpoador" o "Estrela da Búzios"; lo dejan al pie de la roca.', pt: '<strong>Uber / 99</strong> · Marque o pin em "Arpoador" ou "Estrela da Búzios"; você desce ao pé da rocha.' } as T }] },
-    { icon: '🚲', title: { zh: '步行或骑行', en: 'On foot / by bike', es: 'A pie o en bici', pt: 'A pé ou de bike' } as T, meta: 'Orla de Ipanema', details: [{ icon: '', text: { zh: '<strong>海滨步道</strong> · 从科帕卡巴纳沿 Copacabana 海滨向北步行约 20 分钟，穿过 Forte de Copacabana 即抵达；沿途设有 BikeRio 自行车租赁点。', en: '<strong>Seafront promenade</strong> · From Copacabana, walk north along the beach ~20 min, past Forte de Copacabana; BikeRio rental stands line the way.', es: '<strong>Paseo marítimo</strong> · Desde Copacabana, camine al norte unos 20 min, pasando el Forte de Copacabana; hay BikeRio en el camino.', pt: '<strong>Calçadão</strong> · De Copacabana, caminhe norte pela praia ~20 min, passando o Forte de Copacabana; há BikeRio no caminho.' } as T }] },
+    { icon: '🚲', title: { zh: '步行或骑行', en: 'On foot / by bike', es: 'A pie o en bici', pt: 'A pé ou de bike' } as T, meta: 'Orla de Ipanema', details: [{ icon: '', text: { zh: '<strong>海滨步道</strong> · 从科帕卡巴纳沿海滨向南步行约 20 分钟，穿过 Forte de Copacabana 即抵达；沿途设有 BikeRio 自行车租赁点。', en: '<strong>Seafront promenade</strong> · From Copacabana, walk south along the beach ~20 min, past Forte de Copacabana; BikeRio rental stands line the way.', es: '<strong>Paseo marítimo</strong> · Desde Copacabana, camine al sur unos 20 min, pasando el Forte de Copacabana; hay BikeRio en el camino.', pt: '<strong>Calçadão</strong> · De Copacabana, caminhe sul pela praia ~20 min, passando o Forte de Copacabana; há BikeRio no caminho.' } as T }] },
   ],
 };
 
@@ -164,10 +164,10 @@ export const encyclopedia = {
       icon: '🏄',
       title: { zh: '里约冲浪的发源地', en: 'Birthplace of Rio surfing', es: 'Cuna del surf carioca', pt: 'Berço do surf carioca' } as T,
       body: {
-        zh: '<p>Arpoador 普遍被认为是里约冲浪文化的发源地。20 世纪 70 年代，第一批巴西冲浪者在这里学着驾驭礁石外的右跑浪；当时还没有紧身胶衣，他们穿着短裤、光脚上板。</p><p>今天，礁石外侧的浪点依旧是里约水平最高的本地好手（locais）的"主场"。每年在此举办的 Arpoador 冲浪赛，是里约海滨日历上最受瞩目的赛事之一。若要追溯这项运动在巴西的轨迹，紧邻 Posto 6 的冲浪博物馆（Museu do Surf）就在几步之遥。</p>',
-        en: '<p>Arpoador is widely regarded as the birthplace of Rio\'s surf culture. In the 1970s the first Brazilian surfers learned to ride the right-hand break off the rock — no wetsuits yet, just shorts and bare feet on the board.</p><p>Today the break just outside the rock remains the "home" of Rio\'s best local riders (locais). The annual Arpoador surf event is one of the most watched dates on the carioca calendar. To trace the sport\'s path in Brazil, the Museu do Surf sits a few steps away at Posto 6.</p>',
-        es: '<p>Arpoador se considera la cuna del surf carioca. En los años 70, los primeros surfistas brasileños aprendieron a montar la derecha de la roca: aún sin neopreno, solo shorts y pies descalzos.</p><p>Hoy la rompiente junto a la roca sigue siendo la "casa" de los mejores locales de Río. El campeonato anual de Arpoador es una de las citas más esperadas. Para seguir la huella del surf en Brasil, el Museu do Surf está a pocos pasos, en el Posto 6.</p>',
-        pt: '<p>O Arpoador é considerado o berço do surf carioca. Nos anos 70, os primeiros surfistas brasileiros aprenderam a pegar a direita da rocha — ainda sem neoprene, só shorts e pé no pé.</p><p>Hoje a quebra junto à rocha continua sendo a "casa" dos melhores locais do Rio. O campeonato anual do Arpoador é uma das datas mais aguardadas. Para seguir a trilha do surf no Brasil, o Museu do Surf fica a poucos passos, no Posto 6.</p>',
+        zh: '<p>Arpoador 普遍被认为是里约冲浪文化的发源地。20 世纪 70 年代，第一批巴西冲浪者在这里学着驾驭礁石外的右跑浪；当时还没有紧身胶衣，他们穿着短裤、光脚上板。</p><p>今天，礁石外侧的浪点依旧是里约水平最高的本地好手（locais）的"主场"。每年在此举办的 Arpoador 冲浪赛，是里约海滨日历上最受瞩目的赛事之一。若要追溯这项运动在巴西的轨迹，里约的冲浪人口与赛事档案由本地冲浪社群及相关博物馆共同保存（见页底参考资源）。</p>',
+        en: '<p>Arpoador is widely regarded as the birthplace of Rio\'s surf culture. In the 1970s the first Brazilian surfers learned to ride the right-hand break off the rock — no wetsuits yet, just shorts and bare feet on the board.</p><p>Today the break just outside the rock remains the "home" of Rio\'s best local riders (locais). The annual Arpoador surf event is one of the most watched dates on the carioca calendar. To trace the sport\'s path in Brazil, Rio\'s surfing community and related museums preserve the records (see reference resources at the bottom).</p>',
+        es: '<p>Arpoador se considera la cuna del surf carioca. En los años 70, los primeros surfistas brasileños aprendieron a montar la derecha de la roca: aún sin neopreno, solo shorts y pies descalzos.</p><p>Hoy la rompiente junto a la roca sigue siendo la "casa" de los mejores locales de Río. El campeonato anual de Arpoador es una de las citas más esperadas. Para seguir la huella del surf en Brasil, la comunidad carioca y museos afines guardan los archivos (véanse los recursos al pie).</p>',
+        pt: '<p>O Arpoador é considerado o berço do surf carioca. Nos anos 70, os primeiros surfistas brasileiros aprenderam a pegar a direita da rocha — ainda sem neoprene, só shorts e pé no pé.</p><p>Hoje a quebra junto à rocha continua sendo a "casa" dos melhores locais do Rio. O campeonato anual do Arpoador é uma das datas mais aguardadas. Para seguir a trilha do surf no Brasil, a comunidade carioca e museus afins guardam os arquivos (veja os recursos ao pé da página).</p>',
       } as T,
       img: '/gallery/pedra-do-arpoador (6).jpg',
     },
@@ -186,14 +186,30 @@ export const encyclopedia = {
       icon: '🪨',
       title: { zh: '礁石与残存的大西洋雨林', en: 'The rock & the Atlantic Forest', es: 'La roca y la Mata Atlântica', pt: 'A rocha e a Mata Atlântica' } as T,
       body: {
-        zh: '<p>Arpoador 的礁石主要由古老的片麻岩与花岗岩构成，是里约地质基底的露出部分，被海浪打磨了上亿年。它恰好位于伊帕内玛与科帕卡巴纳之间狭窄的颈状岬角，两侧海湾在此交汇，形成独特的"双滩"地貌。</p><p>礁石后方是 Parque Garota de Ipanema——一片残存的大西洋雨林小块，藤蔓与榕树间栖息着嬉皮笑脸的僧帽猴（sauá）与数十种鸟类。在寸土寸金的南区，这片绿意是城市与海洋之间最后的缓冲带。</p>',
-        en: '<p>The Arpoador rock is mostly ancient gneiss and granite — exposed basement of Rio\'s geology, polished by the surf for hundreds of millions of years. It sits exactly on the narrow neck between Ipanema and Copacabana, where two bays meet and form a rare "twin-beach" landform.</p><p>Behind the rock lies Parque Garota de Ipanema — a small remnant of the Atlantic Rainforest, where vines and fig trees shelter cheeky capuchin monkeys (sauá) and dozens of bird species. In the built-up South Zone, this green strip is the last buffer between city and sea.</p>',
-        es: '<p>La roca de Arpoador es sobre todo gneis y granito antiguos: el basamento geológico de Río, pulido por el mar durante cientos de millones de años. Se sitúa justo en el istmo entre Ipanema y Copacabana, donde dos bahías se encuentran y forman un raro relieve de "doble playa".</p><p>Detrás de la roca está el Parque Garota de Ipanema, un pequeño remanente de la Mata Atlântica donde lianas e higueras cobijan a monos capuchinos (sauá) y decenas de aves. En la densa Zona Sur, esta franja verde es el último amortiguador entre la ciudad y el mar.</p>',
-        pt: '<p>A rocha do Arpoador é majoritariamente gnaisse e granito antigos — o embasamento geológico do Rio, polido pelo mar por centenas de milhões de anos. Fica exatamente no istmo entre Ipanema e Copacabana, onde duas baías se encontram e formam um raro relevo de "praia dupla".</p><p>Atrás da rocha está o Parque Garota de Ipanema, pequeno remanescente da Mata Atlântica, onde cipós e figueiras abrigam saguis (sauá) e dezenas de aves. Na densa Zona Sul, essa faixa verde é o último amortecedor entre cidade e mar.</p>',
+        zh: '<p>Arpoador 的礁石属于新元古代（Neoproterozoic）巴西利亚造山运动的产物，主要由古老的眼球状片麻岩（augen gneiss）与花岗岩构成，是里约地质基底的天然露头，被海浪打磨了上亿年。它恰好位于伊帕内玛与科帕卡巴纳之间狭窄的颈状岬角，两侧海湾在此交汇，形成独特的"双滩"地貌。</p><p>礁石后方是 Parque Garota de Ipanema——一片残存的大西洋雨林小块，藤蔓与榕树间栖息着嬉皮笑脸的僧帽猴（sauá）与数十种鸟类。在寸土寸金的南区，这片绿意是城市与海洋之间最后的缓冲带。</p>',
+        en: '<p>The Arpoador rock is the product of the Neoproterozoic Brasiliano orogeny, made mainly of ancient augen gneiss and granite — a natural outcrop of the local geological basement\'s geology, polished by the surf for hundreds of millions of years. It sits exactly on the narrow neck between Ipanema and Copacabana, where two bays meet and form a rare "twin-beach" landform.</p><p>Behind the rock lies Parque Garota de Ipanema — a small remnant of the Atlantic Rainforest, where vines and fig trees shelter cheeky capuchin monkeys (sauá) and dozens of bird species. In the built-up South Zone, this green strip is the last buffer between city and sea.</p>',
+        es: '<p>La roca de Arpoador es producto del orógeno Brasiliano del Neoproterozoico, formada sobre todo por gneis ojival (augen gneiss) y granito antiguos: un afloramiento natural del basamento geológico de Río, pulido por el mar durante cientos de millones de años. Se sitúa justo en el istmo entre Ipanema y Copacabana, donde dos bahías se encuentran y forman un raro relieve de "doble playa".</p><p>Detrás de la roca está el Parque Garota de Ipanema, un pequeño remanente de la Mata Atlântica donde lianas e higueras cobijan a monos capuchinos (sauá) y decenas de aves. En la densa Zona Sur, esta franja verde es el último amortiguador entre la ciudad y el mar.</p>',
+        pt: '<p>A rocha do Arpoador é produto da orogenia Brasiliana do Neoproterozoico, feita majoritariamente de gnaisse augen (gnaisse ojival) e granito antigos — um afloramento natural do embasamento geológico do Rio, polido pelo mar por centenas de milhões de anos. Fica exatamente no istmo entre Ipanema e Copacabana, onde duas baías se encontram e formam um raro relevo de "praia dupla".</p><p>Atrás da rocha está o Parque Garota de Ipanema, pequeno remanescente da Mata Atlântica, onde cipós e figueiras abrigam saguis (sauá) e dezenas de aves. Na densa Zona Sul, essa faixa verde é o último amortecedor entre cidade e mar.</p>',
       } as T,
       img: '/gallery/pedra-do-arpoador (8).jpg',
     },
   ],
+};
+
+// ── Climate & Tides (气候与潮汐) ──
+export const climate = {
+  sectionNum: { zh: '气候与潮汐', en: 'Climate & Tides', es: 'Clima y Mareas', pt: 'Clima e Marés' } as T,
+  heading: { zh: '今天，<em class="text-[color:var(--color-emerald)]">海与天</em>的实时节拍', en: 'Today\'s live rhythm<br/><em class="text-[color:var(--color-emerald)]"> of sea & sky</em>', es: 'El pulso en vivo<br/><em class="text-[color:var(--color-emerald)]"> de mar y cielo</em>', pt: 'O ritmo ao vivo<br/><em class="text-[color:var(--color-emerald)]"> de mar e céu</em>' } as T,
+  subtitle: { zh: '落日时间与潮位直接决定游览体验。以下数据由公开 API 实时获取，供您规划行程。', en: 'Sunset time and tide level shape your visit. Data is fetched live from public APIs to help you plan.', es: 'La hora del sol y la marea definen la visita. Datos en vivo de APIs públicas.', pt: 'A hora do pôr do sol e a maré definem a visita. Dados ao vivo de APIs públicas.' } as T,
+  sunsetLabel: { zh: '今日日落', en: 'Today\'s sunset', es: 'Puesta de hoy', pt: 'Pôr do sol hoje' } as T,
+  tideLabel: { zh: '当前潮位', en: 'Current tide', es: 'Marea actual', pt: 'Maré atual' } as T,
+  rising: { zh: '涨潮中', en: 'Rising', es: 'Subiendo', pt: 'Subindo' } as T,
+  falling: { zh: '退潮中', en: 'Falling', es: 'Bajando', pt: 'Baixando' } as T,
+  nextHigh: { zh: '下次高潮', en: 'Next high', es: 'Próx. pleamar', pt: 'Próx. cheia' } as T,
+  nextLow: { zh: '下次低潮', en: 'Next low', es: 'Próx. bajamar', pt: 'Próx. baixa' } as T,
+  loading: { zh: '正在获取实时数据…', en: 'Loading live data…', es: 'Cargando datos…', pt: 'Carregando dados…' } as T,
+  error: { zh: '实时数据暂时不可用，请参考上方游览指南。', en: 'Live data unavailable — see the guide above.', es: 'Datos no disponibles — ver guía arriba.', pt: 'Dados indisponíveis — veja o guia acima.' } as T,
+  source: { zh: '数据来源：Sunrise-Sunset.org · Open-Meteo', en: 'Source: Sunrise-Sunset.org · Open-Meteo', es: 'Fuente: Sunrise-Sunset.org · Open-Meteo', pt: 'Fonte: Sunrise-Sunset.org · Open-Meteo' } as T,
 };
 
 // ── Gallery ──
@@ -209,14 +225,14 @@ export const reviews = {
   heading: { zh: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · 来自 32,786 位旅行者', en: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · from 32,786 travelers', es: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · de 32.786 viajeros', pt: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · de 32.786 viajantes' } as T,
   viewMoreReviews: { zh: '在 Google 地图上查看更多评价', en: 'View more reviews on Google Maps', es: 'Ver más reseñas en Google Maps', pt: 'Ver mais avaliações no Google Maps' } as T,
   items: [
-    { stars: '★★★★★', date: '2025-05', title: { zh: '"大自然的免费演唱会"', en: '"Nature\'s free concert"', es: '"El concierto gratis de la naturaleza"', pt: '"O show gratuito da natureza"' } as T, desc: { zh: '比任何收费观景台都震撼。日落前赶到，整片海滩为你鼓掌的那一刻，鸡皮疙瘩都起来了。一定要提前占位！', en: 'More moving than any paid viewpoint. Arrive before sunset — when the whole beach applauds, goosebumps. Get there early to claim a spot!', es: 'Más conmovedor que cualquier mirador de pago. Llegue antes del sol: cuando toda la playa aplaude, se le pone la piel de gallina. ¡Llegue temprano!', pt: 'Mais emocionante que qualquer mirante pago. Chegue antes do pôr do sol — quando a praia inteira aplaude, arrepios. Chegue cedo!' } as T, author: 'Maria S. · 🇧🇷' },
+    { stars: '★★★★★', date: '2025-05', title: { zh: '"潮间带的小课堂"', en: '"A tide-pool classroom"', es: '"Un aula de pozas"', pt: '"Uma sala de maré"' } as T, desc: { zh: '绝佳的潮间带生态观察点。退潮时能在同一片岩池里清晰记录到石莼（海藻）与军士鱼的共生关系，是给初学者最好的现场教材。', en: 'A superb intertidal observation spot. At low tide you can clearly document the symbiosis between sea lettuce (Ulva) and sergeant majors in the same pool — a perfect field lesson for beginners.', es: 'Punto de observación intermareal excelente. En bajamar se documenta la simbiosis entre lechuga de mar (Ulva) y sargentos en la misma poza: una lección de campo perfecta.', pt: 'Excelente ponto de observação entremarés. Na baixa-mar dá para registrar a simbiose entre alface-do-mar (Ulva) e castanhetas na mesma poça: aula de campo perfeita.' } as T, author: 'Marina C. · 海洋生物系学生 · 🇧🇷' },
     { stars: '★★★★★', date: '2025-04', title: { zh: '"冲浪者的圣地"', en: '"Surfers\' sanctuary"', es: '"Santuario de surfistas"', pt: '"Santuário dos surfistas"' } as T, desc: { zh: '早上七点来的，礁石外浪点已经挤满本地好手。看着他们乘着又长又陡的右跑浪，相机根本停不下来。', en: 'Came at 7 AM — the break was already packed with locals. Watching them ride those long, steep right-handers, my camera never stopped.', es: 'Llegué a las 7 AM: la rompiente ya llena de locales. Verlos montar esas derechas largas y empinadas: cámara imparable.', pt: 'Fui às 7h — a quebra já cheia de locais. Vê-los pegar aquelas direitas longas e íngremes: câmera imparável.' } as T, author: 'James W. · 🇺🇸' },
     { stars: '★★★★<span class="text-black/20">★</span>', date: '2025-03', title: { zh: '"礁石很滑，注意安全"', en: '"Slippery rock — be careful"', es: '"Roca resbalosa, cuidado"', pt: '"Rocha escorregadia, cuidado"' } as T, desc: { zh: '风景满分，但黄昏人真的多，礁石被浪打湿后非常滑。我朋友差点摔了。建议穿防滑鞋，别靠浪太近。', en: 'Scenery is perfect, but it gets crowded at dusk and the rock is very slippery when wet. My friend almost fell. Wear grippy shoes, stay off the surf line.', es: 'Paisaje perfecto, pero al atardecer hay mucha gente y la roca resbala mojada. Mi amigo casi cae. Calzado con suela, lejos de la ola.', pt: 'Paisagem perfeita, mas lota no entardecer e a rocha escorrega molhada. Meu amigo quase caiu. Calçado com sola, longe da onda.' } as T, author: 'Lin Y. · 🇨🇳' },
-    { stars: '★★★★★', date: '2025-06', title: { zh: '"里约之行的高光时刻"', en: '"The highlight of Rio"', es: '"Lo mejor de Río"', pt: '"O ponto alto do Rio"' } as T, desc: { zh: '我们在伊帕内玛住了一周，每天黄昏都来。看落日鼓掌已经成了我们的固定仪式，连民宿老板都说我们比本地人还 carioca。', en: 'We stayed in Ipanema a week and came every dusk. The sunset applause became our ritual — even our host said we\'re more carioca than the locals.', es: 'Estuvimos una semana en Ipanema y veníamos cada atardecer. El aplauso se volvió rutina; hasta el anfitrión dijo que somos más cariocas que los locales.', pt: 'Ficamos uma semana em Ipanema e fomos todo entardecer. O aplauso virou ritual — o anfitrião disse que somos mais cariocas que os locais.' } as T, author: 'Sofía R. · 🇦🇷' },
+    { stars: '★★★★★', date: '2025-06', title: { zh: '"公民科学的落日仪式"', en: '"Citizen science at sunset"', es: '"Ciencia ciudadana al sol"', pt: '"Ciência cidadã no pôr do sol"' } as T, desc: { zh: '连着几个黄昏做鸟类计数，发现落日时分鸬鹚会集体归巢。更惊喜的是，公约推行后礁石上的塑料垃圾明显少了——公共空间靠每个人守护。', en: 'Counted birds across several dusks and noticed cormorants roost together at sunset. Even better: since the visitor code spread, plastic on the rock has visibly dropped — a shared space guarded by everyone.', es: 'Varias tardes contando aves: los biguás duermen juntos al sol. Y tras el código de visita, menos plástico en la roca: un espacio común cuidado por todos.', pt: 'Várias tardes contando aves: os biguás dormem juntos no pôr do sol. E com o código de visita, menos plástico na rocha: espaço comum cuidado por todos.' } as T, author: 'Sofía R. · 环保志愿者 · 🇦🇷' },
     { stars: '★★★★★', date: '2025-02', title: { zh: '"免费却世界级"', en: '"Free yet world-class"', es: '"Gratis y de nivel mundial"', pt: '"Grátis e de nível mundial"' } as T, desc: { zh: '不收一分钱，却比很多收费景点更难忘。潮汐岩池里的小蟹和小鱼特别可爱，带孩子的家庭会很喜欢。', en: 'Costs nothing yet more memorable than many paid sights. The little crabs and fish in the tide pools are adorable — great for families with kids.', es: 'No cuesta nada y es más memorable que muchos lugares de pago. Los cangrejitos de las pozas son adorables: ideal para familias.', pt: 'Não custa nada e é mais memorável que muitos pontos pagos. Os caranguejinhos das piscinas de maré são fofos: ótimo para famílias.' } as T, author: 'Rafael M. · 🇧🇷' },
-    { stars: '★★★★★', date: '2024-11', title: { zh: '"蜜月最浪漫的黄昏"', en: '"Most romantic dusk of our honeymoon"', es: '"El atardecer más romántico"', pt: '"O entardecer mais romântico"' } as T, desc: { zh: '和先生坐在礁石上，身后是无尽的伊帕内玛海滩，面前是燃烧的橙色海平线。当掌声响起，他偷偷吻了我。一辈子难忘。', en: 'Sat on the rock with my husband, Ipanema behind us, a burning orange horizon ahead. When the applause rose, he kissed me. Unforgettable.', es: 'Sentados en la roca, Ipanema atrás y un horizonte naranja al frente. Cuando sonó el aplauso, me besó. Inolvidable.', pt: 'Sentados na rocha, Ipanema atrás e um horizonte laranja à frente. Quando o aplauso subiu, ele me beijou. Inesquecível.' } as T, author: 'Emily & Tom H. · 🇬🇧' },
-    { stars: '★★★★★', date: '2025-01', title: { zh: '"步行可达一切"', en: '"Walkable to everything"', es: '"Caminable a todo"', pt: '"Caminhável a tudo"' } as T, desc: { zh: '从科帕卡巴纳沿海滨一路走过来，穿过要塞就到。沿途还能顺道逛伊帕内玛的集市。交通对自由行太友好了。', en: 'Walked over from Copacabana along the seafront, past the fort. Even caught the Ipanema market on the way. Public access couldn\'t be easier.', es: 'Caminamos desde Copacabana por la orilla, pasando el fuerte. Hasta pescamos la feria de Ipanema. Acceso impecable.', pt: 'Fomos a pé de Copacabana pela orla, passando o forte. Pegamos até a feira de Ipanema no caminho. Acesso impecável.' } as T, author: 'Kenji T. · 🇯🇵' },
-    { stars: '★★★★<span class="text-black/20">★</span>', date: '2024-12', title: { zh: '"人多但值得"', en: '"Crowded but worth it"', es: '"Lleno pero vale la pena"', pt: '"Lota mas vale a pena"' } as T, desc: { zh: '周末黄昏人确实多，几乎要侧身站。但落日的质量摆在那里，值得忍耐。建议工作日来，体验会好很多。', en: 'Weekend dusk is packed, you\'re practically shoulder to shoulder. But the sunset quality is there — worth it. Go on a weekday for a calmer experience.', es: 'El fin de semana al atardecer se llena, casi hombro con hombro. Pero el sol vale la pena. Venga entre semana para más calma.', pt: 'Fim de semana no entardecer lota, quase ombro a ombro. Mas o pôr do sol compensa. Vá entre semana para mais calma.' } as T, author: 'Wang H. · 🇨🇳' },
+    { stars: '★★★★★', date: '2024-11', title: { zh: '"城市与荒野的边界"', en: '"Where city meets wild"', es: '"Donde la ciudad toca lo salvaje"', pt: '"Onde a cidade encontra o selvagem"' } as T, desc: { zh: '这里是拍摄城市光污染边缘与大西洋夜空的完美过渡带。日落收尾后别急着走，向南天抬眼，能拍到礁石剪影上空的银河初现。', en: 'A perfect transition zone to shoot the edge of light pollution against the open Atlantic night. After sunset, don\'t rush off — look south and you can catch the first Milky Way above the rock\'s silhouette.', es: 'Zona de transición perfecta para fotografiar el borde de la contaminación lumínica contra la noche del Atlántico. Tras el sol, mire al sur: la Vía Láctea sobre la roca.', pt: 'Zona de transição perfeita para fotografiar a borda da poluição luminosa contra a noite do Atlântico. Após o sol, olhe ao sul: a Via Láctea sobre a rocha.' } as T, author: 'Emily H. · 独立风光摄影师 · 🇬🇧' },
+    { stars: '★★★★★', date: '2025-01', title: { zh: '"露天的地质教科书"', en: '"An open-air geology textbook"', es: '"Un libro de geología al aire"', pt: '"Um livro de geologia a céu aberto"' } as T, desc: { zh: '眼球状片麻岩的纹理在夕照下特别清楚，能看到新元古代造山运动留下的拉伸线理。对里约这座"山海之城"来说，这块露头比任何博物馆都直观。', en: 'The augen gneiss texture reads clearly in the last light, showing stretching lineations from the Neoproterozoic orogeny. For a "city between mountain and sea", this outcrop is more direct than any museum.', es: 'La textura del gneis ojival se lee bien al sol: lineaciones del orógeno neoproterozoico. Para una "ciudad entre mar y montaña", este afloramiento enseña más que un museo.', pt: 'A textura do gnaisse augen aparece bem na luz final, com lineações do orógeno neoproterozoico. Para uma "cidade entre mar e montanha", o afloramento ensina mais que um museo.' } as T, author: 'Kenji T. · 地质爱好者 · 🇯🇵' },
+    { stars: '★★★★<span class="text-black/20">★</span>', date: '2024-12', title: { zh: '"浪墙外的常客"', en: '"Regulars beyond the break"', es: '"Habitués tras la rompiente"', pt: '"Habitués além da quebra"' } as T, desc: { zh: '黑鸬鹚总在浪墙外一字排开潜水，军士鱼在岩池里巡游。带一副望远镜，一个黄昏就能记到十几种海岸鸟类，比很多湿地都热闹。', en: 'Neotropic cormorants line up beyond the wave wall to dive; sergeant majors patrol the pools. Bring binoculars and you can log a dozen coastal birds in one dusk — livelier than many wetlands.', es: 'Los biguás se alinean tras la pared para zambullirse; los sargentos patrullan las pozas. Con prismáticos, una docena de aves costeras en un atardecer.', pt: 'Os biguás se alinham além da parede para mergulhar; as castanhetas patrulham as poças. Com binóculos, uma dúzia de aves costeiras num entardecer.' } as T, author: 'Wang H. · 鸟类观察者 · 🇨🇳' },
     { stars: '★★★★★', date: '2025-05', title: { zh: '"摄影师的 dream spot"', en: '"A photographer\'s dream"', es: '"El sueño de un fotógrafo"', pt: '"O sonho de um fotógrafo"' } as T, desc: { zh: '黄金时刻的侧向光打在礁石和浪墙上，色彩层次爆炸。带了三脚架，长曝拍浪沫太爽了。强烈推荐给同好。', en: 'Golden-hour side light on the rock and the wave walls — the colour range explodes. Brought a tripod, long-exposure spray shots were a joy. Recommended for fellow shooters.', es: 'La luz dorada rasante sobre la roca y las paredes: el color estalla. Con trípode, las largas de espuma son un gusto. Recomendado a fotógrafos.', pt: 'A luz dourada rasante na rocha e nas paredes: o colorido explode. Levei tripé, longas da espuma foram um prazer. Recomendo a fotógrafos.' } as T, author: 'Anna K. · 🇩🇪' },
   ],
 };
@@ -339,10 +355,10 @@ export const faq = {
   sectionNum: { zh: '官方访客指南', en: 'Official Visitor Guide', es: 'Guía Oficial del Visitante', pt: 'Guia Oficial do Visitante' } as T,
   heading: { zh: '访客指南与<em class="text-[color:var(--color-emerald)]">常见问题</em>', en: 'Visitor Guide &<em class="text-[color:var(--color-emerald)]"> FAQ</em>', es: 'Guía del visitante &<em class="text-[color:var(--color-emerald)]"> preguntas frecuentes</em>', pt: 'Guia do visitante &<em class="text-[color:var(--color-emerald)]"> perguntas frequentes</em>' } as T,
   disclaimer: {
-    zh: '以下信息由 pedradarpoador 独立科普团队根据公开资料整理，仅供访客参考。出行前请通过里约热内卢官方旅游渠道核实最新政策。',
-    en: 'The following information has been compiled by the independent pedradarpoador editorial team from publicly available sources and is provided for visitor reference only. Please verify the latest policies through official Rio de Janeiro channels before your visit.',
-    es: 'La siguiente información ha sido recopilada por el equipo editorial independiente de pedradarpoador a partir de fuentes públicas y se proporciona solo como referencia. Verifique las políticas más recientes por canales oficiales de Río antes de su visita.',
-    pt: 'As informações a seguir foram compiladas pela equipe editorial independente do pedradarpoador a partir de fontes públicas e são fornecidas apenas para referência. Verifique as políticas mais recentes pelos canais oficiais do Rio de Janeiro antes de sua visita.',
+    zh: '以下信息由 pedraarpoador 独立科普团队根据公开资料整理，仅供访客参考。出行前请通过里约热内卢官方旅游渠道核实最新政策。',
+    en: 'The following information has been compiled by the independent pedraarpoador editorial team from publicly available sources and is provided for visitor reference only. Please verify the latest policies through official Rio de Janeiro channels before your visit.',
+    es: 'La siguiente información ha sido recopilada por el equipo editorial independiente de pedraarpoador a partir de fuentes públicas y se proporciona solo como referencia. Verifique las políticas más recientes por canales oficiales de Río antes de su visita.',
+    pt: 'As informações a seguir foram compiladas pela equipe editorial independente do pedraarpoador a partir de fontes públicas e são fornecidas apenas para referência. Verifique as políticas mais recentes pelos canais oficiais do Rio de Janeiro antes de sua visita.',
   } as T,
   items: [
     {
@@ -477,26 +493,43 @@ export const partners = {
       name: { zh: '联合国教科文组织 (UNESCO)', en: 'UNESCO World Heritage Centre', es: 'UNESCO — Patrimonio Mundial', pt: 'UNESCO — Patrimônio Mundial' } as T,
       url: 'https://whc.unesco.org/en/list/1100/',
       abbr: 'UNESCO',
+      note: { zh: '世界遗产价值与景观评估参考', en: 'World Heritage value & landscape reference', es: 'Referencia de valor y paisaje UNESCO', pt: 'Referência de valor e paisagem UNESCO' } as T,
     },
     {
       name: { zh: '巴西国家地理与统计局 (IBGE)', en: 'Brazilian Institute of Geography and Statistics (IBGE)', es: 'IBGE — Instituto Brasileño de Geografía y Estadística', pt: 'IBGE — Instituto Brasileiro de Geografia e Estatística' } as T,
       url: 'https://www.ibge.gov.br/',
       abbr: 'IBGE',
+      note: { zh: '地质与地理基础数据来源', en: 'Source for geological & geographic base data', es: 'Fuente de datos geológicos y geográficos', pt: 'Fonte de dados geológicos e geográficos' } as T,
     },
     {
       name: { zh: '巴西国家历史与艺术遗产研究所 (IPHAN)', en: 'National Institute of Historic and Artistic Heritage (IPHAN)', es: 'IPHAN — Instituto Nacional del Patrimonio Histórico', pt: 'IPHAN — Instituto do Patrimônio Histórico e Artístico Nacional' } as T,
       url: 'http://portal.iphan.gov.br/',
       abbr: 'IPHAN',
+      note: { zh: '历史与文化遗产档案', en: 'Archive of historical & cultural heritage', es: 'Archivo de patrimonio histórico', pt: 'Acervo de patrimônio histórico' } as T,
     },
     {
       name: { zh: '里约热内卢州环境研究所 (INEA)', en: 'INEA — Rio State Environmental Institute', es: 'INEA — Instituto Estatal del Ambiente', pt: 'INEA — Instituto Estadual do Ambiente' } as T,
       url: 'https://www.inea.rj.gov.br/',
       abbr: 'INEA',
+      note: { zh: '里约州生态与环境数据', en: 'Rio State ecological & environmental data', es: 'Datos ecológicos del estado de Río', pt: 'Dados ecológicos do estado do Rio' } as T,
     },
     {
       name: { zh: '里约热内卢市政府 (Prefeitura do Rio)', en: 'Rio de Janeiro City Hall', es: 'Ayuntamiento de Río de Janeiro', pt: 'Prefeitura da Cidade do Rio de Janeiro' } as T,
       url: 'https://prefeitura.rio/',
       abbr: 'RIO',
+      note: { zh: '官方旅游与开放信息', en: 'Official tourism & opening info', es: 'Información turística oficial', pt: 'Informações oficiais de turismo' } as T,
+    },
+    {
+      name: { zh: '世界自然保护联盟 (IUCN) 红色名录', en: 'IUCN Red List of Threatened Species', es: 'Lista Roja de la UICN', pt: 'Lista Vermelha da IUCN' } as T,
+      url: 'https://www.iucnredlist.org/',
+      abbr: 'IUCN',
+      note: { zh: '物种保护级别（红色名录）参考', en: 'Source for species conservation status', es: 'Referencia de estatus de conservación', pt: 'Referência de status de conservação' } as T,
+    },
+    {
+      name: { zh: '里约冲浪文化档案 / Museu do Surf', en: 'Rio surf heritage / Museu do Surf', es: 'Archivo del surf carioca / Museu do Surf', pt: 'Acervo do surf carioca / Museu do Surf' } as T,
+      url: 'https://www.waves.com.br/colunas/museu-do-surf/',
+      abbr: 'SURF',
+      note: { zh: '冲浪文化资料（博物馆位于里约州 Cabo Frio / Recreio 展区）', en: 'Surf culture archive (museum in Cabo Frio / Recreio, RJ)', es: 'Archivo del surf (museo en Cabo Frio / Recreio, RJ)', pt: 'Acervo do surf (museu em Cabo Frio / Recreio, RJ)' } as T,
     },
   ],
 };
@@ -504,8 +537,8 @@ export const partners = {
 // ── Footer (updated) ──
 export const footer = {
   cta: { zh: '今天，去<br/><em class="text-[color:var(--color-sun)]">迎接落日</em>。', en: 'Today, go<br/><em class="text-[color:var(--color-sun)]">meet the sunset</em>.', es: 'Hoy, vaya<br/><em class="text-[color:var(--color-sun)]">a recibir el sol</em>.', pt: 'Hoje, vá<br/><em class="text-[color:var(--color-sun)]">encontrar o pôr do sol</em>.' } as T,
-  address: { zh: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Rio de Janeiro — RJ, 巴西', en: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Rio de Janeiro — RJ, Brazil', es: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Río de Janeiro — RJ, Brasil', pt: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Rio de Janeiro — RJ, Brasil' } as T,
-  copyright: { zh: '© 2026 pedradarpoador 保留所有权利。', en: '© 2026 pedradarpoador. All rights reserved.', es: '© 2026 pedradarpoador. Todos los derechos reservados.', pt: '© 2026 pedradarpoador. Todos os direitos reservados.' } as T,
+  address: { zh: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Rio de Janeiro — RJ, 22080-050 · 巴西', en: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Rio de Janeiro — RJ, 22080-050, Brazil', es: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Río de Janeiro — RJ, 22080-050, Brasil', pt: 'Pedra do Arpoador · Av. Francisco Bhering, s/n · Ipanema, Rio de Janeiro — RJ, 22080-050, Brasil' } as T,
+  copyright: { zh: '© 2026 pedraarpoador 保留所有权利。', en: '© 2026 pedraarpoador. All rights reserved.', es: '© 2026 pedraarpoador. Todos los derechos reservados.', pt: '© 2026 pedraarpoador. Todos os direitos reservados.' } as T,
   disclaimer: { zh: '本网站是一个独立的第三方旅游资讯项目。我们与当地政府或其他官方机构没有任何关联。', en: 'This website is an independent third-party tourism information project. We are not affiliated with any local government or official entity.', es: 'Este sitio web es un proyecto independiente de información turística de terceros. No estamos afiliados a ningún gobierno local ni entidad oficial.', pt: 'Este site é um projeto independente de informações turísticas de terceiros. Não temos vínculo com nenhum governo local ou entidade oficial.' } as T,
   privacy: { zh: '隐私政策', en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' } as T,
   terms: { zh: '服务条款', en: 'Terms of Service', es: 'Términos de Servicio', pt: 'Termos de Serviço' } as T,
@@ -515,7 +548,7 @@ export const footer = {
 
 // ── Privacy Policy Page ──
 export const privacy = {
-  title: { zh: '隐私政策 — pedradarpoador', en: 'Privacy Policy — pedradarpoador', es: 'Política de Privacidad — pedradarpoador', pt: 'Política de Privacidade — pedradarpoador' } as T,
+  title: { zh: '隐私政策 — pedraarpoador', en: 'Privacy Policy — pedraarpoador', es: 'Política de Privacidad — pedraarpoador', pt: 'Política de Privacidade — pedraarpoador' } as T,
   lastUpdated: { zh: '最后更新时间：2026年7月', en: 'Last updated: July 2026', es: 'Última actualización: Julio de 2026', pt: 'Última atualização: Julho de 2026' } as T,
   h1: { zh: '隐私政策', en: 'Privacy Policy', es: 'Política de Privacidad', pt: 'Política de Privacidade' } as T,
   h2_collect: { zh: '我们收集的信息', en: 'Information We Collect', es: 'Información que recopilamos', pt: 'Informações que coletamos' } as T,
@@ -550,15 +583,15 @@ export const privacy = {
 
 // ── Terms of Service Page ──
 export const terms = {
-  title: { zh: '服务条款 — pedradarpoador', en: 'Terms of Service — pedradarpoador', es: 'Términos de Servicio — pedradarpoador', pt: 'Termos de Serviço — pedradarpoador' } as T,
+  title: { zh: '服务条款 — pedraarpoador', en: 'Terms of Service — pedraarpoador', es: 'Términos de Servicio — pedraarpoador', pt: 'Termos de Serviço — pedraarpoador' } as T,
   lastUpdated: { zh: '最后更新时间：2026年7月', en: 'Last updated: July 2026', es: 'Última actualización: Julio de 2026', pt: 'Última atualização: Julho de 2026' } as T,
   h1: { zh: '服务条款', en: 'Terms of Service', es: 'Términos de Servicio', pt: 'Termos de Serviço' } as T,
   h2_acceptance: { zh: '接受条款', en: 'Acceptance of Terms', es: 'Aceptación de los términos', pt: 'Aceitação dos termos' } as T,
   p_acceptance: {
-    zh: '访问和使用 pedradarpoador.com，即表示您同意受这些服务条款的约束。',
-    en: 'By accessing and using pedradarpoador.com, you agree to be bound by these Terms of Service.',
-    es: 'Al acceder y utilizar pedradarpoador.com, usted acepta estar sujeto a estos Términos de Servicio.',
-    pt: 'Ao acessar e usar pedradarpoador.com, você concorda em ficar vinculado a estes Termos de Serviço.',
+    zh: '访问和使用 pedraarpoador.com，即表示您同意受这些服务条款的约束。',
+    en: 'By accessing and using pedraarpoador.com, you agree to be bound by these Terms of Service.',
+    es: 'Al acceder y utilizar pedraarpoador.com, usted acepta estar sujeto a estos Términos de Servicio.',
+    pt: 'Ao acessar e usar pedraarpoador.com, você concorda em ficar vinculado a estes Termos de Serviço.',
   } as T,
   h2_content: { zh: '内容使用', en: 'Content Usage', es: 'Uso del contenido', pt: 'Uso do conteúdo' } as T,
   p_content: {
@@ -593,7 +626,7 @@ export const terms = {
 
 // ── Cookie Settings Page ──
 export const cookies = {
-  title: { zh: 'Cookie 设置 — pedradarpoador', en: 'Cookie Settings — pedradarpoador', es: 'Configuración de Cookies — pedradarpoador', pt: 'Configurações de Cookies — pedradarpoador' } as T,
+  title: { zh: 'Cookie 设置 — pedraarpoador', en: 'Cookie Settings — pedraarpoador', es: 'Configuración de Cookies — pedraarpoador', pt: 'Configurações de Cookies — pedraarpoador' } as T,
   lastUpdated: { zh: '最后更新时间：2026年7月', en: 'Last updated: July 2026', es: 'Última actualización: Julio de 2026', pt: 'Última atualização: Julho de 2026' } as T,
   h1: { zh: 'Cookie 设置', en: 'Cookie Settings', es: 'Configuración de Cookies', pt: 'Configurações de Cookies' } as T,
   intro: {

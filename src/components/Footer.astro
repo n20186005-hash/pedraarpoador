@@ -48,7 +48,8 @@ const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.pt || '');
             class="partner-link group relative flex flex-col items-center gap-2 px-4 py-3 rounded-lg transition-colors duration-300 hover:bg-white/5"
           >
             <span class="partner-abbr font-display text-2xl text-white/30 group-hover:text-[color:var(--color-sun)] transition-colors duration-300 tracking-widest">{p.abbr}</span>
-            <span class="partner-name text-[10px] text-white/0 group-hover:text-white/50 transition-all duration-300 whitespace-nowrap absolute -bottom-1 translate-y-full">{_(p.name)}</span>
+            <span class="partner-note text-[10px] text-white/50 mt-1 text-center max-w-[11rem] leading-snug">{_(p.note)}</span>
+            <span class="partner-name text-[10px] text-white/0 group-hover:text-white/70 transition-all duration-300 whitespace-nowrap absolute -bottom-1 translate-y-full">{_(p.name)}</span>
           </a>
         ))}
       </div>
