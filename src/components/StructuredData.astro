@@ -1,0 +1,33 @@
+---
+import type { Lang } from '../i18n/utils';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const descMap: Record<Lang, string> = {
+  zh: '里约伊帕内玛的观景礁石与冲浪点，以落日之掌声和优质右跑浪闻名，免费全天开放。',
+  en: 'The overlook rock and surf break at Ipanema, Rio — famous for the Sunset Applause and a fine right-hand wave, free and open 24h.',
+  es: 'La roca mirador y point de surf de Ipanema, Río, famosa por el Aplauso del Sol y su derecha, gratis y abierta 24h.',
+  pt: 'A rocha mirante e point de surf de Ipanema, Rio, famosa pelo Aplauso do Sol e sua direita, grátis e aberta 24h.',
+};
+
+const tourist = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'TouristAttraction',
+  name: 'Pedra do Arpoador', description: descMap[lang],
+  image: new URL('/gallery/pedra-do-arpoador%20(1).jpg', Astro.site).href,
+  address: { '@type': 'PostalAddress', addressLocality: 'Rio de Janeiro', addressRegion: 'RJ', addressCountry: 'BR' },
+  geo: { '@type': 'GeoCoordinates', latitude: -22.9869, longitude: -43.2004 },
+  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '32786' },
+  openingHours: 'Mo-Su 00:00-23:59',
+});
+
+const faqData = JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Is there an entrance fee?', acceptedAnswer: { '@type': 'Answer', text: 'No. Pedra do Arpoador is a public space, free and open 24 hours a day.' } },
+    { '@type': 'Question', name: 'How do I get there?', acceptedAnswer: { '@type': 'Answer', text: 'Walk from Ipanema or Copacabana, or take the metro to General Osório (≈10 min walk) or a seafront bus (512 / 571).' } },
+    { '@type': 'Question', name: 'When is the best time to visit?', acceptedAnswer: { '@type': 'Answer', text: 'Arrive 30–60 minutes before sunset for the famous Sunset Applause; early morning is best for surfing and fewer crowds.' } },
+    { '@type': 'Question', name: 'Is it safe to climb the rock?', acceptedAnswer: { '@type': 'Answer', text: 'The rock is beautiful but slippery when wet. Wear grippy shoes, keep clear of the surf line, and never turn your back on the sea.' } },
+  ],
+});
+---
+<Fragment set:html={'<script type="application/ld+json">' + tourist + '</script><script type="application/ld+json">' + faqData + '</script>'} />
