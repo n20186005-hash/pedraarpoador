@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Pedra do Arpoador">
+  <rect width="512" height="512" fill="#0B1F1A"/>
+  <circle cx="348" cy="180" r="52" fill="#E8B14B"/>
+  <path d="M96 356c58 0 58-30 116-30s58 30 116 30 58-30 116-30 58 30 58 30v60H96z" fill="#2F6B4E"/>
+  <path d="M248 340l42-72 34 72z" fill="#F7F3EA"/>
+</svg>

@@ -1,7 +1,14 @@
 ---
 import type { Lang } from '../i18n/utils';
+import { HREFLANG } from '../i18n/utils';
+import { faq, entity, meta } from '../i18n/translations';
+import { SITE } from '../data/site';
+
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
+
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+const strip = (html: string) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 
 const descMap: Record<Lang, string> = {
   zh: '里约伊帕内玛的观景礁石与冲浪点，以落日之掌声和优质右跑浪闻名，免费全天开放。',
@@ -10,24 +17,149 @@ const descMap: Record<Lang, string> = {
   pt: 'A rocha mirante e point de surf de Ipanema, Rio, famosa pelo Aplauso do Sol e sua direita, grátis e aberta 24h.',
 };
 
-const tourist = JSON.stringify({
-  '@context': 'https://schema.org', '@type': 'TouristAttraction',
-  name: 'Pedra do Arpoador', description: descMap[lang],
-  image: new URL('/gallery/pedra-do-arpoador%20(1).jpg', Astro.site).href,
-  address: { '@type': 'PostalAddress', streetAddress: 'Av. Francisco Bhering, s/n', addressLocality: 'Rio de Janeiro', addressRegion: 'RJ', postalCode: '22080-050', addressCountry: 'BR' },
-  geo: { '@type': 'GeoCoordinates', latitude: -22.9869, longitude: -43.2004 },
-  aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: '32786' },
-  openingHours: 'Mo-Su 00:00-23:59',
-});
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const pageId = `${pageUrl}#webpage`;
+const breadcrumbId = `${pageUrl}#breadcrumb`;
+const primaryImageId = `${pageUrl}#primaryimage`;
+const orgId = `${SITE.url}/#organization`;
+const websiteId = `${SITE.url}/#website`;
+const attractionId = `${SITE.url}/#attraction`;
+const faqId = `${pageUrl}#faq`;
 
-const faqData = JSON.stringify({
-  '@context': 'https://schema.org', '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'Is there an entrance fee?', acceptedAnswer: { '@type': 'Answer', text: 'No. Pedra do Arpoador is a public space, free and open 24 hours a day.' } },
-    { '@type': 'Question', name: 'How do I get there?', acceptedAnswer: { '@type': 'Answer', text: 'Walk from Ipanema or Copacabana, or take the metro to General Osório (≈10 min walk) or a seafront bus (512 / 571).' } },
-    { '@type': 'Question', name: 'When is the best time to visit?', acceptedAnswer: { '@type': 'Answer', text: 'Arrive 30–60 minutes before sunset for the famous Sunset Applause; early morning is best for surfing and fewer crowds.' } },
-    { '@type': 'Question', name: 'Is it safe to climb the rock?', acceptedAnswer: { '@type': 'Answer', text: 'The rock is beautiful but slippery when wet. Wear grippy shoes, keep clear of the surf line, and never turn your back on the sea.' } },
+const imageList = [
+  SITE.heroImageUrl,
+  `${SITE.url}/gallery/pedra-do-arpoador%20(2).jpg`,
+  `${SITE.url}/gallery/pedra-do-arpoador%20(7).jpg`,
+  `${SITE.url}/gallery/pedra-do-arpoador%20(9).jpg`,
+];
+
+const organization = {
+  '@type': 'Organization',
+  '@id': orgId,
+  name: 'pedraarpoador',
+  url: SITE.url,
+  logo: { '@type': 'ImageObject', url: `${SITE.url}/icon.svg` },
+  sameAs: [SITE.govtTourismUrl],
+};
+
+const website = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  url: SITE.url,
+  name: `${SITE.fullName} — Visitor Guide`,
+  inLanguage: HREFLANG[lang],
+  publisher: { '@id': orgId },
+  about: { '@id': attractionId },
+};
+
+const webPage = {
+  '@type': 'WebPage',
+  '@id': pageId,
+  url: pageUrl,
+  name: strip(_(meta.title)),
+  description: strip(_(meta.description)),
+  inLanguage: HREFLANG[lang],
+  isPartOf: { '@id': websiteId },
+  about: { '@id': attractionId },
+  mainEntity: { '@id': attractionId },
+  breadcrumb: { '@id': breadcrumbId },
+  primaryImageOfPage: { '@id': primaryImageId },
+  dateModified: new Date().toISOString(),
+  publisher: { '@id': orgId },
+};
+
+const primaryImage = {
+  '@type': 'ImageObject',
+  '@id': primaryImageId,
+  url: SITE.heroImageUrl,
+  caption: `${SITE.fullName}, ${SITE.neighborhood}, ${SITE.city}`,
+  representativeOfPage: true,
+};
+
+const attraction = {
+  '@type': 'TouristAttraction',
+  '@id': attractionId,
+  name: SITE.fullName,
+  alternateName: SITE.alternateNames,
+  description: descMap[lang],
+  url: SITE.url,
+  mainEntityOfPage: { '@id': pageId },
+  image: imageList,
+  isAccessibleForFree: true,
+  publicAccess: true,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: SITE.street,
+    addressLocality: SITE.city,
+    addressRegion: `${SITE.state} (${SITE.stateCode})`,
+    postalCode: SITE.postalCode,
+    addressCountry: SITE.countryCode,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: SITE.latitude,
+    longitude: SITE.longitude,
+  },
+  hasMap: SITE.mapsShareUrl,
+  sameAs: [SITE.mapsShareUrl, SITE.govtTourismUrl, SITE.visitRioUrl, 'https://whc.unesco.org/en/list/1100/'],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: SITE.ratingValue,
+    reviewCount: SITE.reviewCount,
+    bestRating: '5',
+    worstRating: '1',
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  },
+  touristType: ['Surfers', 'Photographers', 'Families', 'Sunset watchers'],
+  containedInPlace: {
+    '@type': 'Place',
+    name: `${SITE.neighborhood}, ${SITE.city}`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: SITE.city,
+      addressRegion: `${SITE.state} (${SITE.stateCode})`,
+      addressCountry: SITE.countryCode,
+    },
+  },
+  provider: { '@id': orgId },
+};
+
+const breadcrumb = {
+  '@type': 'BreadcrumbList',
+  '@id': breadcrumbId,
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: _(entity.breadcrumbHome), item: `${SITE.url}/${lang}/` },
+    { '@type': 'ListItem', position: 2, name: _(entity.breadcrumbCountry), item: `${SITE.url}/${lang}/#about` },
+    { '@type': 'ListItem', position: 3, name: _(entity.breadcrumbCity), item: `${SITE.url}/${lang}/#about` },
+    { '@type': 'ListItem', position: 4, name: _(entity.breadcrumbNeighborhood), item: `${SITE.url}/${lang}/#about` },
+    { '@type': 'ListItem', position: 5, name: SITE.fullName, item: `${SITE.url}/${lang}/#about` },
   ],
-});
+};
+
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': faqId,
+  inLanguage: HREFLANG[lang],
+  isPartOf: { '@id': pageId },
+  mainEntity: faq.items.map((item: any) => ({
+    '@type': 'Question',
+    name: strip(_(item.q)),
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: strip(_(item.a)),
+    },
+  })),
+};
+
+// 单一 @graph：各实体通过 @id 互相引用，Google 可解析为同一知识图谱
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [organization, website, webPage, primaryImage, attraction, breadcrumb, faqPage],
+};
 ---
-<Fragment set:html={'<script type="application/ld+json">' + tourist + '</script><script type="application/ld+json">' + faqData + '</script>'} />
+<script type="application/ld+json" set:html={JSON.stringify(graph)} is:inline />

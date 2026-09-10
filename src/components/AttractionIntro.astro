@@ -1,0 +1,109 @@
+---
+import type { Lang } from '../i18n/utils';
+import { entity } from '../i18n/translations';
+import { SITE } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+
+const crumbs = [
+  { label: _(entity.breadcrumbHome), href: `/${lang}/` },
+  { label: _(entity.breadcrumbCountry), href: null },
+  { label: _(entity.breadcrumbCity), href: null },
+  { label: _(entity.breadcrumbNeighborhood), href: null },
+  { label: SITE.fullName, href: null },
+];
+
+const hierarchy = [
+  SITE.fullName,
+  _(entity.breadcrumbNeighborhood),
+  _(entity.breadcrumbCity),
+  _(entity.breadcrumbCountry),
+];
+
+const nearby = [
+  { name: SITE.nearbyLandmark1, query: 'Praia+de+Ipanema' },
+  { name: SITE.nearbyLandmark2, query: 'Forte+de+Copacabana' },
+  { name: 'Parque Garota de Ipanema', query: 'Parque+Garota+de+Ipanema' },
+];
+
+const heroAlt = `${SITE.fullName} - Main view in ${SITE.city}, ${SITE.country}`;
+---
+<section id="about" class="max-w-7xl mx-auto px-6 py-20 md:py-28">
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb">
+    <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-widest text-[color:var(--color-moss)]/60">
+      {crumbs.map((c, i) => (
+        <li class="flex items-center gap-2">
+          {c.href
+            ? <a href={c.href} class="link-underline hover:text-[color:var(--color-emerald)]">{c.label}</a>
+            : <span class={i === crumbs.length - 1 ? 'text-[color:var(--color-emerald)]' : ''}>{c.label}</span>}
+          {i < crumbs.length - 1 && <span aria-hidden="true" class="opacity-40">›</span>}
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <div class="mt-10 grid md:grid-cols-12 gap-10 lg:gap-14 items-start">
+    <div class="md:col-span-7">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">{_(entity.kicker)}</div>
+
+      <h1 class="font-display font-semibold leading-[1.05] tracking-tight text-4xl md:text-5xl lg:text-6xl mt-4">
+        {_(entity.h1)}
+      </h1>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="chip text-sm px-4 py-2 rounded-full bg-white border border-black/10">🌿 {_(entity.badgeFree)}</span>
+        <span class="chip text-sm px-4 py-2 rounded-full bg-white border border-black/10">🕒 {_(entity.badgeOpen)}</span>
+        <span class="chip text-sm px-4 py-2 rounded-full bg-white border border-black/10">🏄 {_(entity.badgeSurf)}</span>
+      </div>
+
+      <h2 class="font-display text-2xl md:text-3xl mt-10">{_(entity.aboutHeading)}</h2>
+      <p class="mt-4 text-lg leading-[1.85] text-[color:var(--color-moss)]" set:html={_(entity.intro)} />
+
+      <!-- Geographic hierarchy -->
+      <h3 class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)] mt-10 mb-4">{_(entity.hierarchyHeading)}</h3>
+      <ol class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm">
+        {hierarchy.map((label, i) => (
+          <li class="flex items-center gap-3">
+            <span class="px-3 py-1.5 rounded-full bg-[color:var(--color-mist)] border border-black/10 text-[color:var(--color-moss)]">{label}</span>
+            {i < hierarchy.length - 1 && <span aria-hidden="true" class="text-[color:var(--color-emerald)]">→</span>}
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <aside class="md:col-span-5">
+      <figure class="rounded-3xl overflow-hidden border border-black/5 shadow-sm">
+        <img src={SITE.heroImage} alt={heroAlt} loading="eager" width="1024" height="768" class="w-full h-full object-cover aspect-[4/3]" />
+      </figure>
+    </aside>
+  </div>
+
+  <!-- Nearby cluster + History -->
+  <div class="mt-16 md:mt-20 grid md:grid-cols-2 gap-10 lg:gap-14">
+    <div class="rounded-3xl bg-[color:var(--color-mist)] p-8 md:p-10">
+      <h2 class="font-display text-2xl md:text-3xl">{_(entity.nearbyHeading)}</h2>
+      <p class="mt-4 text-[color:var(--color-moss)] leading-relaxed" set:html={_(entity.nearbyText)} />
+      <ul class="mt-6 space-y-2">
+        {nearby.map((n) => (
+          <li>
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${n.query}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-underline text-[color:var(--color-emerald)] text-sm"
+            >📍 {n.name}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="rounded-3xl bg-white border border-black/5 p-8 md:p-10">
+      <h2 class="font-display text-2xl md:text-3xl">{_(entity.historyHeading)}</h2>
+      <p class="mt-4 text-[color:var(--color-moss)] leading-relaxed" set:html={_(entity.historyText)} />
+      <a href={`/${lang}/#encyclopedia`} class="link-underline inline-block mt-6 text-[color:var(--color-emerald)] text-sm font-medium">{_(entity.historyLink)}</a>
+    </div>
+  </div>
+</section>

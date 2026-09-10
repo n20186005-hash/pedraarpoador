@@ -1,0 +1,78 @@
+---
+import type { Lang } from '../i18n/utils';
+import { location } from '../i18n/translations';
+import { SITE } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+const mapTitle = 'Google Maps - ' + SITE.fullName + ', ' + SITE.neighborhood + ', ' + SITE.city;
+---
+<section id="location" class="bg-[color:var(--color-mist)] py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">— {_(location.sectionNum)} —</div>
+      <h2 class="font-display text-4xl md:text-6xl mt-4 leading-tight">{_(location.heading)}</h2>
+      <p class="mt-6 text-[color:var(--color-moss)]/80">{_(location.subtitle)}</p>
+    </div>
+
+    <div class="mt-14 grid lg:grid-cols-12 gap-8 items-start">
+      <!-- Map -->
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl overflow-hidden border border-black/10 bg-white shadow-sm">
+          <iframe
+            src={SITE.mapsEmbedSrc}
+            width="100%"
+            height="450"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title={mapTitle}></iframe>
+        </div>
+        <p class="mt-4 text-sm text-[color:var(--color-moss)]/70">{_(location.mapCaption)}</p>
+      </div>
+
+      <!-- NAP + directions -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="rounded-3xl bg-white border border-black/5 p-7">
+          <h3 class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)] mb-4">{_(location.addressHeading)}</h3>
+          <address class="not-italic leading-relaxed text-[color:var(--color-moss)]">
+            <div class="font-display text-xl text-[color:var(--color-ink)]">{SITE.fullName}</div>
+            <div>{SITE.street}</div>
+            <div>{SITE.neighborhood}, {SITE.city} — {SITE.stateCode}</div>
+            <div>{SITE.postalCode}, {SITE.country}</div>
+          </address>
+          <dl class="mt-5 space-y-2 text-sm text-[color:var(--color-moss)]/80">
+            <div class="flex gap-2"><dt class="font-medium">{_(location.plusCodeLabel)}:</dt><dd>{SITE.plusCode} {SITE.neighborhood}</dd></div>
+            <div class="flex gap-2"><dt class="font-medium">{_(location.coordsLabel)}:</dt><dd>{SITE.latitude}, {SITE.longitude}</dd></div>
+          </dl>
+          <a
+            href={SITE.mapsShareUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 mt-6 text-sm font-medium text-[color:var(--color-emerald)] link-underline"
+          >
+            📍 {_(location.openMaps)}
+          </a>
+        </div>
+
+        <div class="rounded-3xl bg-white border border-black/5 p-7">
+          <h3 class="font-display text-2xl">{_(location.visitHeading)}</h3>
+          <p class="mt-4 text-sm leading-relaxed text-[color:var(--color-moss)]" set:html={_(location.visitText)} />
+        </div>
+      </div>
+    </div>
+
+    <!-- Authoritative outbound link -->
+    <p class="mt-12 text-sm text-[color:var(--color-moss)]/80">
+      {_(location.officialPrefix)}
+      <a
+        href={SITE.govtTourismUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-underline text-[color:var(--color-emerald)] font-medium"
+      >{_(location.officialLink)}</a>.
+    </p>
+  </div>
+</section>

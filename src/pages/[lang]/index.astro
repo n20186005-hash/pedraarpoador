@@ -5,13 +5,22 @@ import { meta } from '../../i18n/translations';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import Hero from '../../components/Hero.astro';
+import AttractionIntro from '../../components/AttractionIntro.astro';
+import LocationMap from '../../components/LocationMap.astro';
+import SourcesSection from '../../components/SourcesSection.astro';
 import Marquee from '../../components/Marquee.astro';
 import Manifesto from '../../components/Manifesto.astro';
 import Highlights from '../../components/Highlights.astro';
 import PracticalInfo from '../../components/PracticalInfo.astro';
-import ClimateTides from '../../components/ClimateTides.astro';
+import Sunset from '../../components/Sunset.astro';
+import Weather from '../../components/Weather.astro';
+import Climate from '../../components/Climate.astro';
+import Tides from '../../components/Tides.astro';
 import Transport from '../../components/Transport.astro';
+import Facilities from '../../components/Facilities.astro';
 import Encyclopedia from '../../components/Encyclopedia.astro';
+import Timeline from '../../components/Timeline.astro';
+import Legends from '../../components/Legends.astro';
 import Ecology from '../../components/Ecology.astro';
 import Gallery from '../../components/Gallery.astro';
 import Reviews from '../../components/Reviews.astro';
@@ -33,19 +42,29 @@ const desc = _(meta.description);
 <BaseLayout lang={lang} title={title} description={desc}>
   <Nav lang={lang} />
   <Hero lang={lang} />
+  <AttractionIntro lang={lang} />
   <Marquee />
   <Manifesto lang={lang} />
   <Highlights lang={lang} />
   <PracticalInfo lang={lang} />
-  <ClimateTides lang={lang} />
+  <Sunset lang={lang} />
+  <Weather lang={lang} />
+  <Climate lang={lang} />
+  <Tides lang={lang} />
   <Transport lang={lang} />
+  <Facilities lang={lang} />
   <Encyclopedia lang={lang} />
+  <Timeline lang={lang} />
+  <Legends lang={lang} />
   <Ecology lang={lang} />
   <Gallery lang={lang} />
   <Reviews lang={lang} />
   <Surrounding lang={lang} />
+  <LocationMap lang={lang} />
   <LeaveNoTrace lang={lang} />
   <Faq lang={lang} />
+  <SourcesSection lang={lang} />
   <Footer lang={lang} />
   <StructuredData lang={lang} />
+
 </BaseLayout>

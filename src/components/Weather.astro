@@ -1,0 +1,255 @@
+---
+import type { Lang } from '../i18n/utils';
+import { weather } from '../i18n/translations';
+import {
+  getWeather,
+  describe,
+  forecastUrl,
+  marineUrl,
+  buildMetrics,
+  selectAdvice,
+  WEATHER_TZ,
+} from '../lib/weather';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+
+// 服务端获取（带内存 + 磁盘缓存），失败时组件优雅降级
+const data = await getWeather();
+
+const localeMap: Record<string, string> = { zh: 'zh-CN', en: 'en-GB', es: 'es-ES', pt: 'pt-BR' };
+const locale = localeMap[lang] ?? 'pt-BR';
+
+const c = data?.current;
+const daily = data?.daily ?? [];
+const hourly = data?.hourly ?? [];
+const marine = data?.marine ?? null;
+
+const deg = (v?: number) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v) + '°' : '—');
+const pct = (v?: number) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v) + '%' : '—');
+const kmh = (v?: number) => (typeof v === 'number' && Number.isFinite(v) ? Math.round(v) + ' km/h' : '—');
+const hhmm = (iso?: string) => (iso && iso.length >= 16 ? iso.slice(11, 16) : '—');
+
+const now = c ? describe(c.code, lang, c.isDay) : { icon: '🌤️', text: '—' };
+
+const weekday = (iso: string, i: number) => {
+  if (i === 0) return _(weather.today);
+  if (i === 1) return _(weather.tomorrow);
+  try {
+    return new Intl.DateTimeFormat(locale, { weekday: 'short', timeZone: WEATHER_TZ }).format(new Date(iso + 'T12:00:00'));
+  } catch {
+    return iso.slice(5);
+  }
+};
+
+const days = Array.from({ length: 7 }, (_, i) => daily[i] ?? null);
+const hours = Array.from({ length: 12 }, (_, i) => hourly[i] ?? null);
+
+const uvLabel = (v: number) =>
+  v < 3 ? _(weather.uvLow) : v < 6 ? _(weather.uvModerate) : v < 8 ? _(weather.uvHigh) : v < 11 ? _(weather.uvVeryHigh) : _(weather.uvExtreme);
+
+const uvToday = days[0]?.uvMax ?? 0;
+
+// 建议引擎：服务端先算一份（利于 SEO 与首屏），前端刷新时复用同一套规则
+const advice = data ? selectAdvice(buildMetrics(data), lang) : [];
+const alerts = advice.filter((a) => a.cat === 'alert');
+const catItems = (cat: string) => advice.filter((a) => a.cat === cat);
+
+const categories = [
+  { key: 'outfit', icon: '👕', title: _(weather.catOutfit), hint: _(weather.catOutfitHint) },
+  { key: 'plan', icon: '🗺️', title: _(weather.catPlan), hint: _(weather.catPlanHint) },
+  { key: 'gear', icon: '🎒', title: _(weather.catGear), hint: _(weather.catGearHint) },
+];
+
+const updatedText = data
+  ? new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit', timeZone: WEATHER_TZ }).format(new Date(data.fetchedAt))
+  : '';
+
+const statItems = [
+  { key: 'feels', icon: '🌡️', label: _(weather.feelsLike), value: deg(c?.feels) },
+  { key: 'humidity', icon: '💧', label: _(weather.humidity), value: c ? Math.round(c.humidity) + '%' : '—' },
+  { key: 'wind', icon: '🌬️', label: _(weather.wind), value: kmh(c?.wind) },
+  { key: 'gust', icon: '💨', label: _(weather.gust), value: kmh(c?.gust) },
+  { key: 'precipNow', icon: '🌧️', label: _(weather.precipNow), value: c ? c.precip.toFixed(1) + ' mm' : '—' },
+  { key: 'rainChance', icon: '☔', label: _(weather.rainChance), value: pct(days[0]?.precipProb) },
+  { key: 'uv', icon: '🔆', label: _(weather.uvIndex), value: data ? Math.round(uvToday) + ' · ' + uvLabel(uvToday) : '—' },
+  { key: 'sunrise', icon: '🌅', label: _(weather.sunrise), value: hhmm(days[0]?.sunrise) },
+  { key: 'sunset', icon: '🌇', label: _(weather.sunset), value: hhmm(days[0]?.sunset) },
+];
+
+// 前端刷新时只用来替换少量标签文案
+const i18nJson = JSON.stringify({
+  today: _(weather.today),
+  tomorrow: _(weather.tomorrow),
+  uvLow: _(weather.uvLow),
+  uvModerate: _(weather.uvModerate),
+  uvHigh: _(weather.uvHigh),
+  uvVeryHigh: _(weather.uvVeryHigh),
+  uvExtreme: _(weather.uvExtreme),
+}).replace(/</g, '\\u003c');
+---
+<section id="weather" class="bg-[color:var(--color-mist)] py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">04 — {_(weather.sectionNum)}</div>
+      <h2 class="font-display text-4xl md:text-6xl mt-4 leading-tight" set:html={_(weather.heading)} />
+      <p class="mt-6 text-[color:var(--color-moss)]/80">{_(weather.subtitle)}</p>
+    </div>
+
+    <div
+      class="mt-14"
+      data-wx-root
+      data-wx-lang={lang}
+      data-wx-locale={locale}
+      data-wx-fetched={data?.fetchedAt ?? 0}
+      data-wx-max-age={600000}
+    >
+      <!-- ⚠️ 风险提醒：有才显示，置顶 -->
+      <div
+        data-wx-alerts
+        hidden={alerts.length === 0}
+        class="mb-6 rounded-3xl border border-red-300/70 bg-red-50 p-6 md:p-8"
+      >
+        <div class="flex items-center gap-3">
+          <span class="text-2xl" aria-hidden="true">⚠️</span>
+          <h3 class="font-display text-2xl text-red-900">{_(weather.alertsTitle)}</h3>
+        </div>
+        <ul data-wx-cat="alert" class="mt-4 space-y-2 text-sm text-red-900/90">
+          {alerts.map((a) => (
+            <li class="flex gap-2"><span aria-hidden="true">{a.icon}</span><span>{a.text}</span></li>
+          ))}
+        </ul>
+        <p class="mt-4 text-xs text-red-900/60">{_(weather.alertsNote)}</p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6">
+        <!-- 当前实况 -->
+        <div class="lg:col-span-5 rounded-3xl bg-[color:var(--color-ink)] text-white p-8 md:p-10 relative overflow-hidden">
+          <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">{_(weather.nowLabel)}</div>
+          <div class="mt-6 flex items-center gap-6">
+            <div class="text-6xl leading-none" data-wx="icon" aria-hidden="true">{now.icon}</div>
+            <div>
+              <div class="num-display text-6xl leading-none" data-wx="temp">{deg(c?.temp)}</div>
+              <div class="mt-2 text-white/80" data-wx="desc">{now.text}</div>
+            </div>
+          </div>
+
+          <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+            {statItems.map((s) => (
+              <div class="flex items-start gap-2 border-t border-white/10 pt-3">
+                <span aria-hidden="true">{s.icon}</span>
+                <div>
+                  <dt class="text-white/55 text-xs">{s.label}</dt>
+                  <dd class="mt-0.5 text-white" data-wx={s.key}>{s.value}</dd>
+                </div>
+              </div>
+            ))}
+          </dl>
+
+          <p class="mt-8 text-xs text-white/45">
+            {_(weather.updatedAt)} <span data-wx="updated">{updatedText}</span>
+          </p>
+        </div>
+
+        <!-- 未来 7 天 -->
+        <div class="lg:col-span-7 rounded-3xl bg-white border border-black/5 p-6 md:p-8">
+          <h3 class="font-display text-2xl">{_(weather.forecast7)}</h3>
+          <ul class="mt-5 divide-y divide-black/5">
+            {days.map((d, i) => (
+              <li class="flex items-center gap-4 py-3" data-wx-day={i}>
+                <span class="w-16 text-sm text-[color:var(--color-moss)]" data-wx="d-label">{d ? weekday(d.date, i) : '—'}</span>
+                <span class="text-xl" data-wx="d-icon" aria-hidden="true">{d ? describe(d.code, lang, true).icon : '—'}</span>
+                <span class="flex-1 text-sm text-[color:var(--color-moss)]/80 truncate" data-wx="d-desc">{d ? describe(d.code, lang, true).text : ''}</span>
+                <span class="text-xs text-[color:var(--color-emerald)] w-12 text-right" data-wx="d-prob">{d ? pct(d.precipProb) : '—'}</span>
+                <span class="w-24 text-right text-sm">
+                  <span class="font-medium" data-wx="d-max">{d ? deg(d.max) : '—'}</span>
+                  <span class="text-[color:var(--color-moss)]/50 ml-2" data-wx="d-min">{d ? deg(d.min) : '—'}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 未来 12 小时 -->
+        <div class="lg:col-span-7 rounded-3xl bg-white border border-black/5 p-6 md:p-8">
+          <h3 class="font-display text-2xl">{_(weather.next12h)}</h3>
+          <div class="mt-5 grid grid-cols-4 sm:grid-cols-6 gap-3">
+            {hours.map((h, i) => (
+              <div class="rounded-2xl bg-[color:var(--color-mist)] p-3 text-center" data-wx-hour={i}>
+                <div class="text-xs text-[color:var(--color-moss)]/70" data-wx="h-time">{h ? hhmm(h.time) : '—'}</div>
+                <div class="text-xl my-1" data-wx="h-icon" aria-hidden="true">{h ? describe(h.code, lang, true).icon : '—'}</div>
+                <div class="text-sm font-medium" data-wx="h-temp">{h ? deg(h.temp) : '—'}</div>
+                <div class="text-xs text-[color:var(--color-emerald)]" data-wx="h-prob">{h ? pct(h.precipProb) : '—'}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- 海况（潮汐见下方「潮汐时刻」板块） -->
+        <div class="lg:col-span-5 space-y-6">
+          <div data-wx-marine hidden={!marine} class="rounded-3xl bg-white border border-black/5 p-6 md:p-8">
+            <h3 class="font-display text-2xl">{_(weather.marineHeading)}</h3>
+            <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+              <div class="rounded-2xl bg-[color:var(--color-mist)] p-4">
+                <div class="text-xs text-[color:var(--color-moss)]/70">{_(weather.waveHeight)}</div>
+                <div class="num-display text-2xl mt-1" data-wx="waveHeight">{marine ? marine.waveHeight.toFixed(1) + ' m' : '—'}</div>
+              </div>
+              <div class="rounded-2xl bg-[color:var(--color-mist)] p-4">
+                <div class="text-xs text-[color:var(--color-moss)]/70">{_(weather.wavePeriod)}</div>
+                <div class="num-display text-2xl mt-1" data-wx="wavePeriod">{marine ? Math.round(marine.wavePeriod) + ' s' : '—'}</div>
+              </div>
+              <div class="rounded-2xl bg-[color:var(--color-mist)] p-4">
+                <div class="text-xs text-[color:var(--color-moss)]/70">{_(weather.seaTemp)}</div>
+                <div class="num-display text-2xl mt-1" data-wx="seaTemp">{marine ? marine.seaTemp.toFixed(1) + '°C' : '—'}</div>
+              </div>
+            </div>
+            <a href={`/${lang}/#tides`} class="link-underline mt-6 inline-flex text-sm text-[color:var(--color-emerald)]">
+              {_(weather.tidesHeading)} →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 出行建议：风险提示之外，按「穿搭 / 安排 / 随身」三块给建议 -->
+      <div class="mt-6 rounded-3xl bg-white border border-black/5 p-6 md:p-8">
+        <div class="flex flex-wrap items-end justify-between gap-3">
+          <h3 class="font-display text-2xl md:text-3xl">{_(weather.adviceHeading)}</h3>
+          <p class="text-xs text-[color:var(--color-moss)]/60 max-w-md">{_(weather.adviceSubtitle)}</p>
+        </div>
+
+        <div class="mt-6 grid md:grid-cols-3 gap-5">
+          {categories.map((cat) => (
+            <div data-wx-catwrap={cat.key} hidden={catItems(cat.key).length === 0} class="rounded-2xl bg-[color:var(--color-mist)] p-5">
+              <div class="flex items-center gap-2">
+                <span class="text-xl" aria-hidden="true">{cat.icon}</span>
+                <h4 class="font-display text-lg">{cat.title}</h4>
+              </div>
+              <p class="mt-1 text-[11px] uppercase tracking-[0.15em] text-[color:var(--color-moss)]/50">{cat.hint}</p>
+              <ul data-wx-cat={cat.key} class="mt-4 space-y-2.5 text-sm text-[color:var(--color-moss)]">
+                {catItems(cat.key).map((a) => (
+                  <li class="flex gap-2"><span aria-hidden="true">{a.icon}</span><span>{a.text}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {advice.length === 0 && <p class="mt-4 text-sm text-[color:var(--color-moss)]/70" data-wx-note>{_(weather.noAdvice)}</p>}
+        {!data && <p class="mt-4 text-sm text-[color:var(--color-moss)]/70" data-wx-note>{_(weather.unavailable)}</p>}
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="wx-i18n" is:inline set:html={i18nJson} />
+</section>
+
+<script>
+  // 首屏已由服务端渲染完成，刷新逻辑放到浏览器空闲时再按需加载，避免阻塞渲染
+  const runWeather = () => import('../lib/weather-client').then((m) => m.initWeather());
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(runWeather, { timeout: 4000 });
+  } else {
+    setTimeout(runWeather, 2500);
+  }
+</script>

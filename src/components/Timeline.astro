@@ -1,0 +1,32 @@
+---
+import type { Lang } from '../i18n/utils';
+import { timeline } from '../i18n/translations';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+---
+<section id="timeline" class="bg-[color:var(--color-ink)] text-white py-24 md:py-32 grain">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">10 — {_(timeline.sectionNum)}</div>
+      <h2 class="font-display text-4xl md:text-6xl mt-4 leading-tight" set:html={_(timeline.heading)} />
+      <p class="mt-6 text-white/75">{_(timeline.subtitle)}</p>
+    </div>
+
+    <ol class="mt-16 relative border-l border-white/15 ml-2 md:ml-4">
+      {timeline.events.map((e: any) => (
+        <li class="relative pl-8 md:pl-12 pb-10 last:pb-0">
+          <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[color:var(--color-sun)]" aria-hidden="true"></span>
+          <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+            <span class="num-display text-2xl md:text-3xl text-[color:var(--color-sun)]">{e.year}</span>
+            <h3 class="font-display text-xl md:text-2xl">{_(e.title)}</h3>
+          </div>
+          <p class="mt-3 text-sm md:text-base leading-relaxed text-white/70 max-w-3xl">{_(e.body)}</p>
+        </li>
+      ))}
+    </ol>
+
+    <p class="mt-10 text-xs text-white/45 max-w-3xl">{_(timeline.disclaimer)}</p>
+  </div>
+</section>

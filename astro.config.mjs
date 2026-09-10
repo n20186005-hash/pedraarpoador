@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://pedradarpoador.com',
+  site: 'https://pedraarpoador.com',
   i18n: {
     defaultLocale: 'pt',
     locales: ['zh', 'en', 'es', 'pt'],

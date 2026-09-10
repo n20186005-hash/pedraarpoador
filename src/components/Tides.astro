@@ -1,0 +1,381 @@
+---
+import type { Lang } from '../i18n/utils';
+import { tides as tx } from '../i18n/translations';
+import { getWeather, WEATHER_TZ } from '../lib/weather';
+import { localMs, minutesUntil } from '../lib/weather-parse';
+import { smoothPath, tideType, type TideType } from '../lib/tide';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+
+// 复用天气模块的缓存数据，不额外请求接口
+const data = await getWeather();
+const events = data?.tides ?? [];
+const seaLevel = data?.seaLevel ?? [];
+
+const localeMap: Record<string, string> = { zh: 'zh-CN', en: 'en-GB', es: 'es-ES', pt: 'pt-BR' };
+const locale = localeMap[lang] ?? 'pt-BR';
+
+const nowIso = data?.current?.time ?? '';
+const todayDate = data?.daily?.[0]?.date ?? '';
+const tomorrowDate = data?.daily?.[1]?.date ?? '';
+const sunsetIso = data?.daily?.[0]?.sunset ?? '';
+
+const hhmm = (iso?: string) => (iso && iso.length >= 16 ? iso.slice(11, 16) : '—');
+const metres = (v?: number, digits = 2) =>
+  typeof v === 'number' && Number.isFinite(v) ? v.toFixed(digits) + ' m' : '—';
+
+/** 本地墙钟时间平移（localMs 把本地时间当作 UTC 处理，故用 getUTC* 还原） */
+const shift = (iso: string, mins: number): string => {
+  const ms = localMs(iso);
+  if (!Number.isFinite(ms)) return '—';
+  const d = new Date(ms + mins * 60000);
+  return `${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')}`;
+};
+
+/* ── 潮型（按朔望推算） ─────────────────────────────────── */
+const type: TideType | null = data ? tideType(data.fetchedAt) : null;
+const typeLabel = type === 'spring' ? _(tx.typeSpring) : type === 'neap' ? _(tx.typeNeap) : _(tx.typeMid);
+const typeNote =
+  type === 'spring' ? _(tx.typeNoteSpring) : type === 'neap' ? _(tx.typeNoteNeap) : _(tx.typeNoteMid);
+
+/* ── 当前状态 ───────────────────────────────────────────── */
+const nextOf = (t: 'high' | 'low') =>
+  events.find((e) => e.type === t && minutesUntil(e.time, nowIso) >= 0) ?? null;
+
+const nextHigh = nextOf('high');
+const nextLow = nextOf('low');
+const rising =
+  !!nextHigh && (!nextLow || minutesUntil(nextHigh.time, nowIso) < minutesUntil(nextLow.time, nowIso));
+const nextEvent =
+  nextHigh && nextLow
+    ? minutesUntil(nextHigh.time, nowIso) < minutesUntil(nextLow.time, nowIso)
+      ? nextHigh
+      : nextLow
+    : nextHigh ?? nextLow;
+
+/* ── 今日潮位曲线 ───────────────────────────────────────── */
+const todayPoints = todayDate ? seaLevel.filter((p) => p.time.slice(0, 10) === todayDate) : [];
+const hasChart = todayPoints.length >= 6;
+
+const W = 720;
+const H = 220;
+const PAD_X = 10;
+const PAD_T = 26;
+const PAD_B = 34;
+const CURVE_BOTTOM = H - PAD_B - 26;
+
+let linePath = '';
+let areaPath = '';
+let yTicks: Array<{ y: number; label: string }> = [];
+let xTicks: Array<{ x: number; label: string }> = [];
+let markers: Array<{ x: number; y: number; type: 'high' | 'low'; time: string }> = [];
+let nowX: number | null = null;
+let ariaLabel = '';
+let loLevel = 0;
+let hiLevel = 0;
+
+if (hasChart) {
+  const levels = todayPoints.map((p) => p.level);
+  loLevel = Math.min(...levels);
+  hiLevel = Math.max(...levels);
+  const span = Math.max(hiLevel - loLevel, 0.2);
+  const step = (W - PAD_X * 2) / Math.max(todayPoints.length - 1, 1);
+  const xAt = (i: number) => PAD_X + i * step;
+  const yAt = (v: number) => PAD_T + (1 - (v - loLevel) / span) * (CURVE_BOTTOM - PAD_T);
+
+  const pts = todayPoints.map((p, i) => ({ x: xAt(i), y: yAt(p.level) }));
+  linePath = smoothPath(pts);
+  areaPath = `${linePath} L${xAt(todayPoints.length - 1).toFixed(1)},${CURVE_BOTTOM} L${PAD_X.toFixed(1)},${CURVE_BOTTOM} Z`;
+
+  yTicks = [
+    { y: yAt(hiLevel), label: hiLevel.toFixed(2) },
+    { y: yAt(loLevel), label: loLevel.toFixed(2) },
+  ];
+
+  xTicks = [0, 6, 12, 18, todayPoints.length - 1]
+    .filter((i, k, arr) => i < todayPoints.length && arr.indexOf(i) === k)
+    .map((i) => ({ x: xAt(i), label: todayPoints[i].time.slice(11, 16) }));
+
+  markers = events
+    .filter((e) => e.time.slice(0, 10) === todayDate)
+    .map((e) => {
+      const i = todayPoints.findIndex((p) => p.time.slice(0, 13) === e.time.slice(0, 13));
+      return i < 0 ? null : { x: xAt(i), y: yAt(todayPoints[i].level), type: e.type, time: hhmm(e.time) };
+    })
+    .filter((m): m is { x: number; y: number; type: 'high' | 'low'; time: string } => m !== null);
+
+  const nowIdx = todayPoints.findIndex((p) => p.time.slice(0, 13) >= nowIso.slice(0, 13));
+  nowX = nowIdx >= 0 ? xAt(nowIdx) : null;
+
+  const highTimes = markers.filter((m) => m.type === 'high').map((m) => m.time).join(', ');
+  const lowTimes = markers.filter((m) => m.type === 'low').map((m) => m.time).join(', ');
+  ariaLabel = `${_(tx.chartHeading)} — ${_(tx.high)}: ${highTimes || '—'}; ${_(tx.low)}: ${lowTimes || '—'}`;
+}
+
+/* ── 时刻表与潮差 ───────────────────────────────────────── */
+const byDate = (d: string) => (d ? events.filter((e) => e.time.slice(0, 10) === d) : []);
+const rowsToday = byDate(todayDate);
+const rowsTomorrow = byDate(tomorrowDate);
+const rangeText = hasChart ? metres(hiLevel - loLevel) : '—';
+const rangeDetail = hasChart ? `${loLevel.toFixed(2)} – ${hiLevel.toFixed(2)} m` : '—';
+
+/* ── 按潮汐安排的三个时段 ───────────────────────────────── */
+const isDaylight = (iso: string) => {
+  const h = Number(iso.slice(11, 13));
+  return Number.isFinite(h) && h >= 6 && h <= 19;
+};
+
+const pick = (t: 'high' | 'low') => {
+  const list = rowsToday.filter((e) => e.type === t);
+  return list.find((e) => isDaylight(e.time)) ?? list[0] ?? null;
+};
+
+const dayLow = pick('low');
+const dayHigh = pick('high');
+
+const windows = [
+  {
+    key: 'low',
+    icon: '🦀',
+    title: _(tx.bestLowTitle),
+    body: _(tx.bestLowBody),
+    window: dayLow ? `${shift(dayLow.time, -60)} – ${shift(dayLow.time, 60)}` : '—',
+  },
+  {
+    key: 'sunset',
+    icon: '🌇',
+    title: _(tx.bestSunsetTitle),
+    body: _(tx.bestSunsetBody),
+    window: sunsetIso ? `${shift(sunsetIso, -90)} – ${hhmm(sunsetIso)}` : '—',
+  },
+  {
+    key: 'surf',
+    icon: '🏄',
+    title: _(tx.bestSurfTitle),
+    body: _(tx.bestSurfBody),
+    window: dayHigh ? `${shift(dayHigh.time, -180)} – ${hhmm(dayHigh.time)}` : '—',
+  },
+];
+
+const updatedTime = data
+  ? new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit', timeZone: WEATHER_TZ }).format(
+      new Date(data.fetchedAt),
+    )
+  : '—';
+const updatedDate = data
+  ? new Intl.DateTimeFormat(locale, { day: '2-digit', month: '2-digit', timeZone: WEATHER_TZ }).format(
+      new Date(data.fetchedAt),
+    )
+  : '';
+---
+<section id="tides" class="bg-[color:var(--color-cream)] py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">06 — {_(tx.sectionNum)}</div>
+      <h2 class="font-display text-4xl md:text-6xl mt-4 leading-tight" set:html={_(tx.heading)} />
+      <p class="mt-6 text-[color:var(--color-moss)]/80">{_(tx.subtitle)}</p>
+    </div>
+
+    {!data && <p class="mt-10 text-sm text-[color:var(--color-moss)]/70">{_(tx.unavailable)}</p>}
+
+    {data && (
+      <>
+        <!-- 潮型与当前状态 -->
+        <div class="mt-12 rounded-3xl bg-[color:var(--color-ink)] text-white p-7 md:p-9 grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-5">
+            <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">{_(tx.tideTypeLabel)}</div>
+            <div class="mt-3 flex items-baseline gap-3">
+              <span class="num-display text-4xl md:text-5xl">{typeLabel}</span>
+              <span class="text-3xl" aria-hidden="true">{type === 'spring' ? '🌕' : type === 'neap' ? '🌓' : '🌗'}</span>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-white/70">{typeNote}</p>
+          </div>
+
+          <div class="md:col-span-7 grid sm:grid-cols-3 gap-6">
+            <div class="border-t border-white/15 pt-4 sm:border-t-0 sm:border-l sm:border-white/15 sm:pl-6">
+              <div class="text-xs text-white/55">{_(tx.stateLabel)}</div>
+              <div class="num-display text-2xl mt-2">{rising ? _(tx.stateRising) : _(tx.stateFalling)}</div>
+              <div class="mt-1 text-sm text-white/65">
+                {_(tx.nextLabel)}
+                {nextEvent ? ` ${nextEvent.type === 'high' ? _(tx.high) : _(tx.low)} ${hhmm(nextEvent.time)}` : ' —'}
+              </div>
+            </div>
+            <div class="border-t border-white/15 pt-4 sm:border-t-0 sm:border-l sm:border-white/15 sm:pl-6">
+              <div class="text-xs text-white/55">{_(tx.rangeLabel)}</div>
+              <div class="num-display text-2xl mt-2">{rangeText}</div>
+              <div class="mt-1 text-sm text-white/65">{rangeDetail}</div>
+            </div>
+            <div class="border-t border-white/15 pt-4 sm:border-t-0 sm:border-l sm:border-white/15 sm:pl-6">
+              <div class="text-xs text-white/55">{_(tx.updatedLabel)}</div>
+              <div class="num-display text-2xl mt-2">{updatedTime}</div>
+              <div class="mt-1 text-sm text-white/65">{updatedDate}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 grid lg:grid-cols-12 gap-6">
+          <!-- 潮位曲线 -->
+          <div class="lg:col-span-7 rounded-3xl bg-white border border-black/5 p-6 md:p-8">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="font-display text-2xl">{_(tx.chartHeading)}</h3>
+              <span class="text-xs text-[color:var(--color-moss)]/60">{_(tx.chartAxis)}</span>
+            </div>
+
+            {hasChart ? (
+              <svg class="mt-5 w-full h-auto" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={ariaLabel}>
+                <defs>
+                  <linearGradient id="tide-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2F6B4E" stop-opacity="0.22" />
+                    <stop offset="100%" stop-color="#2F6B4E" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+
+                <!-- 水位参考线 -->
+                {yTicks.map((t) => (
+                  <g>
+                    <line
+                      x1={PAD_X}
+                      y1={t.y}
+                      x2={W - PAD_X}
+                      y2={t.y}
+                      stroke="#1F3B34"
+                      stroke-opacity="0.12"
+                      stroke-width="1"
+                      stroke-dasharray="4 4"
+                    />
+                    <text x={W - PAD_X} y={t.y - 6} text-anchor="end" font-size="11" fill="#1F3B34" fill-opacity="0.55">
+                      {t.label} m
+                    </text>
+                  </g>
+                ))}
+
+                <!-- 曲线与面积 -->
+                <path d={areaPath} fill="url(#tide-fill)" />
+                <path d={linePath} fill="none" stroke="#2F6B4E" stroke-width="2.5" stroke-linecap="round" />
+
+                <!-- 当前时刻 -->
+                {nowX !== null && (
+                  <g>
+                    <line
+                      x1={nowX}
+                      y1={PAD_T - 10}
+                      x2={nowX}
+                      y2={CURVE_BOTTOM}
+                      stroke="#E8B14B"
+                      stroke-width="1.5"
+                      stroke-dasharray="3 3"
+                    />
+                    <text x={nowX} y={PAD_T - 14} text-anchor="middle" font-size="11" fill="#B8862B">
+                      {_(tx.chartNow)}
+                    </text>
+                  </g>
+                )}
+
+                <!-- 高低潮标记 -->
+                {markers.map((m) => (
+                  <g>
+                    <circle cx={m.x} cy={m.y} r="4.5" fill="#0B1F1A" />
+                    <text
+                      x={m.x}
+                      y={m.type === 'high' ? m.y - 12 : m.y + 20}
+                      text-anchor="middle"
+                      font-size="11"
+                      fill="#0B1F1A"
+                      fill-opacity="0.75"
+                    >
+                      {m.time}
+                    </text>
+                  </g>
+                ))}
+
+                <!-- 时间轴 -->
+                <line
+                  x1={PAD_X}
+                  y1={H - PAD_B}
+                  x2={W - PAD_X}
+                  y2={H - PAD_B}
+                  stroke="#1F3B34"
+                  stroke-opacity="0.2"
+                  stroke-width="1"
+                />
+                {xTicks.map((t) => (
+                  <text
+                    x={t.x}
+                    y={H - PAD_B + 20}
+                    text-anchor="middle"
+                    font-size="11"
+                    fill="#1F3B34"
+                    fill-opacity="0.55"
+                  >
+                    {t.label}
+                  </text>
+                ))}
+              </svg>
+            ) : (
+              <p class="mt-5 text-sm text-[color:var(--color-moss)]/70">{_(tx.unavailable)}</p>
+            )}
+          </div>
+
+          <!-- 潮汐时刻表 -->
+          <div class="lg:col-span-5 rounded-3xl bg-white border border-black/5 p-6 md:p-8">
+            <h3 class="font-display text-2xl">{_(tx.tableHeading)}</h3>
+            <div class="mt-5 grid grid-cols-2 gap-5">
+              {[
+                { key: 'today', label: _(tx.tableToday), rows: rowsToday },
+                { key: 'tomorrow', label: _(tx.tableTomorrow), rows: rowsTomorrow },
+              ].map((col) => (
+                <div>
+                  <div class="text-xs uppercase tracking-[0.15em] text-[color:var(--color-emerald)]">{col.label}</div>
+                  <ul class="mt-3 space-y-3 text-sm">
+                    {col.rows.length === 0 && <li class="text-[color:var(--color-moss)]/50">—</li>}
+                    {col.rows.map((e) => (
+                      <li class="flex items-center gap-2">
+                        <span aria-hidden="true">{e.type === 'high' ? '⬆️' : '⬇️'}</span>
+                        <span class="text-[color:var(--color-moss)]/70">
+                          {e.type === 'high' ? _(tx.high) : _(tx.low)}
+                        </span>
+                        <span class="font-medium">{hhmm(e.time)}</span>
+                        <span class="ml-auto text-xs text-[color:var(--color-moss)]/60">{metres(e.height)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <p class="mt-6 text-xs leading-relaxed text-[color:var(--color-moss)]/60">{_(tx.note)}</p>
+          </div>
+        </div>
+
+        <!-- 按潮汐安排行程 -->
+        <h3 class="font-display text-2xl md:text-3xl mt-16">{_(tx.bestHeading)}</h3>
+        <div class="mt-6 grid md:grid-cols-3 gap-5">
+          {windows.map((w) => (
+            <article class="rounded-3xl bg-white border border-black/5 p-6 flex flex-col">
+              <span class="text-3xl leading-none" aria-hidden="true">{w.icon}</span>
+              <h4 class="font-display text-lg mt-4">{w.title}</h4>
+              <div class="mt-2 self-start rounded-full bg-[color:var(--color-mist)] px-3 py-1 text-sm font-medium text-[color:var(--color-emerald)]">
+                {w.window}
+              </div>
+              <p class="mt-3 text-sm leading-relaxed text-[color:var(--color-moss)]">{w.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <!-- 潮汐科普 -->
+        <div class="mt-14 rounded-3xl bg-[color:var(--color-ink)] text-white p-8 md:p-10">
+          <h3 class="font-display text-2xl md:text-3xl">{_(tx.scienceHeading)}</h3>
+          <ul class="mt-6 grid md:grid-cols-3 gap-6 text-sm leading-relaxed text-white/75">
+            {tx.science.map((p: any) => (
+              <li class="flex gap-3">
+                <span class="text-[color:var(--color-sun)]" aria-hidden="true">◆</span>
+                <span>{_(p)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )}
+  </div>
+</section>

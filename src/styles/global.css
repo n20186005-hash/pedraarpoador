@@ -28,6 +28,13 @@ details[open] .faq-plus { transform: rotate(45deg); }
 .faq-plus { transition: transform .25s; }
 .lang-btn.active { background: var(--color-ink); color: var(--color-cream); }
 .num-display { font-family: var(--font-display); font-weight: 600; letter-spacing: -.02em; }
+/* 导航「更多」下拉（<details> 实现，无需 JS，触屏可用） */
+.nav-more > summary { list-style: none; }
+.nav-more > summary::-webkit-details-marker { display: none; }
+.nav-more > summary::after { content: '▾'; margin-left: .4rem; font-size: .7em; opacity: .6; }
+.nav-more[open] > summary::after { content: '▴'; }
+.nav-more-item { display: block; padding: .5rem .75rem; border-radius: .75rem; color: var(--color-moss); }
+.nav-more-item:hover { background: var(--color-mist); color: var(--color-ink); }
 /* Partner links */
 .partner-abbr { font-variant: small-caps; letter-spacing: 0.15em; }
 .partner-link:hover .partner-name { opacity: 1; transform: translateY(4px); }

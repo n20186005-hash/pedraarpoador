@@ -1,0 +1,185 @@
+---
+import type { Lang } from '../i18n/utils';
+import { sunset as sx } from '../i18n/translations';
+import { getWeather } from '../lib/weather';
+import { minutesUntil } from '../lib/weather-parse';
+import { sunMinutes, minutesToHHMM, shiftHHMM, monthlySunTable } from '../lib/sun';
+import { SITE } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+
+// 复用天气模块的缓存数据，不额外请求接口
+const data = await getWeather();
+
+const localeMap: Record<string, string> = { zh: 'zh-CN', en: 'en-GB', es: 'es-ES', pt: 'pt-BR' };
+const locale = localeMap[lang] ?? 'pt-BR';
+
+/** 里约自 2019 年起不再实行夏令时，全年固定 UTC−3 */
+const TZ = -3;
+
+const nowIso = data?.current?.time ?? '';
+const todayIso = data?.daily?.[0]?.date ?? '';
+const sunsetIso = data?.daily?.[0]?.sunset ?? '';
+
+// 官方预报优先，缺失时回退到本地天文算法
+const todayDate = todayIso ? new Date(`${todayIso}T12:00:00Z`) : new Date();
+const sunsetTime = sunsetIso
+  ? sunsetIso.slice(11, 16)
+  : minutesToHHMM(sunMinutes(todayDate, SITE.latitude, SITE.longitude, TZ, 'sunset'));
+
+const arriveTime = shiftHHMM(sunsetTime, -45);
+const applauseTime = shiftHHMM(sunsetTime, 2);
+const blueHourTime = shiftHHMM(sunsetTime, 20);
+
+const minsToSunset = sunsetIso ? minutesUntil(sunsetIso, nowIso) : Number.NaN;
+const isUpcoming = Number.isFinite(minsToSunset) && minsToSunset >= 0;
+const countdownText = isUpcoming
+  ? `${_(sx.countdownIn)} ${minsToSunset} ${_(sx.countdownUnit)}`
+  : _(sx.countdownPast);
+
+/** 与 sunset.timeline 顺序一一对应：到达 / 金色时刻 / 日落 / 蓝调时刻 */
+const TIMELINE_OFFSETS = [-45, -15, 0, 20];
+const timeline = sx.timeline.map((item: any, i: number) => ({
+  time: shiftHHMM(sunsetTime, TIMELINE_OFFSETS[i] ?? 0),
+  title: _(item.title),
+  body: _(item.body),
+}));
+
+const nowYear = data ? new Date(data.fetchedAt).getUTCFullYear() : new Date().getUTCFullYear();
+const months = monthlySunTable(nowYear, SITE.latitude, SITE.longitude, TZ);
+const currentMonth = data ? Number(data.current.time.slice(5, 7)) : 0;
+const monthFmt = new Intl.DateTimeFormat(locale, { month: 'short', timeZone: 'UTC' });
+const monthLabel = (m: number) => monthFmt.format(new Date(Date.UTC(nowYear, m - 1, 15)));
+
+const panels = [
+  { label: _(sx.todayLabel), value: sunsetTime, hint: countdownText, accent: true },
+  { label: _(sx.arriveLabel), value: arriveTime, hint: _(sx.arriveHint), accent: false },
+  { label: _(sx.applauseLabel), value: applauseTime, hint: '', accent: false },
+  { label: _(sx.blueHourLabel), value: blueHourTime, hint: '', accent: false },
+];
+---
+<section id="sunset" class="bg-[color:var(--color-ink)] text-white py-24 md:py-32 grain">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">03 — {_(sx.sectionNum)}</div>
+      <h2 class="font-display text-4xl md:text-6xl mt-4 leading-tight" set:html={_(sx.heading)} />
+      <p class="mt-6 text-white/70">{_(sx.subtitle)}</p>
+    </div>
+
+    <!-- 今日时刻 -->
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {panels.map((p) => (
+        <div
+          class:list={[
+            'rounded-3xl p-6 border',
+            p.accent
+              ? 'bg-[color:var(--color-sun)] text-[color:var(--color-ink)] border-transparent'
+              : 'bg-white/5 border-white/10',
+          ]}
+        >
+          <div class:list={['text-xs', p.accent ? 'text-[color:var(--color-ink)]/70' : 'text-white/55']}>{p.label}</div>
+          <div class="num-display text-4xl md:text-5xl mt-3">{p.value}</div>
+          {p.hint && (
+            <div class:list={['mt-2 text-xs leading-relaxed', p.accent ? 'text-[color:var(--color-ink)]/70' : 'text-white/55']}>
+              {p.hint}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- 观赏时间线 -->
+    <h3 class="font-display text-2xl md:text-3xl mt-16">{_(sx.timelineHeading)}</h3>
+    <ol class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+      {timeline.map((t, i) => (
+        <li class="relative rounded-3xl bg-white/5 border border-white/10 p-6">
+          <div class="flex items-center gap-3">
+            <span class="num-display text-xl rounded-full bg-[color:var(--color-sun)] text-[color:var(--color-ink)] px-3 py-1">
+              {t.time}
+            </span>
+            <span class="text-xs uppercase tracking-[0.2em] text-white/40">{String(i + 1).padStart(2, '0')}</span>
+          </div>
+          <h4 class="font-display text-lg mt-4">{t.title}</h4>
+          <p class="mt-3 text-sm leading-relaxed text-white/65">{t.body}</p>
+        </li>
+      ))}
+    </ol>
+
+    <!-- 最佳机位 -->
+    <h3 class="font-display text-2xl md:text-3xl mt-16">{_(sx.spotsHeading)}</h3>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {sx.spots.map((s: any) => (
+        <article class="rounded-3xl bg-white/5 border border-white/10 p-6 flex flex-col">
+          <span class="text-3xl leading-none" aria-hidden="true">{s.icon}</span>
+          <h4 class="font-display text-lg mt-4">{_(s.title)}</h4>
+          <p class="mt-3 text-sm leading-relaxed text-white/65">{_(s.body)}</p>
+        </article>
+      ))}
+    </div>
+
+    <!-- 掌声文化 -->
+    <div class="mt-16 rounded-3xl border border-[color:var(--color-sun)]/30 bg-[color:var(--color-sun)]/10 p-8 md:p-10">
+      <h3 class="font-display text-2xl md:text-3xl text-[color:var(--color-sun)]">{_(sx.applauseHeading)}</h3>
+      <p class="mt-5 max-w-4xl leading-relaxed text-white/75">{_(sx.applauseBody)}</p>
+    </div>
+
+    <!-- 全年日落时刻表 -->
+    <h3 class="font-display text-2xl md:text-3xl mt-16">{_(sx.tableHeading)}</h3>
+    <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+      {months.map((m) => (
+        <div
+          class:list={[
+            'rounded-2xl border p-4',
+            m.month === currentMonth
+              ? 'bg-[color:var(--color-sun)] text-[color:var(--color-ink)] border-transparent'
+              : 'bg-white/5 border-white/10',
+          ]}
+        >
+          <div class:list={['text-xs uppercase tracking-[0.15em]', m.month === currentMonth ? 'text-[color:var(--color-ink)]/70' : 'text-white/50']}>
+            {monthLabel(m.month)}
+          </div>
+          <div class="num-display text-2xl mt-2">{m.sunset}</div>
+          <div class:list={['mt-1 text-[11px]', m.month === currentMonth ? 'text-[color:var(--color-ink)]/60' : 'text-white/45']}>
+            {_(sx.tableSunrise)} {m.sunrise}
+          </div>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-xs leading-relaxed text-white/45">{_(sx.tableNote)}</p>
+
+    <!-- 日落后安全 -->
+    <h3 class="font-display text-2xl md:text-3xl mt-16">{_(sx.safetyHeading)}</h3>
+    <ul class="mt-6 grid md:grid-cols-3 gap-5 text-sm leading-relaxed text-white/70">
+      {sx.safety.map((s: any) => (
+        <li class="flex gap-3 rounded-3xl bg-white/5 border border-white/10 p-6">
+          <span class="text-[color:var(--color-sun)]" aria-hidden="true">◆</span>
+          <span>{_(s)}</span>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-8 text-xs leading-relaxed text-white/45">{_(sx.note)}</p>
+
+    <!-- 站内关键词内链 -->
+    <div class="mt-10 border-t border-white/10 pt-8">
+      <div class="text-xs uppercase tracking-[0.25em] text-white/40">{_(sx.relatedHeading)}</div>
+      <div class="mt-4 flex flex-wrap gap-3">
+        {[
+          { href: `/${lang}/#tides`, label: _(sx.relatedTides) },
+          { href: `/${lang}/#transport`, label: _(sx.relatedTransport) },
+          { href: `/${lang}/#weather`, label: _(sx.relatedWeather) },
+          { href: `/${lang}/#encyclopedia`, label: _(sx.relatedHistory) },
+        ].map((l) => (
+          <a
+            href={l.href}
+            class="rounded-full border border-white/20 px-4 py-2 text-sm text-white/75 transition hover:border-[color:var(--color-sun)] hover:text-[color:var(--color-sun)]"
+          >
+            {l.label} →
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

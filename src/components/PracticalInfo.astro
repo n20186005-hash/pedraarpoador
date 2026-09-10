@@ -4,10 +4,11 @@ import { practical } from '../i18n/translations';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.pt || '');
-const isTips = (c: any) => c.tips;
+type TipCard = { tips: any[] };
+const isTips = (c: any): c is TipCard => Array.isArray(c.tips);
 ---
 <section id="practical" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
-  <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">03 — {_(practical.sectionNum)}</div>
+  <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">02 — {_(practical.sectionNum)}</div>
   <h2 class="font-display text-4xl md:text-6xl mt-4 mb-14 max-w-3xl" set:html={_(practical.heading)} />
   <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
     {practical.cards.map((card, i) => (

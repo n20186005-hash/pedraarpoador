@@ -1,13 +1,14 @@
 ---
 import type { Lang } from '../i18n/utils';
 import { encyclopedia } from '../i18n/translations';
+import { webp } from '../utils/img';
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.pt || '');
 ---
 <section id="encyclopedia" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
   <div class="max-w-4xl mx-auto">
-    <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">05 — {_(encyclopedia.sectionNum)}</div>
+    <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">09 — {_(encyclopedia.sectionNum)}</div>
     <h2 class="font-display text-4xl md:text-6xl mt-4 mb-6" set:html={_(encyclopedia.heading)} />
     <p class="text-lg text-[color:var(--color-moss)]/70 max-w-2xl">{_(encyclopedia.subtitle)}</p>
   </div>
@@ -18,7 +19,10 @@ const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.pt || '');
         <!-- Image side: alternates left/right -->
         <div class={`md:col-span-5 ${i % 2 === 1 ? 'md:order-2' : ''}`}>
           <div class="rounded-3xl overflow-hidden shadow-2xl">
-            <img src={item.img} alt={_(item.title)} class="w-full h-80 md:h-96 object-cover" loading="lazy" />
+            <picture class="block">
+              <source srcset={webp(item.img)} type="image/webp" />
+              <img src={item.img} alt={_(item.title)} class="w-full h-80 md:h-96 object-cover" loading="lazy" decoding="async" />
+            </picture>
           </div>
         </div>
         <!-- Text side -->

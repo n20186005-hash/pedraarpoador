@@ -15,7 +15,17 @@ export const nav = {
   encyclopedia: { zh: '百科', en: 'Encyclopedia', es: 'Enciclopedia', pt: 'Enciclopédia' } as T,
   ecology: { zh: '生态', en: 'Ecology', es: 'Ecología', pt: 'Ecologia' } as T,
   gallery: { zh: '图集', en: 'Gallery', es: 'Galería', pt: 'Galeria' } as T,
+  location: { zh: '位置', en: 'Location', es: 'Ubicación', pt: 'Localização' } as T,
+  sources: { zh: '来源', en: 'Sources', es: 'Fuentes', pt: 'Fontes' } as T,
   faq: { zh: '问答', en: 'FAQ', es: 'Preguntas', pt: 'Perguntas' } as T,
+  weather: { zh: '天气', en: 'Weather', es: 'Clima', pt: 'Clima' } as T,
+  sunset: { zh: '日落', en: 'Sunset', es: 'Atardecer', pt: 'Pôr do Sol' } as T,
+  tides: { zh: '潮汐', en: 'Tides', es: 'Mareas', pt: 'Marés' } as T,
+  climate: { zh: '季节', en: 'Seasons', es: 'Estaciones', pt: 'Estações' } as T,
+  facilities: { zh: '设施', en: 'Facilities', es: 'Servicios', pt: 'Serviços' } as T,
+  timeline: { zh: '历史', en: 'History', es: 'Historia', pt: 'História' } as T,
+  stories: { zh: '传说', en: 'Legends', es: 'Leyendas', pt: 'Lendas' } as T,
+  more: { zh: '更多', en: 'More', es: 'Más', pt: 'Mais' } as T,
 };
 
 // ── Hero ──
@@ -36,6 +46,8 @@ export const hero = {
   statLength: { zh: '门票', en: 'Admission', es: 'Entrada', pt: 'Entrada' } as T,
   statFalls: { zh: '时间', en: 'Hours', es: 'Horario', pt: 'Horário' } as T,
   statFlow: { zh: '冲浪始于', en: 'Surf since', es: 'Surf desde', pt: 'Surfe desde' } as T,
+  ctaSunset: { zh: '查看今日日落时刻', en: 'See today\'s sunset time', es: 'Ver la hora del atardecer de hoy', pt: 'Ver horário do pôr do sol hoje' } as T,
+  ctaTransport: { zh: '怎么去 Arpoador', en: 'How to get to Arpoador', es: 'Cómo llegar a Arpoador', pt: 'Como chegar ao Arpoador' } as T,
 };
 
 // ── Manifesto (网站前言) ──
@@ -193,23 +205,246 @@ export const encyclopedia = {
       } as T,
       img: '/gallery/pedra-do-arpoador (8).jpg',
     },
+    {
+      icon: '🧭',
+      title: { zh: '礁石为何在这里：冈瓦纳裂解与瓜纳巴拉湾', en: 'Why the rock is here: Gondwana, rifting & Guanabara Bay', es: 'Por qué está aquí: Gondwana y la bahía de Guanabara', pt: 'Por que a rocha está aqui: Gondwana e a baía de Guanabara' } as T,
+      body: {
+        zh: '<p>大约 1.3 亿年前，冈瓦纳古陆开始裂解，南大西洋由此张开。随着非洲与南美板块分离，今天的巴西东海岸被整体抬升，形成了沿海的 Serra do Mar 山脉与破碎的花岗岩—片麻岩基底。</p><p>Arpoador 的礁石正是这套基底的天然露头。它不是珊瑚礁，也不是沉积岩，而是深部岩浆岩与变质岩在漫长地质时间中冷却、变形，再被海浪沿节理反复侵蚀后留下的"硬骨头"。伊帕内玛与科帕卡巴纳之间的颈状岬角，正是两侧海湾同时侵蚀、掏空较软岩层之后的结果——换句话说，这块礁石是被"剩"下来的。</p>',
+        en: '<p>Around 130 million years ago Gondwana began to break apart and the South Atlantic opened. As the African and South American plates separated, what is now Brazil\'s east coast was uplifted, raising the coastal Serra do Mar range and fracturing its granite–gneiss basement.</p><p>The Arpoador rock is a natural outcrop of that basement. It is neither coral nor sedimentary rock, but deep igneous and metamorphic rock that cooled, deformed, and was then repeatedly eroded by waves along its joints — the "hard bone" left behind. The narrow neck between Ipanema and Copacabana is what remains after two bays eroded the softer layers away. In other words, this rock is what was left over.</p>',
+        es: '<p>Hace unos 130 millones de años Gondwana empezó a fragmentarse y se abrió el Atlántico Sur. Al separarse África y Sudamérica, el actual litoral brasileño se elevó, formando la Serra do Mar y fracturando su basamento de granito y gneis.</p><p>La roca de Arpoador es un afloramiento natural de ese basamento. No es coral ni roca sedimentaria, sino roca ígnea y metamórfica profunda que se enfrió, se deformó y luego fue erosionada por el mar a lo largo de sus diaclasas: el "hueso duro" que quedó. El istmo entre Ipanema y Copacabana es lo que resta tras el vaciado de las capas más blandas por dos bahías. Es decir, esta roca es lo que sobró.</p>',
+        pt: '<p>Há cerca de 130 milhões de anos Gondwana começou a se fragmentar e o Atlântico Sul se abriu. Com a separação das placas africana e sul-americana, o atual litoral brasileiro foi soerguido, erguendo a Serra do Mar e fraturando seu embasamento de granito e gnaisse.</p><p>A rocha do Arpoador é um afloramento natural desse embasamento. Não é coral nem rocha sedimentar, mas rocha ígnea e metamórfica profunda que esfriou, deformou-se e depois foi erodida pelo mar ao longo das fraturas — o "osso duro" que sobrou. O istmo entre Ipanema e Copacabana é o que resta após duas baías escavarem as camadas mais moles. Ou seja, esta rocha é o que sobrou.</p>',
+      } as T,
+      img: '/gallery/pedra-do-arpoador (16).jpg',
+    },
+    {
+      icon: '🐋',
+      title: { zh: '从捕鲸到观鲸：鲸类的离去与回归', en: 'From whaling to whale-watching: departure and return', es: 'De la caza al avistamiento: ida y regreso de las ballenas', pt: 'Da caça ao avistamento: a ida e a volta das baleias' } as T,
+      body: {
+        zh: '<p>18 至 20 世纪，南大西洋的捕鲸活动使南露脊鲸等物种数量急剧下降，伊帕内玛外海曾经繁忙的猎场逐渐安静下来。1987 年，巴西通过法律全面禁止捕鲸，为种群恢复留出了空间。</p><p>此后数十年间，鲸类在里约近海的目击记录逐步增加。如今在合适的季节，站在 Arpoador 的礁石上望向开阔海面，偶尔能看到喷潮或跃身。对一座曾以鱼叉命名的礁石来说，这是一种意味深长的角色转换：从猎场，变成观察与保护的窗口。</p>',
+        en: '<p>From the 18th to the 20th century, whaling in the South Atlantic sharply reduced species such as the southern right whale, and the once-busy hunting grounds off Ipanema fell quiet. In 1987 Brazil passed legislation banning whaling outright, leaving room for populations to recover.</p><p>In the decades since, sightings off Rio have gradually increased. Today, in the right season, standing on the Arpoador rock and looking out to open water you may catch a blow or a breach. For a rock named after a harpoon, it is a telling change of role: from hunting ground to a window for observation and protection.</p>',
+        es: '<p>Entre los siglos XVIII y XX la caza de ballenas en el Atlántico Sur redujo drásticamente especies como la ballena franca austral, y los otrora concurridos caladeros frente a Ipanema quedaron en silencio. En 1987 Brasil prohibió por ley la caza, dejando espacio para la recuperación.</p><p>Décadas después, los avistamientos frente a Río aumentaron. Hoy, en la estación adecuada, desde la roca puede verse un soplido o un salto. Para una roca bautizada por el arpón, es un cambio de papel revelador: de coto de caza a ventana de observación y protección.</p>',
+        pt: '<p>Entre os séculos XVIII e XX a caça de baleias no Atlântico Sul reduziu drasticamente espécies como a baleia-franca-austral, e os outrora movimentados pesqueiros frente a Ipanema silenciaram. Em 1987 o Brasil proibiu por lei a caça, abrindo espaço para a recuperação.</p><p>Décadas depois, os avistamentos frente ao Rio aumentaram. Hoje, na estação certa, do alto da rocha pode-se ver um sopro ou um salto. Para uma rocha batizada pelo arpão, é uma troca de papel reveladora: de caçada a janela de observação e proteção.</p>',
+      } as T,
+      img: '/gallery/pedra-do-arpoador (17).jpg',
+    },
+    {
+      icon: '🌗',
+      title: { zh: '潮汐：这块礁石的时间刻度', en: 'Tides: the rock\'s own clock', es: 'Las mareas: el reloj de la roca', pt: 'As marés: o relógio da rocha' } as T,
+      body: {
+        zh: '<p>里约海岸属于半日潮，一天之内大致出现两次高潮与两次低潮，相邻两次高潮相隔约 12 小时 25 分钟——这个多出来的 25 分钟，正是月球公转留下的痕迹。</p><p>当月相处于新月或满月，太阳与月球的引潮力叠加形成大潮（spring tide），礁石边缘的潮汐岩池暴露得最充分；上弦与下弦月时则为小潮，水位变化平缓。想观察岩池生物或走上更远的礁面，请先查当日潮位表，并始终留出退路：涨潮时的礁面会很快被浪覆盖。</p>',
+        en: '<p>Rio\'s coast has semi-diurnal tides: roughly two highs and two lows a day, with successive highs about 12 hours 25 minutes apart — that extra 25 minutes is the trace of the Moon\'s orbit.</p><p>At new and full moon the sun and moon pull together to produce spring tides, when the tide pools along the rock\'s edge are exposed most fully; at the quarters, neap tides bring gentler changes in water level. To look at pool life or walk further across the rock, check the day\'s tide table first and always keep an escape route: rising water covers the rock surface fast.</p>',
+        es: '<p>La costa de Río tiene mareas semidiurnas: unas dos pleamares y dos bajamares al día, con pleamares sucesivas separadas por 12 h 25 min; esos 25 minutos extra son la huella de la órbita lunar.</p><p>En luna nueva o llena, sol y luna suman fuerzas y producen mareas vivas, cuando las pozas del borde de la roca quedan más expuestas; en cuarto creciente o menguante, las mareas muertas cambian el nivel con suavidad. Para observar las pozas o caminar más lejos, consulte la tabla del día y conserve siempre una vía de salida: la subida cubre la roca con rapidez.</p>',
+        pt: '<p>O litoral do Rio tem marés semidiurnas: cerca de duas cheias e duas baixas por dia, com cheias sucessivas separadas por 12 h 25 min — esses 25 minutos extras são a marca da órbita da Lua.</p><p>Na lua nova ou cheia, sol e lua somam forças e geram marés de sizígia, quando as poças na borda da rocha ficam mais expostas; nos quartos, as marés de quadratura mudam o nível suavemente. Para observar as poças ou caminhar mais longe, consulte a tábua do dia e mantenha sempre uma rota de saída: a subida cobre a rocha rápido.</p>',
+      } as T,
+      img: '/gallery/pedra-do-arpoador (18).jpg',
+    },
   ],
 };
 
-// ── Climate & Tides (气候与潮汐) ──
+// ── Climate (气候与季节) ──
 export const climate = {
-  sectionNum: { zh: '气候与潮汐', en: 'Climate & Tides', es: 'Clima y Mareas', pt: 'Clima e Marés' } as T,
-  heading: { zh: '今天，<em class="text-[color:var(--color-emerald)]">海与天</em>的实时节拍', en: 'Today\'s live rhythm<br/><em class="text-[color:var(--color-emerald)]"> of sea & sky</em>', es: 'El pulso en vivo<br/><em class="text-[color:var(--color-emerald)]"> de mar y cielo</em>', pt: 'O ritmo ao vivo<br/><em class="text-[color:var(--color-emerald)]"> de mar e céu</em>' } as T,
-  subtitle: { zh: '落日时间与潮位直接决定游览体验。以下数据由公开 API 实时获取，供您规划行程。', en: 'Sunset time and tide level shape your visit. Data is fetched live from public APIs to help you plan.', es: 'La hora del sol y la marea definen la visita. Datos en vivo de APIs públicas.', pt: 'A hora do pôr do sol e a maré definem a visita. Dados ao vivo de APIs públicas.' } as T,
-  sunsetLabel: { zh: '今日日落', en: 'Today\'s sunset', es: 'Puesta de hoy', pt: 'Pôr do sol hoje' } as T,
-  tideLabel: { zh: '当前潮位', en: 'Current tide', es: 'Marea actual', pt: 'Maré atual' } as T,
-  rising: { zh: '涨潮中', en: 'Rising', es: 'Subiendo', pt: 'Subindo' } as T,
-  falling: { zh: '退潮中', en: 'Falling', es: 'Bajando', pt: 'Baixando' } as T,
-  nextHigh: { zh: '下次高潮', en: 'Next high', es: 'Próx. pleamar', pt: 'Próx. cheia' } as T,
-  nextLow: { zh: '下次低潮', en: 'Next low', es: 'Próx. bajamar', pt: 'Próx. baixa' } as T,
-  loading: { zh: '正在获取实时数据…', en: 'Loading live data…', es: 'Cargando datos…', pt: 'Carregando dados…' } as T,
-  error: { zh: '实时数据暂时不可用，请参考上方游览指南。', en: 'Live data unavailable — see the guide above.', es: 'Datos no disponibles — ver guía arriba.', pt: 'Dados indisponíveis — veja o guia acima.' } as T,
-  source: { zh: '数据来源：Sunrise-Sunset.org · Open-Meteo', en: 'Source: Sunrise-Sunset.org · Open-Meteo', es: 'Fuente: Sunrise-Sunset.org · Open-Meteo', pt: 'Fonte: Sunrise-Sunset.org · Open-Meteo' } as T,
+  sectionNum: { zh: '气候与季节', en: 'Climate & Seasons', es: 'Clima y estaciones', pt: 'Clima e estações' } as T,
+  heading: { zh: '一年之中，<em class="text-[color:var(--color-emerald)]">什么时候来最好</em>', en: 'Across the year,<br/><em class="text-[color:var(--color-emerald)]"> when to come</em>', es: 'A lo largo del año,<br/><em class="text-[color:var(--color-emerald)]"> cuándo venir</em>', pt: 'Ao longo do ano,<br/><em class="text-[color:var(--color-emerald)]"> quando vir</em>' } as T,
+  subtitle: { zh: '里约属热带气候，全年可游；但雨季、气温与海水温度会明显改变同一块礁石的体验。先看季节规律，再决定行程。', en: 'Rio has a tropical climate and can be visited year-round, but the rainy season, air temperature and sea temperature change what the same rock feels like. Read the seasonal pattern first, then plan.', es: 'Río tiene clima tropical y se puede visitar todo el año, pero la estación de lluvias, la temperatura del aire y del mar cambian la experiencia. Lea primero el patrón estacional.', pt: 'O Rio tem clima tropical e pode ser visitado o ano todo, mas a estação chuvosa, a temperatura do ar e do mar mudam a experiência. Veja primeiro o padrão sazonal.' } as T,
+  seasonsHeading: { zh: '四季与旅行季', en: 'The four seasons', es: 'Las cuatro estaciones', pt: 'As quatro estações' } as T,
+  seasons: [
+    {
+      icon: '🔥',
+      period: { zh: '12 月 – 2 月 · 盛夏', en: 'Dec – Feb · High summer', es: 'Dic – Feb · Pleno verano', pt: 'Dez – Fev · Verão' } as T,
+      title: { zh: '最热闹，也最湿热', en: 'Busiest, hottest and wettest', es: 'Lo más concurrido, caluroso y húmedo', pt: 'O mais movimentado, quente e úmido' } as T,
+      body: { zh: '气温常在 25–35°C，午后雷阵雨频繁且来得快。海滩人气最高，跨年与狂欢节期间人流与住宿价格达到全年峰值；礁石上要注意防暑与雷雨。', en: 'Temperatures often run 25–35°C with fast, frequent afternoon thunderstorms. The beach is at its liveliest, and crowds and hotel prices peak around New Year and Carnival. Watch for heat and lightning on the rock.', es: 'De 25 a 35°C con tormentas de tarde frecuentes y repentinas. La playa está en su punto más vivo y los precios y la gente alcanzan su máximo en Año Nuevo y Carnaval. Cuidado con el calor y los rayos.', pt: 'Entre 25 e 35°C, com pancadas de tarde frequentes e rápidas. A praia fica no auge, e público e preços atingem o pico no Réveillon e no Carnaval. Atenção ao calor e aos raios.' } as T,
+    },
+    {
+      icon: '🍂',
+      period: { zh: '3 月 – 5 月 · 秋季', en: 'Mar – May · Autumn', es: 'Mar – May · Otoño', pt: 'Mar – Mai · Outono' } as T,
+      title: { zh: '综合体验最好的时段', en: 'The sweet spot', es: 'El mejor equilibrio', pt: 'O melhor equilíbrio' } as T,
+      body: { zh: '气温回落到 22–30°C，降雨减少而海水仍然温暖，天空通透度高。很多当地人认为这是登礁石、看日落与下水都最舒服的季节。', en: 'Temperatures ease to 22–30°C, rain decreases while the sea stays warm, and the air is clear. Many locals consider this the most comfortable season for the rock, sunsets and swimming.', es: 'Baja a 22–30°C, llueve menos y el mar sigue cálido, con aire limpio. Muchos locales lo consideran la mejor estación para la roca, el atardecer y el baño.', pt: 'Cai para 22–30°C, chove menos e o mar segue quente, com ar limpo. Muitos locais consideram a melhor estação para a rocha, o pôr do sol e o banho.' } as T,
+    },
+    {
+      icon: '🐋',
+      period: { zh: '6 月 – 8 月 · 冬季', en: 'Jun – Aug · Winter', es: 'Jun – Ago · Invierno', pt: 'Jun – Ago · Inverno' } as T,
+      title: { zh: '干燥少雨，观鲸季节', en: 'Dry, clear — and whale season', es: 'Seco y despejado: temporada de ballenas', pt: 'Seco e claro — temporada de baleias' } as T,
+      body: { zh: '气温约 18–27°C，降雨最少、能见度最好，是看日出、长距离海景与鲸类活动的季节。海水偏凉（约 21°C），清晨礁石上风大，需要一件外套。', en: 'Around 18–27°C with the least rain and the clearest air — the season for sunrises, long sea views and whale activity. The water is cooler (about 21°C) and the rock is windy at dawn, so bring a jacket.', es: 'Unos 18–27°C, con menos lluvia y aire más limpio: temporada de amaneceres, vistas largas y ballenas. El agua está más fría (unos 21°C) y en la roca hace viento al alba: lleve chaqueta.', pt: 'Cerca de 18–27°C, com menos chuva e ar mais limpo — estação de amanheceres, vistas longas e baleias. A água fica mais fria (cerca de 21°C) e a rocha venta de manhã: leve jaqueta.' } as T,
+    },
+    {
+      icon: '🌬️',
+      period: { zh: '9 月 – 11 月 · 春季', en: 'Sep – Nov · Spring', es: 'Sep – Nov · Primavera', pt: 'Set – Nov · Primavera' } as T,
+      title: { zh: '天气多变，浪况活跃', en: 'Changeable, with livelier surf', es: 'Cambiante, con más oleaje', pt: 'Variável, com mar mais ativo' } as T,
+      body: { zh: '气温 20–28°C，天气转换频繁、风力偏大，海面常有可观的浪。对观赏冲浪与拍摄浪花是好季节，但下水需更谨慎，也要留意阵雨。', en: 'Temperatures of 20–28°C with shifting weather and stronger wind, which often builds a decent swell. A good season for watching surf and photographing spray, but swim with more caution and expect showers.', es: 'De 20 a 28°C con tiempo cambiante y más viento, que suele levantar oleaje. Buena estación para ver surf y fotografiar espuma, pero báñese con más cautela y espere chubascos.', pt: 'Entre 20 e 28°C, com tempo instável e mais vento, que costuma levantar onda. Boa estação para ver surfe e fotografar espuma, mas entre no mar com mais cautela e conte com pancadas.' } as T,
+    },
+  ],
+  packingHeading: { zh: '全年都用得上的行李', en: 'Gear that works all year', es: 'Equipo útil todo el año', pt: 'Itens úteis o ano todo' } as T,
+  packing: [
+    {
+      icon: '🧴',
+      title: { zh: '高倍防晒', en: 'Strong sunscreen', es: 'Protector solar alto', pt: 'Protetor solar forte' } as T,
+      body: { zh: '景点位于南纬约 23°，全年紫外线都强，礁石顶部没有遮阴。防晒霜、帽子与墨镜建议常备。', en: 'At roughly 23°S the UV is strong year-round and the top of the rock has no shade. Sunscreen, a hat and sunglasses are worth carrying every trip.', es: 'A unos 23°S el UV es fuerte todo el año y la cima no tiene sombra. Conviene llevar protector, sombrero y gafas.', pt: 'A cerca de 23°S o UV é forte o ano todo e o topo da rocha não tem sombra. Vale levar protetor, boné e óculos.' } as T,
+    },
+    {
+      icon: '👟',
+      title: { zh: '防滑鞋', en: 'Shoes with grip', es: 'Calzado con agarre', pt: 'Calçado com aderência' } as T,
+      body: { zh: '礁石表面粗糙但常有湿滑青苔，人字拖不适合攀爬。运动鞋或溯溪鞋更稳，上下礁石都安心。', en: 'The rock is rough but often covered in slippery algae, and flip-flops are a poor choice for climbing. Trainers or water shoes give much better footing.', es: 'La roca es rugosa pero suele tener algas resbaladizas y las chanclas no sirven para trepar. Zapatillas o calzado de agua dan mucha más seguridad.', pt: 'A rocha é rugosa, mas costuma ter algas escorregadias, e chinelo não serve para escalar. Tênis ou calçado de água dão muito mais firmeza.' } as T,
+    },
+    {
+      icon: '🧥',
+      title: { zh: '一件薄外套', en: 'A light jacket', es: 'Una chaqueta ligera', pt: 'Uma jaqueta leve' } as T,
+      body: { zh: '清晨与冬季（6–8 月）海风偏凉，等日出时体感会比市区低几度，一件防风外套很实用。', en: 'Sea breezes make dawn feel cooler than downtown, especially in winter (June–August) — a windproof layer helps while you wait for sunrise.', es: 'La brisa marina hace que el amanecer se sienta más fresco que en el centro, sobre todo en invierno (junio–agosto): una capa cortavientos ayuda.', pt: 'A brisa do mar deixa o amanhecer mais fresco que no centro, sobretudo no inverno (junho–agosto) — uma camada corta-vento ajuda.' } as T,
+    },
+    {
+      icon: '💧',
+      title: { zh: '饮用水', en: 'Drinking water', es: 'Agua potable', pt: 'Água potável' } as T,
+      body: { zh: '礁石上没有商店，登顶并等待日落通常需要 1–2 小时，自备水比临时折返从容得多。', en: 'There are no shops on the rock, and climbing up plus waiting for sunset usually takes 1–2 hours — carrying water saves a trip back.', es: 'No hay tiendas en la roca, y subir y esperar el atardecer lleva 1–2 horas: llevar agua evita tener que volver.', pt: 'Não há lojas na rocha, e subir e esperar o pôr do sol leva 1–2 horas — levar água evita ter que voltar.' } as T,
+    },
+  ],
+  note: { zh: '以上为气候层面的长期规律；当天的天气、海况与潮汐请见上方实时板块。', en: 'These are long-term seasonal patterns; for today\'s weather, sea state and tides see the live sections above.', es: 'Son patrones estacionales de largo plazo; para el tiempo, el mar y las mareas de hoy vea las secciones en vivo de arriba.', pt: 'São padrões sazonais de longo prazo; para o tempo, o mar e as marés de hoje veja as seções ao vivo acima.' } as T,
+};
+
+// ── Tides (潮汐时刻) ──
+export const tides = {
+  sectionNum: { zh: '潮汐时刻', en: 'Tides', es: 'Mareas', pt: 'Marés' } as T,
+  heading: { zh: '潮起潮落，<em class="text-[color:var(--color-emerald)]">决定你能走多远</em>', en: 'The tide decides<br/><em class="text-[color:var(--color-emerald)]"> how far you can walk</em>', es: 'La marea decide<br/><em class="text-[color:var(--color-emerald)]"> hasta dónde llegar</em>', pt: 'A maré decide<br/><em class="text-[color:var(--color-emerald)]"> até onde ir</em>' } as T,
+  subtitle: { zh: '礁石下部的平台与潮汐岩池只在退潮时露出。看懂今天的潮位曲线，再决定什么时候上礁石、什么时候看日落。', en: 'The lower ledges and tide pools only appear at low water. Read today\'s tide curve before you decide when to climb the rock and when to stay for sunset.', es: 'Las repisas bajas y las pozas solo aparecen con la marea baja. Lea la curva de hoy antes de decidir cuándo subir y cuándo quedarse al atardecer.', pt: 'As plataformas baixas e as poças só aparecem na maré baixa. Veja a curva de hoje antes de decidir quando subir e quando ficar para o pôr do sol.' } as T,
+
+  tideTypeLabel: { zh: '今日潮型', en: 'Today\'s tide type', es: 'Tipo de marea de hoy', pt: 'Tipo de maré de hoje' } as T,
+  stateLabel: { zh: '当前潮汐', en: 'Current tide', es: 'Marea actual', pt: 'Maré atual' } as T,
+  updatedLabel: { zh: '数据时间', en: 'Data updated', es: 'Datos de', pt: 'Dados de' } as T,
+  typeSpring: { zh: '大潮', en: 'Spring tide', es: 'Marea viva', pt: 'Maré de sizígia' } as T,
+  typeNeap: { zh: '小潮', en: 'Neap tide', es: 'Marea muerta', pt: 'Maré de quadratura' } as T,
+  typeMid: { zh: '中潮', en: 'Mid range', es: 'Marea media', pt: 'Maré intermediária' } as T,
+  typeNoteSpring: { zh: '朔望前后潮差最大：退潮时岩池暴露最完整，涨潮时礁石下部也最容易被浪覆盖。', en: 'Around new and full moon the range peaks: pools are exposed most fully at low water, and the lower rock floods fastest on the rising tide.', es: 'En luna nueva o llena el rango es máximo: las pozas quedan más expuestas en bajamar y la parte baja se inunda antes al subir.', pt: 'Na lua nova ou cheia a amplitude é máxima: as poças ficam mais expostas na baixa-mar e a parte baixa alaga mais rápido na enchente.' } as T,
+  typeNoteNeap: { zh: '上下弦前后潮差最小，水位变化平缓，礁石下部的可通行时间更长。', en: 'Around the quarters the range is smallest, the water moves gently, and the lower rock stays walkable longer.', es: 'En los cuartos el rango es mínimo, el agua se mueve suave y la parte baja sigue transitable más tiempo.', pt: 'Nos quartos a amplitude é mínima, a água se move devagar e a parte baixa fica transitável por mais tempo.' } as T,
+  typeNoteMid: { zh: '潮差介于大潮与小潮之间，按当日时刻表安排行程即可。', en: 'The range sits between spring and neap — just follow today\'s timetable.', es: 'El rango está entre viva y muerta: siga el horario del día.', pt: 'A amplitude fica entre sizígia e quadratura — siga a tábua do dia.' } as T,
+
+  stateRising: { zh: '涨潮中', en: 'Rising', es: 'Subiendo', pt: 'Subindo' } as T,
+  stateFalling: { zh: '退潮中', en: 'Falling', es: 'Bajando', pt: 'Baixando' } as T,
+  nextLabel: { zh: '下一次', en: 'Next', es: 'Próxima', pt: 'Próxima' } as T,
+  high: { zh: '高潮', en: 'High', es: 'Pleamar', pt: 'Cheia' } as T,
+  low: { zh: '低潮', en: 'Low', es: 'Bajamar', pt: 'Baixa' } as T,
+  rangeLabel: { zh: '今日潮差', en: 'Today\'s range', es: 'Rango de hoy', pt: 'Amplitude de hoje' } as T,
+
+  chartHeading: { zh: '今日潮位曲线', en: 'Today\'s tide curve', es: 'Curva de marea de hoy', pt: 'Curva da maré de hoje' } as T,
+  chartNow: { zh: '现在', en: 'Now', es: 'Ahora', pt: 'Agora' } as T,
+  chartAxis: { zh: '水位（米）', en: 'Level (m)', es: 'Nivel (m)', pt: 'Nível (m)' } as T,
+
+  tableHeading: { zh: '潮汐时刻表', en: 'Tide timetable', es: 'Horario de mareas', pt: 'Tábua de marés' } as T,
+  tableToday: { zh: '今天', en: 'Today', es: 'Hoy', pt: 'Hoje' } as T,
+  tableTomorrow: { zh: '明天', en: 'Tomorrow', es: 'Mañana', pt: 'Amanhã' } as T,
+
+  bestHeading: { zh: '按潮汐安排行程', en: 'Plan around the tide', es: 'Organice el día según la marea', pt: 'Planeje o dia pela maré' } as T,
+  bestLowTitle: { zh: '潮汐岩池与赶海', en: 'Tide pools and rock-pooling', es: 'Pozas de marea', pt: 'Poças de maré' } as T,
+  bestLowBody: { zh: '低潮前后各约 1 小时，礁石上的岩池露出最完整，适合观察小蟹、海葵与小鱼。', en: 'Within about an hour either side of low water the rock pools are fully exposed — the best window for crabs, anemones and small fish.', es: 'Alrededor de una hora a cada lado de la bajamar las pozas quedan al descubierto: la mejor ventana para cangrejos, anémonas y peces pequeños.', pt: 'Cerca de uma hora antes e depois da baixa-mar as poças ficam expostas — a melhor janela para caranguejos, anêmonas e peixinhos.' } as T,
+  bestSunsetTitle: { zh: '登礁石与日落机位', en: 'Climb the rock for sunset', es: 'Subir a la roca al atardecer', pt: 'Subir a rocha no pôr do sol' } as T,
+  bestSunsetBody: { zh: '日落前 60–90 分钟到位，既避开正午暴晒，也能占到礁石顶部的好位置。', en: 'Arrive 60–90 minutes before sunset to skip the midday heat and still claim a good spot on top.', es: 'Llegue 60–90 minutos antes del atardecer para evitar el calor del mediodía y conseguir buen sitio arriba.', pt: 'Chegue 60–90 minutos antes do pôr do sol para evitar o calor do meio-dia e garantir um bom lugar no topo.' } as T,
+  bestSurfTitle: { zh: '下水与冲浪', en: 'Swimming and surfing', es: 'Baño y surf', pt: 'Banho e surfe' } as T,
+  bestSurfBody: { zh: '涨潮中段通常浪型更规整；退潮时礁石附近浅滩水流增强，注意脚下与离岸流。', en: 'Mid-rising tide usually gives the cleanest shape; on the ebb the shallows near the rock pull harder, so watch your footing and rip currents.', es: 'Con la marea subiendo suele haber mejor forma; en el reflujo las aguas someras junto a la roca tiran más: cuidado con el fondo y las corrientes.', pt: 'Na enchente o mar costuma ficar mais bem formado; na vazante as águas rasas junto à rocha puxam mais — atenção ao pé e às correntes de retorno.' } as T,
+
+  scienceHeading: { zh: '读懂潮汐', en: 'Reading the tides', es: 'Leer las mareas', pt: 'Entender as marés' } as T,
+  science: [
+    { zh: '里约海岸属半日潮：一天大致两次高潮、两次低潮，相邻两次高潮相隔约 12 小时 25 分钟——多出来的 25 分钟来自月球公转。', en: 'Rio\'s coast has semi-diurnal tides: roughly two highs and two lows a day, with successive highs about 12 hours 25 minutes apart — the extra 25 minutes come from the Moon\'s orbit.', es: 'La costa de Río tiene mareas semidiurnas: dos pleamares y dos bajamares al día, con pleamares separadas por 12 h 25 min; esos 25 minutos extra son de la órbita lunar.', pt: 'O litoral do Rio tem marés semidiurnas: cerca de duas cheias e duas baixas por dia, com cheias sucessivas separadas por 12 h 25 min — os 25 minutos extras vêm da órbita da Lua.' } as T,
+    { zh: '新月与满月前后，太阳与月球的引潮力叠加形成大潮，礁石边缘的潮汐岩池暴露得最充分；上弦与下弦月时潮差最小。', en: 'Around new and full moon the sun and moon pull together to create spring tides, when the tide pools along the rock are exposed most fully; at the quarters the range is smallest.', es: 'En luna nueva o llena, sol y luna suman fuerzas y crean mareas vivas, cuando las pozas de la roca quedan más expuestas; en los cuartos el rango es mínimo.', pt: 'Na lua nova ou cheia, sol e lua somam forças e criam marés de sizígia, quando as poças da rocha ficam mais expostas; nos quartos, a amplitude é mínima.' } as T,
+    { zh: '涨潮时礁石下部的通道与平台会被浪覆盖，务必提前查潮位、留出退路；礁面常有湿滑青苔，请穿防滑鞋。', en: 'At high tide the lower paths and ledges on the rock are covered — check the tide table in advance and keep an escape route. The surface often has slippery algae, so wear shoes with grip.', es: 'En pleamar los pasos y repisas bajas quedan cubiertos: consulte la tabla y conserve una vía de salida. La superficie suele tener algas resbaladizas: use calzado con agarre.', pt: 'Na maré alta, os acessos e plataformas baixas ficam cobertos — consulte a tábua antes e mantenha rota de saída. A superfície costuma ter algas escorregadias: use calçado com aderência.' } as T,
+  ],
+  note: { zh: '潮位为模型预报值，时间为当地时间，实际涨落可能相差数十分钟；礁石活动请提前留出余量。', en: 'Tide heights are model forecasts and times are local; actual tides may differ by tens of minutes — leave a margin when exploring the rock.', es: 'Las alturas son de modelo y las horas son locales; la marea real puede variar decenas de minutos: deje margen en la roca.', pt: 'As alturas são de modelo e os horários são locais; a maré real pode variar dezenas de minutos — deixe margem na rocha.' } as T,
+  unavailable: { zh: '实时潮汐数据暂时不可用，请以现场标识与当地预报为准。', en: 'Live tide data is temporarily unavailable — follow on-site signage and local forecasts.', es: 'Datos de marea no disponibles: siga la señalización del lugar y los pronósticos locales.', pt: 'Dados de maré indisponíveis — siga a sinalização local e as previsões.' } as T,
+};
+
+// ── Sunset (日落指南) ──
+export const sunset = {
+  sectionNum: { zh: '日落指南', en: 'Sunset', es: 'Atardecer', pt: 'Pôr do Sol' } as T,
+  heading: {
+    zh: '落日之约，<br/><em class="text-[color:var(--color-sun)]">为什么所有人都在鼓掌</em>',
+    en: 'The sunset ritual,<br/><em class="text-[color:var(--color-sun)]"> and why everyone applauds</em>',
+    es: 'La cita del atardecer,<br/><em class="text-[color:var(--color-sun)]"> y por qué todos aplauden</em>',
+    pt: 'O ritual do pôr do sol,<br/><em class="text-[color:var(--color-sun)]"> e por que todos aplaudem</em>',
+  } as T,
+  subtitle: {
+    zh: '日落是这里唯一每天准时上演的节目，也是「Arpoador」最常被搜索的理由。下面是今天的准确时刻、该几点到、站在哪里拍，以及掌声的来历。',
+    en: 'Sunset is the one show that runs on time every day — and the main reason people search for Arpoador. Here are today\'s exact time, when to arrive, where to stand, and where the applause comes from.',
+    es: 'El atardecer es el único espectáculo que empieza puntual cada día, y el motivo principal por el que se busca Arpoador. Aquí están la hora exacta de hoy, cuándo llegar, dónde colocarse y de dónde viene el aplauso.',
+    pt: 'O pôr do sol é o único espetáculo que começa na hora todos os dias — e o principal motivo pelo qual as pessoas procuram Arpoador. Veja a hora exata de hoje, quando chegar, onde ficar e de onde vem o aplauso.',
+  } as T,
+
+  todayLabel: { zh: '今日日落', en: 'Sunset today', es: 'Atardecer hoy', pt: 'Pôr do sol hoje' } as T,
+  arriveLabel: { zh: '建议到达', en: 'Arrive by', es: 'Llegue antes de', pt: 'Chegue às' } as T,
+  applauseLabel: { zh: '掌声时刻', en: 'Applause at', es: 'Aplauso a las', pt: 'Aplausos às' } as T,
+  blueHourLabel: { zh: '蓝调时刻', en: 'Blue hour', es: 'Hora azul', pt: 'Hora azul' } as T,
+  countdownIn: { zh: '距日落还有', en: 'Sunset in', es: 'Faltan', pt: 'Faltam' } as T,
+  countdownUnit: { zh: '分钟', en: 'min', es: 'min', pt: 'min' } as T,
+  countdownPast: { zh: '今日日落已过 · 明天同一时间再见', en: 'Today\'s sunset has passed — same time tomorrow', es: 'El atardecer de hoy ya pasó; mañana a la misma hora', pt: 'O pôr do sol de hoje já passou — amanhã no mesmo horário' } as T,
+  arriveHint: { zh: '日落前 45 分钟到场占位', en: '45 minutes before sunset', es: '45 minutos antes del atardecer', pt: '45 minutos antes do pôr do sol' } as T,
+
+  timelineHeading: { zh: '日落前后的 90 分钟', en: 'The 90 minutes around sunset', es: 'Los 90 minutos alrededor del atardecer', pt: 'Os 90 minutos em volta do pôr do sol' } as T,
+  timeline: [
+    {
+      title: { zh: '到达与占位', en: 'Arrive and claim a spot', es: 'Llegar y coger sitio', pt: 'Chegar e garantir lugar' } as T,
+      body: { zh: '礁石顶部与东侧木栈道同时开始拥挤。旺季（12–3 月）与周末请再提前 15 分钟，日落前 30 分钟到场通常已无好机位。', en: 'The top of the rock and the east boardwalk get crowded at the same time. In high season (Dec–Mar) and at weekends come 15 minutes earlier — by 30 minutes before sunset the good spots are usually gone.', es: 'La cima de la roca y el paseo del este se llenan a la vez. En temporada alta (dic–mar) y los fines de semana llegue 15 minutos antes: a 30 minutos del atardecer ya no suele haber buen sitio.', pt: 'O topo da rocha e a passarela leste ficam cheios ao mesmo tempo. Na alta temporada (dez–mar) e nos fins de semana chegue 15 minutos antes — a 30 minutos do pôr do sol os bons lugares já acabaram.' } as T,
+    },
+    {
+      title: { zh: '金色时刻', en: 'Golden hour', es: 'Hora dorada', pt: 'Hora dourada' } as T,
+      body: { zh: '太阳降到两山之间的高度，海面出现一条金色反光带。此时拍人像肤色最暖，也是沙滩上人相对最少的一刻。', en: 'The sun drops to the height of the gap between the two mountains and a golden band appears on the water. Skin tones are warmest now, and the beach is at its emptiest.', es: 'El sol baja a la altura del hueco entre los dos montes y aparece una franja dorada en el mar. Es el momento de tonos más cálidos y de playa más vacía.', pt: 'O sol desce até a altura do vão entre os dois morros e surge uma faixa dourada no mar. É o momento de tons mais quentes e de praia mais vazia.' } as T,
+    },
+    {
+      title: { zh: '太阳沉入山脊 · 掌声响起', en: 'Sun sets, applause starts', es: 'El sol se pone, empieza el aplauso', pt: 'O sol se põe, começa o aplauso' } as T,
+      body: { zh: '太阳从科帕卡巴纳一侧的山脊后落下，天空由金转橙再转红，整个过程通常只有 3–5 分钟。太阳消失的那一刻，沙滩与礁石上的人群会同时鼓掌。', en: 'The sun sinks behind the ridge on the Copacabana side and the sky turns from gold to orange to red in just 3–5 minutes. The moment it disappears, everyone on the beach and the rock applauds at once.', es: 'El sol se hunde tras la cresta del lado de Copacabana y el cielo pasa de dorado a naranja y rojo en solo 3–5 minutos. En el instante en que desaparece, todos aplauden a la vez.', pt: 'O sol se esconde atrás da crista do lado de Copacabana e o céu vai do dourado ao laranja e ao vermelho em apenas 3–5 minutos. No instante em que ele some, todos aplaudem ao mesmo tempo.' } as T,
+    },
+    {
+      title: { zh: '蓝调时刻', en: 'Blue hour', es: 'Hora azul', pt: 'Hora azul' } as T,
+      body: { zh: '天光转为深蓝，城市灯火与路灯亮起。这是长曝光、车轨与夜景人像的最佳窗口，约持续 20 分钟，之后礁石上会迅速变暗。', en: 'The sky turns deep blue as the city lights come on. This is the best window for long exposures, light trails and night portraits — it lasts about 20 minutes, then the rock gets dark fast.', es: 'El cielo se vuelve azul profundo y se encienden las luces. Es la mejor ventana para larga exposición, estelas de luz y retratos nocturnos; dura unos 20 minutos.', pt: 'O céu fica azul-profundo e as luzes da cidade acendem. É a melhor janela para longa exposição, rastros de luz e retratos noturnos — dura cerca de 20 minutos.' } as T,
+    },
+  ],
+
+  spotsHeading: { zh: '四个最佳机位', en: 'Four best viewpoints', es: 'Cuatro mejores miradores', pt: 'Quatro melhores ângulos' } as T,
+  spots: [
+    {
+      icon: '🪨',
+      title: { zh: '礁石顶部平台', en: 'Top of the rock', es: 'Cima de la roca', pt: 'Topo da rocha' } as T,
+      body: { zh: '正对科帕卡巴纳方向，是鼓掌仪式的主场；落日方位恰好落在两山之间的缺口。完全无遮阴，务必提前占位。', en: 'Facing Copacabana, this is where the applause happens; the sun sets exactly in the gap between the two mountains. No shade at all, so claim your spot early.', es: 'Mirando a Copacabana, es el escenario del aplauso; el sol cae justo en el hueco entre los dos montes. Sin sombra: llegue temprano.', pt: 'De frente para Copacabana, é onde o aplauso acontece; o sol se põe exatamente no vão entre os dois morros. Sem sombra alguma — chegue cedo.' } as T,
+    },
+    {
+      icon: '🪵',
+      title: { zh: '东侧木栈道', en: 'East boardwalk', es: 'Paseo del este', pt: 'Passarela leste' } as T,
+      body: { zh: '通往科帕卡巴纳的木栈道，能把礁石剪影与太阳同时收进画面，人像构图最稳，也不用爬上礁石。', en: 'The boardwalk towards Copacabana lets you frame the rock silhouette and the sun together — the steadiest portrait composition, with no climbing.', es: 'El paseo hacia Copacabana permite encuadrar la silueta de la roca y el sol a la vez: la composición de retrato más estable, sin subir.', pt: 'A passarela em direção a Copacabana permite enquadrar a silhueta da rocha e o sol juntos — a composição de retrato mais estável, sem escalar.' } as T,
+    },
+    {
+      icon: '📐',
+      title: { zh: '伊帕内玛沙滩侧', en: 'Ipanema beach side', es: 'Lado de la playa de Ipanema', pt: 'Lado da praia de Ipanema' } as T,
+      body: { zh: '退到 Posto 9 与礁石之间的沙滩，用广角把整块礁石、人群剪影与落日一起拍下，是最像明信片的角度。', en: 'Step back onto the sand between Posto 9 and the rock and use a wide lens to capture the whole rock, the crowd silhouettes and the sun — the postcard angle.', es: 'Retroceda a la arena entre el Posto 9 y la roca y use un gran angular para capturar la roca, las siluetas y el sol: el ángulo de postal.', pt: 'Volte para a areia entre o Posto 9 e a rocha e use uma grande angular para pegar a rocha inteira, as silhuetas e o sol — o ângulo de cartão-postal.' } as T,
+    },
+    {
+      icon: '🌊',
+      title: { zh: '魔鬼海滩一侧', en: 'Praia do Diabo side', es: 'Lado de Praia do Diabo', pt: 'Lado da Praia do Diabo' } as T,
+      body: { zh: '面向伊帕内玛双子峰（Dois Irmãos），侧光打在礁石上层次分明，适合长焦拍细节，人也比正面少。', en: 'Facing the Dois Irmãos peaks, side light sculpts the rock with strong contrast — ideal for telephoto detail shots, and far less crowded than the front.', es: 'Frente a los picos Dois Irmãos, la luz lateral da volumen a la roca: ideal para teleobjetivo y con mucha menos gente.', pt: 'De frente para o Dois Irmãos, a luz lateral dá volume à rocha — ideal para teleobjetiva e bem menos cheio.' } as T,
+    },
+  ],
+
+  applauseHeading: { zh: '掌声从哪里来', en: 'Where the applause comes from', es: 'De dónde viene el aplauso', pt: 'De onde vem o aplauso' } as T,
+  applauseBody: {
+    zh: '「落日之掌声」（Aplauso do Sol）是里约的非正式传统：当太阳完全沉入山脊，聚集在沙滩与礁石上的人群会自发鼓掌。它没有组织者、没有门票，也没有固定流程——只是本地人与游客共享的一个瞬间。1970 年代冲浪文化在此兴起，等浪的人们顺带把看日落变成了集体习惯，掌声便延续至今。',
+    en: 'The Sunset Applause (Aplauso do Sol) is an informal Rio tradition: when the sun finally drops behind the ridge, everyone gathered on the sand and on the rock claps spontaneously. No organiser, no ticket, no fixed script — just a shared moment between locals and visitors. When surf culture took off here in the 1970s, people waiting for swell turned sunset watching into a collective habit, and the applause stuck.',
+    es: 'El Aplauso del Sol (Aplauso do Sol) es una tradición informal de Río: cuando el sol desaparece tras la cresta, todos los que están en la arena y en la roca aplauden de forma espontánea. Sin organizador, sin entrada y sin guion: solo un momento compartido. Cuando el surf despegó aquí en los años 70, quienes esperaban olas convirtieron el atardecer en una costumbre colectiva, y el aplauso se quedó.',
+    pt: 'O Aplauso do Sol é uma tradição informal do Rio: quando o sol desaparece atrás da crista, todo mundo que está na areia e na rocha aplaude espontaneamente. Sem organizador, sem ingresso e sem roteiro — apenas um momento compartilhado. Quando o surfe despontou aqui nos anos 1970, quem esperava onda transformou o pôr do sol em hábito coletivo, e o aplauso ficou.',
+  } as T,
+
+  tableHeading: { zh: '全年日落时刻表', en: 'Sunset times all year', es: 'Horario del atardecer todo el año', pt: 'Horário do pôr do sol o ano todo' } as T,
+  tableSunset: { zh: '日落', en: 'Sunset', es: 'Atardecer', pt: 'Pôr do sol' } as T,
+  tableSunrise: { zh: '日出', en: 'Sunrise', es: 'Amanecer', pt: 'Nascer do sol' } as T,
+  tableNote: { zh: '取每月 15 日、当地时间（UTC−3），按里约坐标计算，误差约 ±2 分钟。巴西自 2019 年起不再实行夏令时，因此表中全年与此刻一致。', en: 'Taken on the 15th of each month, local time (UTC−3), computed for Rio coordinates with roughly ±2 minutes of error. Brazil dropped daylight saving in 2019, so these times hold all year.', es: 'Calculado para el día 15 de cada mes, hora local (UTC−3) y coordenadas de Río, con ±2 minutos de error. Brasil abandonó el horario de verano en 2019.', pt: 'Calculado para o dia 15 de cada mês, hora local (UTC−3) e coordenadas do Rio, com cerca de ±2 minutos de erro. O Brasil não adota mais horário de verão desde 2019.' } as T,
+
+  safetyHeading: { zh: '日落之后的三件事', en: 'Three things after sunset', es: 'Tres cosas tras el atardecer', pt: 'Três coisas depois do pôr do sol' } as T,
+  safety: [
+    { zh: '礁石表面粗糙但常有湿滑青苔，请穿防滑鞋；下礁石时不要背对海浪。', en: 'The rock is rough but often covered in slippery algae — wear shoes with grip and never turn your back on the waves on the way down.', es: 'La roca es rugosa pero suele tener algas resbaladizas: use calzado con agarre y no dé la espalda a las olas al bajar.', pt: 'A rocha é rugosa, mas costuma ter algas escorregadias — use calçado com aderência e não fique de costas para as ondas na descida.' } as T,
+    { zh: '日落前 30 分钟到日落后 30 分钟人流最密集，请看好手机、相机与随身包。', en: 'From 30 minutes before to 30 minutes after sunset is the busiest window — keep an eye on your phone, camera and bag.', es: 'Desde 30 minutos antes hasta 30 minutos después del atardecer es el momento de más gente: vigile móvil, cámara y bolso.', pt: 'De 30 minutos antes a 30 minutos depois do pôr do sol é o período mais cheio — fique atento a celular, câmera e bolsa.' } as T,
+    { zh: '日落后礁石上没有照明，光线下降很快；建议沿木栈道返回有路灯的区域，不要独自留在礁石深处。', en: 'There is no lighting on the rock and it gets dark quickly after sunset — walk back along the boardwalk to the lit area rather than staying out on the rock alone.', es: 'No hay iluminación en la roca y oscurece rápido: vuelva por el paseo hacia la zona iluminada y no se quede solo en la roca.', pt: 'Não há iluminação na rocha e escurece rápido — volte pela passarela até a área iluminada e não fique sozinho na rocha.' } as T,
+  ],
+  note: { zh: '日落时刻为当地时间的官方预报值；实际受地形与大气折射影响可能有 1–2 分钟差异。', en: 'Sunset times are official local forecasts; terrain and atmospheric refraction can shift the visible moment by 1–2 minutes.', es: 'Las horas son previsiones oficiales en hora local; el relieve y la refracción pueden desviar el momento visible 1–2 minutos.', pt: 'Os horários são previsões oficiais em hora local; relevo e refração atmosférica podem deslocar o momento visível em 1–2 minutos.' } as T,
+  unavailable: { zh: '日落数据暂时不可用，请参考上方天气板块的日出日落时刻。', en: 'Sunset data is temporarily unavailable — see the sunrise/sunset times in the weather section above.', es: 'Datos del atardecer no disponibles: consulte las horas de la sección de clima arriba.', pt: 'Dados do pôr do sol indisponíveis — veja os horários na seção de clima acima.' } as T,
+
+  // 站内关键词内链（锚文本带完整搜索词）
+  relatedHeading: { zh: '接着看', en: 'Keep reading', es: 'Sigue leyendo', pt: 'Continue lendo' } as T,
+  relatedTides: { zh: '潮汐时刻与赶海窗口', en: 'Tide times and low-tide windows', es: 'Horario de mareas y ventanas de bajamar', pt: 'Tábua de marés e janelas de maré baixa' } as T,
+  relatedTransport: { zh: '怎么去 Arpoador：地铁与步行路线', en: 'How to get to Arpoador: metro and walking routes', es: 'Cómo llegar a Arpoador: metro y a pie', pt: 'Como chegar ao Arpoador: metrô e a pé' } as T,
+  relatedWeather: { zh: '今日天气、海温与浪高', en: 'Today\'s weather, sea temperature and waves', es: 'Tiempo, temperatura del mar y olas de hoy', pt: 'Tempo, temperatura do mar e ondas hoje' } as T,
+  relatedHistory: { zh: '「Arpoador」这个名字的含义与历史', en: 'What the name "Arpoador" means and its history', es: 'El significado del nombre "Arpoador" y su historia', pt: 'O significado do nome "Arpoador" e sua história' } as T,
 };
 
 // ── Gallery ──
@@ -222,7 +457,7 @@ export const gallery = {
 // ── Reviews ──
 export const reviews = {
   sectionNum: { zh: '游客评价', en: 'Reviews', es: 'Reseñas', pt: 'Avaliações' } as T,
-  heading: { zh: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · 来自 32,786 位旅行者', en: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · from 32,786 travelers', es: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · de 32.786 viajeros', pt: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · de 32.786 viajantes' } as T,
+  heading: { zh: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · 来自 32,964 位旅行者', en: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · from 32,964 travelers', es: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · de 32.964 viajeros', pt: '4.8<span class="text-[color:var(--color-emerald)]">/5</span> · de 32.964 viajantes' } as T,
   viewMoreReviews: { zh: '在 Google 地图上查看更多评价', en: 'View more reviews on Google Maps', es: 'Ver más reseñas en Google Maps', pt: 'Ver mais avaliações no Google Maps' } as T,
   items: [
     { stars: '★★★★★', date: '2025-05', title: { zh: '"潮间带的小课堂"', en: '"A tide-pool classroom"', es: '"Un aula de pozas"', pt: '"Uma sala de maré"' } as T, desc: { zh: '绝佳的潮间带生态观察点。退潮时能在同一片岩池里清晰记录到石莼（海藻）与军士鱼的共生关系，是给初学者最好的现场教材。', en: 'A superb intertidal observation spot. At low tide you can clearly document the symbiosis between sea lettuce (Ulva) and sergeant majors in the same pool — a perfect field lesson for beginners.', es: 'Punto de observación intermareal excelente. En bajamar se documenta la simbiosis entre lechuga de mar (Ulva) y sargentos en la misma poza: una lección de campo perfecta.', pt: 'Excelente ponto de observação entremarés. Na baixa-mar dá para registrar a simbiose entre alface-do-mar (Ulva) e castanhetas na mesma poça: aula de campo perfeita.' } as T, author: 'Marina C. · 海洋生物系学生 · 🇧🇷' },
@@ -397,6 +632,60 @@ export const faq = {
         pt: 'A rocha é bela mas molhada e escorregadia; ondas grandes cobrem a plataforma. Calçado com sola, longe da onda e nunca de costas para o mar. Fique com as crianças por perto.',
       } as T,
     },
+    {
+      q: { zh: '什么是"落日之掌声"（Aplauso do Sol）？', en: 'What is the "Sunset Applause" (Aplauso do Sol)?', es: '¿Qué es el "Aplauso del Sol"?', pt: 'O que é o "Aplauso do Sol"?' } as T,
+      a: {
+        zh: '每当太阳沉入科帕卡巴纳与莱梅之间的海平线，礁石与海滩上的人群会自发鼓掌，这就是"落日之掌声"。它没有组织者，是里约人对自然之美与生活热爱的集体表达。请在日落前 30–60 分钟到场，找个位置，当掌声响起时加入其中。',
+        en: 'Every dusk, as the sun sinks into the sea between Copacabana and Leme, the crowd on the rock and the beach breaks into spontaneous applause — the "Sunset Applause". It has no organiser; it is Rio\'s collective tribute to beauty and to life. Arrive 30–60 minutes before sunset, find a spot, and join in when the clapping starts.',
+        es: 'Cada atardecer, cuando el sol se hunde en el mar entre Copacabana y Leme, la multitud en la roca y la playa rompe en aplausos espontáneos: el "Aplauso del Sol". No tiene organizador; es el homenaje colectivo de Río a la belleza y a la vida. Llegue 30–60 min antes y únase cuando empiece.',
+        pt: 'A cada entardecer, quando o sol afunda no mar entre Copacabana e Leme, a multidão na rocha e na praia explode em aplausos espontâneos — o "Aplauso do Sol". Não tem organizador; é a homenagem coletiva do Rio à beleza e à vida. Chegue 30–60 min antes e participe quando começar.',
+      } as T,
+    },
+    {
+      q: { zh: 'Arpoador 适合冲浪吗？', en: 'Is Arpoador good for surfing?', es: '¿Es Arpoador bueno para el surf?', pt: 'O Arpoador é bom para surfar?' } as T,
+      a: {
+        zh: '是的。Arpoador 被认为是里约冲浪文化的发源地，礁石外侧是一道优质的长右跑浪（point break），适合中高级冲浪者。清晨与黄昏浪况最好。请注意：这里没有常驻救生员，浪点下方水流较强，初学者不宜在此下水。',
+        en: 'Yes. Arpoador is regarded as the birthplace of Rio\'s surf culture, and the right-hand point break just off the rock suits intermediate and advanced surfers. Dawn and dusk usually bring the best waves. Note that there is no permanent lifeguard here and the currents in the break can be strong — beginners should not paddle out.',
+        es: 'Sí. Arpoador se considera la cuna del surf carioca y su derecha junto a la roca es para surfistas intermedios y avanzados. Amanecer y atardecer suelen dar las mejores olas. No hay socorrista permanente y las corrientes pueden ser fuertes: los principiantes no deberían entrar.',
+        pt: 'Sim. O Arpoador é considerado o berço do surf carioca, e a direita junto à rocha é para surfistas intermediários e avançados. Amanhecer e entardecer costumam trazer as melhores ondas. Não há salva-vidas permanente e as correntes podem ser fortes — iniciantes não devem entrar.',
+      } as T,
+    },
+    {
+      q: { zh: '附近有卫生间或餐饮设施吗？', en: 'Are there toilets or food nearby?', es: '¿Hay baños o comida cerca?', pt: 'Há banheiros ou comida por perto?' } as T,
+      a: {
+        zh: '礁石本身没有卫生间或商店。步行数分钟即可到达伊帕内玛或科帕卡巴纳海滨，那里有海滩售货亭（quiosques）、咖啡馆与餐厅，提供饮品、小吃与洗手间。建议自带饮用水。',
+        en: 'The rock itself has no toilets or shops. A few minutes\' walk brings you to the Ipanema or Copacabana seafront, where beach kiosks (quiosques), cafés and restaurants offer drinks, snacks and restrooms. Bring your own drinking water.',
+        es: 'La roca no tiene baños ni tiendas. A pocos minutos está la orilla de Ipanema o Copacabana, con quioscos, cafés y restaurantes con bebidas, snacks y baños. Lleve agua.',
+        pt: 'A rocha em si não tem banheiros nem lojas. A poucos minutos está a orla de Ipanema ou Copacabana, com quiosques, cafés e restaurantes com bebidas, petiscos e banheiros. Leve água.',
+      } as T,
+    },
+    {
+      q: { zh: '游览需要携带什么？', en: 'What should I bring?', es: '¿Qué debo llevar?', pt: 'O que devo levar?' } as T,
+      a: {
+        zh: '建议携带：防滑鞋（礁石湿滑）、防晒霜与帽子、饮用水、薄外套（海风）、以及相机或望远镜。黄昏观落日时请提前到场，并随身带走所有垃圾。',
+        en: 'Bring grippy shoes (the rock is slippery), sunscreen and a hat, drinking water, a light layer for the sea breeze, and a camera or binoculars. For sunset, arrive early and carry out all your rubbish.',
+        es: 'Lleve calzado con suela (la roca resbala), protector solar y gorra, agua, una capa ligera por la brisa y cámara o prismáticos. Para el atardecer, llegue temprano y llévese su basura.',
+        pt: 'Leve calçado com sola (a rocha escorrega), protetor solar e boné, água, uma camada leve para a brisa e câmera ou binóculos. Para o pôr do sol, chegue cedo e leve seu lixo embora.',
+      } as T,
+    },
+    {
+      q: { zh: '在 Arpoador 哪里看日落最好？', en: 'Where is the best spot to watch the sunset in Arpoador?', es: '¿Cuál es el mejor lugar para ver el atardecer en Arpoador?', pt: 'Qual o melhor lugar para ver o pôr do sol no Arpoador?' } as T,
+      a: {
+        zh: '礁石顶部平台视野最开阔，日落方位正好落在科帕卡巴纳与莱梅之间的山脊缺口，也是"落日之掌声"的主场；东侧通往科帕卡巴纳的木栈道适合拍人像剪影；退到 Posto 9 与礁石之间的沙滩，用广角可以拍下整块礁石与人群；想拍双子峰（Dois Irmãos）与侧光层次，请到魔鬼海滩（Praia do Diabo）一侧。',
+        en: 'The flat top of the rock has the widest view, with the sun setting exactly in the gap between the Copacabana and Leme ridges — and it is where the Sunset Applause happens. The east boardwalk towards Copacabana is best for backlit portraits; step back onto the sand between Posto 9 and the rock for a wide shot of the whole rock and the crowd; and head to the Praia do Diabo side for side-lit frames of the Dois Irmãos peaks.',
+        es: 'La cima plana de la roca ofrece la vista más amplia, con el sol cayendo justo en el hueco entre Copacabana y Leme, y es donde ocurre el Aplauso del Sol. El paseo del este hacia Copacabana es ideal para retratos a contraluz; retroceda a la arena entre el Posto 9 y la roca para un gran angular con toda la roca y la gente; y vaya al lado de Praia do Diabo para el Dois Irmãos con luz lateral.',
+        pt: 'O topo plano da rocha tem a vista mais ampla, com o sol se pondo exatamente no vão entre Copacabana e Leme — e é onde acontece o Aplauso do Sol. A passarela leste em direção a Copacabana é a melhor para retratos contra a luz; volte para a areia entre o Posto 9 e a rocha para uma grande angular com a rocha inteira e a multidão; e vá ao lado da Praia do Diabo para enquadrar o Dois Irmãos com luz lateral.',
+      } as T,
+    },
+    {
+      q: { zh: '附近哪里可以租冲浪板？', en: 'Where can I rent a surfboard nearby?', es: '¿Dónde puedo alquilar una tabla de surf cerca?', pt: 'Onde alugar prancha de surf perto do Arpoador?' } as T,
+      a: {
+        zh: '礁石旁与伊帕内玛海滨步道沿线有多家冲浪学校与租赁店，通常按小时或按天计价，费用含冲浪板与脚绳，旺季建议提前预订。只想体验的话，多数店家提供 1–2 小时的入门课程。提醒：Arpoador 礁石外是一道面向中高级冲浪者的右跑浪，初学者请选择有救生员值守的沙滩段，并在教练陪同下下水。',
+        en: 'Several surf schools and rental shops sit right beside the rock and along the Ipanema seafront promenade. They usually charge by the hour or by the day, board and leash included, and booking ahead is wise in high season. If you just want to try it, most offer a 1–2 hour beginner lesson. Note that the point break off Arpoador suits intermediate and advanced surfers — beginners should choose a lifeguarded stretch of beach and paddle out with an instructor.',
+        es: 'Hay varias escuelas y tiendas de alquiler junto a la roca y a lo largo del paseo de Ipanema. Suelen cobrar por hora o por día, con tabla y leash incluidos, y conviene reservar en temporada alta. Si solo quiere probar, la mayoría ofrece clases de iniciación de 1–2 horas. Atención: la derecha de Arpoador es para surfistas intermedios y avanzados; los principiantes deben elegir un tramo con socorrista y entrar con instructor.',
+        pt: 'Há várias escolas e lojas de aluguel ao lado da rocha e ao longo do calçadão de Ipanema. Costumam cobrar por hora ou por dia, com prancha e leash incluídos, e vale reservar na alta temporada. Se quiser apenas experimentar, a maioria oferece aula de iniciação de 1–2 horas. Atenção: a direita do Arpoador é para surfistas intermediários e avançados — iniciantes devem escolher um trecho com salva-vidas e entrar com instrutor.',
+      } as T,
+    },
   ],
 };
 
@@ -544,6 +833,7 @@ export const footer = {
   terms: { zh: '服务条款', en: 'Terms of Service', es: 'Términos de Servicio', pt: 'Termos de Serviço' } as T,
   cookies: { zh: 'Cookie 设置', en: 'Cookie Settings', es: 'Configuración de Cookies', pt: 'Configurações de Cookies' } as T,
   leaveNoTrace: { zh: '游览公约', en: 'Visitor Code', es: 'Código del Visitante', pt: 'Código do Visitante' } as T,
+  imageRights: { zh: '本网站所展示的所有图片产权及版权均归原摄影者所有。', en: 'All images displayed on this website remain the property and copyright of their original photographers.', es: 'Todas las imágenes mostradas en este sitio web son propiedad y están protegidas por los derechos de autor de sus fotógrafos originales.', pt: 'Todas as imagens exibidas neste site permanecem como propriedade e sob direitos autorais de seus fotógrafos originais.' } as T,
 };
 
 // ── Privacy Policy Page ──
@@ -669,8 +959,499 @@ export const cookies = {
   backLink: { zh: '← 返回首页', en: '← Back to home', es: '← Volver al inicio', pt: '← Voltar ao início' } as T,
 };
 
+// ── Entity Binding (单景点实体语义绑定) ──
+export const entity = {
+  breadcrumbHome: { zh: '首页', en: 'Home', es: 'Inicio', pt: 'Início' } as T,
+  breadcrumbNeighborhood: { zh: '伊帕内玛', en: 'Ipanema', es: 'Ipanema', pt: 'Ipanema' } as T,
+  breadcrumbCity: { zh: '里约热内卢', en: 'Rio de Janeiro', es: 'Río de Janeiro', pt: 'Rio de Janeiro' } as T,
+  breadcrumbCountry: { zh: '巴西', en: 'Brazil', es: 'Brasil', pt: 'Brasil' } as T,
+  kicker: { zh: '官方访客指南', en: 'Official Visitor Guide', es: 'Guía Oficial del Visitante', pt: 'Guia Oficial do Visitante' } as T,
+  h1: {
+    zh: 'Pedra do Arpoador（里约热内卢 · 伊帕内玛）',
+    en: 'Pedra do Arpoador (Rio de Janeiro)',
+    es: 'Pedra do Arpoador (Río de Janeiro)',
+    pt: 'Pedra do Arpoador (Rio de Janeiro)',
+  } as T,
+  aboutHeading: { zh: '关于 Pedra do Arpoador', en: 'About Pedra do Arpoador', es: 'Sobre la Pedra do Arpoador', pt: 'Sobre a Pedra do Arpoador' } as T,
+  intro: {
+    zh: '欢迎来到 <strong>Pedra do Arpoador</strong>——人们通常直接称它为 <strong>Arpoador</strong>。它位于<strong>巴西里约热内卢</strong>的伊帕内玛东端，是这一地区最核心的地标，也是旅行者到访里约南区的起点。',
+    en: 'Welcome to <strong>Pedra do Arpoador</strong>, widely recognized simply as <strong>Arpoador</strong>. Located in the heart of <strong>Ipanema, Rio de Janeiro, Brazil</strong>, this destination serves as a primary hub for travelers visiting the region.',
+    es: 'Bienvenido a la <strong>Pedra do Arpoador</strong>, conocida simplemente como <strong>Arpoador</strong>. Situada en el corazón de <strong>Ipanema, Río de Janeiro, Brasil</strong>, es el punto de referencia para los viajeros que visitan la región.',
+    pt: 'Bem-vindo à <strong>Pedra do Arpoador</strong>, conhecida simplesmente como <strong>Arpoador</strong>. Localizada no coração de <strong>Ipanema, Rio de Janeiro, Brasil</strong>, é o ponto de referência para os viajantes que visitam a região.',
+  } as T,
+  hierarchyHeading: { zh: '地理归属层级', en: 'Geographic hierarchy', es: 'Jerarquía geográfica', pt: 'Hierarquia geográfica' } as T,
+  nearbyHeading: { zh: 'Arpoador 周边地标与景点', en: 'Landmarks & Attractions Around Arpoador', es: 'Lugares y atracciones cerca de Arpoador', pt: 'Pontos e atrações ao redor do Arpoador' } as T,
+  nearbyText: {
+    zh: '在游览 <strong>Pedra do Arpoador</strong> 时，访客可以轻松探索周边的历史地标与景点，包括 <strong>Praia de Ipanema</strong> 与 <strong>Forte de Copacabana</strong>，以及礁石后方残存的大西洋雨林 Parque Garota de Ipanema。',
+    en: 'When visiting <strong>Pedra do Arpoador</strong>, travelers can easily explore surrounding historical landmarks and points of interest, including <strong>Praia de Ipanema</strong> and <strong>Forte de Copacabana</strong>, as well as Parque Garota de Ipanema, the remnant Atlantic Forest behind the rock.',
+    es: 'Al visitar la <strong>Pedra do Arpoador</strong>, los viajeros pueden explorar fácilmente lugares históricos y puntos de interés cercanos, como <strong>Praia de Ipanema</strong> y <strong>Forte de Copacabana</strong>, además del Parque Garota de Ipanema.',
+    pt: 'Ao visitar a <strong>Pedra do Arpoador</strong>, os viajantes podem explorar facilmente pontos históricos e de interesse próximos, como a <strong>Praia de Ipanema</strong> e o <strong>Forte de Copacabana</strong>, além do Parque Garota de Ipanema.',
+  } as T,
+  historyHeading: { zh: 'Pedra do Arpoador 的历史与意义', en: 'History & Significance of Pedra do Arpoador', es: 'Historia y significado de la Pedra do Arpoador', pt: 'História e significado da Pedra do Arpoador' } as T,
+  historyText: {
+    zh: '从 18 世纪捕鲸人的鱼叉，到 20 世纪 70 年代里约冲浪文化的发源，再到全城为落日鼓掌的 "Aplauso do Sol"，这块礁石承载着里约海滨生活的关键记忆，也是理解里约"山海之城"性格的一把钥匙。',
+    en: 'From the whaler\'s harpoon of the 18th century to the birth of Rio\'s surf culture in the 1970s and the city-wide "Sunset Applause" (Aplauso do Sol), this rock holds key memories of carioca beach life — and a key to the character of Rio, the city between mountain and sea.',
+    es: 'Del arpón ballenero del siglo XVIII al nacimiento del surf carioca en los años 70 y al "Aplauso del Sol", esta roca guarda recuerdos clave de la vida playera de Río, y una clave para entender la ciudad entre mar y montaña.',
+    pt: 'Do arpão baleeiro do século XVIII ao nascimento do surf carioca nos anos 70 e ao "Aplauso do Sol", esta rocha guarda memórias-chave da vida praiana do Rio — e uma chave para entender a cidade entre mar e montanha.',
+  } as T,
+  historyLink: { zh: '阅读深度百科 →', en: 'Read the full encyclopedia →', es: 'Leer la enciclopedia completa →', pt: 'Ler a enciclopédia completa →' } as T,
+  badgeFree: { zh: '免费开放', en: 'Free entry', es: 'Entrada libre', pt: 'Entrada livre' } as T,
+  badgeOpen: { zh: '全天 24 小时', en: 'Open 24 hours', es: 'Abierto 24 horas', pt: 'Aberto 24 horas' } as T,
+  badgeSurf: { zh: '冲浪浪点', en: 'Surf break', es: 'Punto de surf', pt: 'Ponto de surf' } as T,
+};
+
+// ── Location & Map (位置与到达) ──
+export const location = {
+  sectionNum: { zh: '位置与到达', en: 'Location', es: 'Ubicación', pt: 'Localização' } as T,
+  heading: {
+    zh: '位置与到达：里约热内卢的 Arpoador',
+    en: 'Location & How to Visit Arpoador in Rio de Janeiro',
+    es: 'Ubicación y cómo visitar Arpoador en Río de Janeiro',
+    pt: 'Localização e como visitar o Arpoador no Rio de Janeiro',
+  } as T,
+  subtitle: {
+    zh: 'Arpoador 位于伊帕内玛海滩东端、伊帕内玛与科帕卡巴纳之间的颈状岬角上。可步行、乘地铁或公交抵达，全天免费开放。',
+    en: 'Arpoador sits on the narrow headland at the east end of Ipanema, between Ipanema and Copacabana. Reach it on foot, by metro or by bus — free and open around the clock.',
+    es: 'Arpoador se sitúa en el istmo del extremo este de Ipanema, entre Ipanema y Copacabana. Se llega a pie, en metro o en bus; gratis y abierto 24 h.',
+    pt: 'O Arpoador fica no istmo do extremo leste de Ipanema, entre Ipanema e Copacabana. Chega-se a pé, de metrô ou ônibus — grátis e aberto 24 h.',
+  } as T,
+  addressHeading: { zh: '官方地址（NAP）', en: 'Official address (NAP)', es: 'Dirección oficial (NAP)', pt: 'Endereço oficial (NAP)' } as T,
+  plusCodeLabel: { zh: 'Plus Code', en: 'Plus Code', es: 'Plus Code', pt: 'Plus Code' } as T,
+  coordsLabel: { zh: '坐标', en: 'Coordinates', es: 'Coordenadas', pt: 'Coordenadas' } as T,
+  openMaps: { zh: '在 Google 地图中打开', en: 'Open in Google Maps', es: 'Abrir en Google Maps', pt: 'Abrir no Google Maps' } as T,
+  visitHeading: { zh: '如何到达', en: 'How to get there', es: 'Cómo llegar', pt: 'Como chegar' } as T,
+  visitText: {
+    zh: '<strong>地铁：</strong>乘至 General Osório 站，沿 Rua Visconde de Pirajá 向东步行约 10 分钟穿过伊帕内玛海滩即到。<br/><strong>公交：</strong>乘坐沿海滨的 512 / 571 路，在 Posto 9 附近下车后步行约 5 分钟。<br/><strong>步行 / 骑行：</strong>从科帕卡巴纳沿海滨向南步行约 20 分钟，沿途设有 BikeRio 自行车租赁点。',
+    en: '<strong>Metro:</strong> take it to General Osório, then walk east along Rua Visconde de Pirajá (~10 min) across Ipanema beach.<br/><strong>Bus:</strong> ride seafront lines 512 / 571 and hop off near Posto 9 — about a 5-minute walk.<br/><strong>On foot / bike:</strong> from Copacabana, walk south along the seafront ~20 min; BikeRio stands line the way.',
+    es: '<strong>Metro:</strong> hasta General Osório y camine al este por Rua Visconde de Pirajá (~10 min) cruzando Ipanema.<br/><strong>Bus:</strong> líneas 512 / 571, baje cerca de Posto 9 y camine 5 min.<br/><strong>A pie / bici:</strong> desde Copacabana, camine al sur ~20 min; hay estaciones BikeRio.',
+    pt: '<strong>Metrô:</strong> desça em General Osório e caminhe a leste pela Rua Visconde de Pirajá (~10 min) atravessando Ipanema.<br/><strong>Ônibus:</strong> linhas 512 / 571, desça perto do Posto 9 e caminhe 5 min.<br/><strong>A pé / bike:</strong> de Copacabana, caminhe ao sul ~20 min; há estações BikeRio.',
+  } as T,
+  mapCaption: {
+    zh: 'Pedra do Arpoador 在 Google 地图上的位置（Av. Francisco Bhering, s/n — Ipanema, Rio de Janeiro）。',
+    en: 'Pedra do Arpoador on Google Maps (Av. Francisco Bhering, s/n — Ipanema, Rio de Janeiro).',
+    es: 'Pedra do Arpoador en Google Maps (Av. Francisco Bhering, s/n — Ipanema, Río de Janeiro).',
+    pt: 'Pedra do Arpoador no Google Maps (Av. Francisco Bhering, s/n — Ipanema, Rio de Janeiro).',
+  } as T,
+  officialPrefix: {
+    zh: '如需官方更新与地区旅游信息，请访问',
+    en: 'For official updates and regional tourism information, visit',
+    es: 'Para actualizaciones oficiales e información turística regional, visite',
+    pt: 'Para atualizações oficiais e informações turísticas regionais, visite',
+  } as T,
+  officialLink: {
+    zh: '巴西 / 里约热内卢官方旅游门户',
+    en: 'Brazil / Rio de Janeiro Official Tourism Portal',
+    es: 'Portal oficial de turismo de Brasil / Río de Janeiro',
+    pt: 'Portal oficial de turismo do Brasil / Rio de Janeiro',
+  } as T,
+};
+
+// ── Sources (资料来源 / E-E-A-T) ──
+export const sources = {
+  sectionNum: { zh: '参考来源', en: 'Sources', es: 'Fuentes', pt: 'Fontes' } as T,
+  heading: { zh: '资料来源与<em class="text-[color:var(--color-emerald)]">官方资源</em>', en: 'Sources &amp;<em class="text-[color:var(--color-emerald)]"> Official Resources</em>', es: 'Fuentes y<em class="text-[color:var(--color-emerald)]"> recursos oficiales</em>', pt: 'Fontes e<em class="text-[color:var(--color-emerald)]"> recursos oficiais</em>' } as T,
+  subtitle: {
+    zh: '本页内容由独立编辑团队依据公开资料与权威机构数据整理，并标注来源，以便访客进一步核实。',
+    en: 'This page was compiled by an independent editorial team from public sources and authoritative institutional data, with sources cited so visitors can verify further.',
+    es: 'Esta página fue elaborada por un equipo editorial independiente a partir de fuentes públicas y datos institucionales, con las fuentes citadas para su verificación.',
+    pt: 'Esta página foi elaborada por uma equipe editorial independente a partir de fontes públicas e dados institucionais, com as fontes citadas para verificação.',
+  } as T,
+  linksHeading: { zh: '权威来源与官方链接', en: 'Authoritative sources & official links', es: 'Fuentes autorizadas y enlaces oficiales', pt: 'Fontes autorizadas e links oficiais' } as T,
+  imageRightsHeading: { zh: '图片版权', en: 'Image credits', es: 'Créditos de imagen', pt: 'Créditos de imagem' } as T,
+  editorial: {
+    zh: '本网站是一个独立的第三方旅游资讯项目，与当地政府或其他官方机构没有任何关联。',
+    en: 'This website is an independent third-party tourism information project, not affiliated with any local government or official entity.',
+    es: 'Este sitio web es un proyecto independiente de información turística de terceros, sin vínculo con ningún gobierno local ni entidad oficial.',
+    pt: 'Este site é um projeto independente de informações turísticas de terceiros, sem vínculo com nenhum governo local ou entidade oficial.',
+  } as T,
+};
+
 // ── Meta ──
+// 标题按 SERP 像素宽度控制在 ~60 字符内，优先覆盖「日落 / 交通 / 开放时间」三大高意图词
 export const meta = {
-  title: { zh: 'Pedra do Arpoador · 里约伊帕内玛的落日与冲浪礁石', en: 'Pedra do Arpoador · Rio\'s Sunset & Surf Rock in Ipanema', es: 'Pedra do Arpoador · La roca del sol y el surf de Ipanema, Río', pt: 'Pedra do Arpoador · A rocha do pôr do sol e do surf em Ipanema' } as T,
-  description: { zh: 'Pedra do Arpoador（伊帕内玛礁石）完整指南：落日之掌声、冲浪圣地、潮汐岩池、免费开放与交通、9 条真实评价与常见问题。', en: 'The complete guide to Pedra do Arpoador in Ipanema, Rio: the Sunset Applause, surf break, tide pools, free access & transport, 9 real reviews, FAQ.', es: 'Guía completa de la Pedra do Arpoador en Ipanema, Río: Aplauso del Sol, surf, pozas de marea, acceso gratis y transporte, 9 reseñas y FAQ.', pt: 'Guia completo da Pedra do Arpoador em Ipanema, Rio: Aplauso do Sol, surf, piscinas de maré, acesso grátis e transporte, 9 avaliações e FAQ.' } as T,
+  title: {
+    zh: 'Pedra do Arpoador 礁石（里约热内卢）· 日落时刻、交通与访客指南',
+    en: 'Arpoador Rock Rio: Best Sunset Spot, Hours & Visitor Guide',
+    es: 'Piedra de Arpoador Río de Janeiro: Horario y Atardecer',
+    pt: 'Pedra do Arpoador: Guia do Pôr do Sol, Como Chegar e Dicas',
+  } as T,
+  description: {
+    zh: '里约热内卢伊帕内玛的 Pedra do Arpoador 访客指南：今日日落时刻与最佳观赏时间、落日掌声文化、地铁与步行路线、潮汐时刻、开放时间与安全贴士。',
+    en: 'Plan your visit to Arpoador Rock (Pedra do Arpoador) in Rio de Janeiro. Get exact sunset times, directions from Copacabana & Ipanema, and beach safety tips.',
+    es: 'Guía completa para visitar la Piedra de Arpoador en Río de Janeiro. Descubre la mejor hora para ver el atardecer, cómo llegar y qué hacer en Ipanema.',
+    pt: 'Descubra a Pedra do Arpoador no Rio de Janeiro. Saiba o melhor horário para o pôr do sol, como chegar de Ipanema ou Copacabana e dicas de segurança.',
+  } as T,
+};
+
+// ── Weather (实时天气与多日预报) ──
+export const weather = {
+  sectionNum: { zh: '实时天气', en: 'Live Weather', es: 'Clima en vivo', pt: 'Clima ao vivo' } as T,
+  heading: {
+    zh: '出门前，看一眼<br/><em class="text-[color:var(--color-emerald)]">海与天</em>',
+    en: 'Before you go,<br/><em class="text-[color:var(--color-emerald)]"> check sea &amp; sky</em>',
+    es: 'Antes de salir,<br/><em class="text-[color:var(--color-emerald)]"> mire mar y cielo</em>',
+    pt: 'Antes de sair,<br/><em class="text-[color:var(--color-emerald)]"> veja mar e céu</em>',
+  } as T,
+  subtitle: {
+    zh: '实时气温、降雨概率与未来七天趋势，帮你判断要不要带伞、几点上礁石、值不值得等一场落日。',
+    en: 'Live temperature, rain chance and a 7-day outlook to help you decide whether to pack an umbrella, when to climb the rock, and whether the sunset is worth the wait.',
+    es: 'Temperatura, probabilidad de lluvia y tendencia a 7 días para decidir si llevar paraguas, cuándo subir a la roca y si vale esperar el atardecer.',
+    pt: 'Temperatura, chance de chuva e tendência de 7 dias para decidir se leva guarda-chuva, quando subir à rocha e se vale esperar o pôr do sol.',
+  } as T,
+  nowLabel: { zh: '当前实况', en: 'Right now', es: 'Ahora mismo', pt: 'Agora' } as T,
+  feelsLike: { zh: '体感温度', en: 'Feels like', es: 'Sensación', pt: 'Sensação' } as T,
+  humidity: { zh: '相对湿度', en: 'Humidity', es: 'Humedad', pt: 'Umidade' } as T,
+  wind: { zh: '风速', en: 'Wind', es: 'Viento', pt: 'Vento' } as T,
+  gust: { zh: '阵风', en: 'Gusts', es: 'Ráfagas', pt: 'Rajadas' } as T,
+  precipNow: { zh: '当前降水', en: 'Precipitation', es: 'Precipitación', pt: 'Precipitação' } as T,
+  rainChance: { zh: '降雨概率', en: 'Rain chance', es: 'Prob. de lluvia', pt: 'Chance de chuva' } as T,
+  uvIndex: { zh: '紫外线指数', en: 'UV index', es: 'Índice UV', pt: 'Índice UV' } as T,
+  sunrise: { zh: '日出', en: 'Sunrise', es: 'Amanecer', pt: 'Nascer do sol' } as T,
+  sunset: { zh: '日落', en: 'Sunset', es: 'Atardecer', pt: 'Pôr do sol' } as T,
+  next12h: { zh: '未来 12 小时', en: 'Next 12 hours', es: 'Próximas 12 horas', pt: 'Próximas 12 horas' } as T,
+  forecast7: { zh: '未来 7 天', en: '7-day forecast', es: 'Pronóstico a 7 días', pt: 'Previsão de 7 dias' } as T,
+  high: { zh: '最高', en: 'High', es: 'Máx.', pt: 'Máx.' } as T,
+  low: { zh: '最低', en: 'Low', es: 'Mín.', pt: 'Mín.' } as T,
+  today: { zh: '今天', en: 'Today', es: 'Hoy', pt: 'Hoje' } as T,
+  tomorrow: { zh: '明天', en: 'Tomorrow', es: 'Mañana', pt: 'Amanhã' } as T,
+  marineHeading: { zh: '海况参考（冲浪与下水）', en: 'Sea conditions (surf &amp; swim)', es: 'Condiciones del mar (surf y baño)', pt: 'Condições do mar (surf e banho)' } as T,
+  waveHeight: { zh: '有效浪高', en: 'Wave height', es: 'Altura de ola', pt: 'Altura de onda' } as T,
+  wavePeriod: { zh: '波浪周期', en: 'Wave period', es: 'Período', pt: 'Período' } as T,
+  seaTemp: { zh: '海表温度', en: 'Sea temperature', es: 'Temp. del mar', pt: 'Temp. do mar' } as T,
+  updatedAt: { zh: '更新于', en: 'Updated', es: 'Actualizado', pt: 'Atualizado' } as T,
+  adviceHeading: { zh: '出行建议', en: 'What it means for you', es: 'Qué significa para ti', pt: 'O que isso significa para você' } as T,
+  adviceSubtitle: {
+    zh: '根据实时天气、紫外线、风力、海况与潮汐自动生成，只显示当下用得上的条目。',
+    en: 'Generated automatically from live weather, UV, wind, sea state and tides — only what actually applies right now is shown.',
+    es: 'Generado automáticamente a partir del tiempo, UV, viento, estado del mar y mareas; solo se muestra lo que aplica ahora.',
+    pt: 'Gerado automaticamente a partir do tempo, UV, vento, condições do mar e marés — só aparece o que se aplica agora.',
+  } as T,
+  catOutfit: { zh: '出行穿搭', en: 'What to wear', es: 'Qué ponerse', pt: 'O que vestir' } as T,
+  catPlan: { zh: '游玩安排', en: 'How to plan the day', es: 'Cómo organizar el día', pt: 'Como planejar o dia' } as T,
+  catGear: { zh: '随身物品', en: 'What to pack', es: 'Qué llevar', pt: 'O que levar' } as T,
+  catOutfitHint: { zh: '穿衣与体感', en: 'Clothing and comfort', es: 'Ropa y confort', pt: 'Roupa e conforto' } as T,
+  catPlanHint: { zh: '海边 / 礁石场景', en: 'Beach & rock scenarios', es: 'Escenarios de playa y roca', pt: 'Cenários de praia e rocha' } as T,
+  catGearHint: { zh: '带什么出门', en: 'Put it in your bag', es: 'Ponlo en la mochila', pt: 'Coloque na mochila' } as T,
+  alertsTitle: { zh: '风险提醒', en: 'Risk alerts', es: 'Avisos de riesgo', pt: 'Alertas de risco' } as T,
+  alertsNote: {
+    zh: '以上提醒由实时预报数据自动生成，并非官方预警。请以当地民防与气象部门发布的信息为准。',
+    en: 'These alerts are generated automatically from live forecast data and are not official warnings. Always follow your local civil defence and weather authority.',
+    es: 'Estos avisos se generan automáticamente con datos de pronóstico y no son alertas oficiales. Siga siempre a la defensa civil y al servicio meteorológico local.',
+    pt: 'Estes alertas são gerados automaticamente a partir de dados de previsão e não são avisos oficiais. Siga sempre a Defesa Civil e o serviço meteorológico local.',
+  } as T,
+  noAdvice: {
+    zh: '当前天气平稳，按常规准备即可。',
+    en: 'Conditions are calm — no special preparation needed.',
+    es: 'Condiciones tranquilas: no hace falta preparación especial.',
+    pt: 'Condições tranquilas — não é preciso preparo especial.',
+  } as T,
+  tidesHeading: { zh: '潮汐时刻', en: 'Tide times', es: 'Horario de mareas', pt: 'Tábua de marés' } as T,
+  uvLow: { zh: '低', en: 'Low', es: 'Bajo', pt: 'Baixo' } as T,
+  uvModerate: { zh: '中等', en: 'Moderate', es: 'Moderado', pt: 'Moderado' } as T,
+  uvHigh: { zh: '高', en: 'High', es: 'Alto', pt: 'Alto' } as T,
+  uvVeryHigh: { zh: '很高', en: 'Very high', es: 'Muy alto', pt: 'Muito alto' } as T,
+  uvExtreme: { zh: '极高', en: 'Extreme', es: 'Extremo', pt: 'Extremo' } as T,
+  unavailable: { zh: '天气数据暂时不可用，请以现场情况为准。', en: 'Weather data is temporarily unavailable — check conditions on site.', es: 'Datos no disponibles: compruebe las condiciones in situ.', pt: 'Dados indisponíveis — confira as condições no local.' } as T,
+  windUnit: { zh: 'km/h', en: 'km/h', es: 'km/h', pt: 'km/h' } as T,
+};
+
+// ── Facilities (实用设施：只说明类型，不推荐任何具体商户) ──
+export const facilities = {
+  sectionNum: { zh: '实用设施', en: 'Practical Facilities', es: 'Servicios prácticos', pt: 'Serviços práticos' } as T,
+  heading: {
+    zh: '到了现场，<br/><em class="text-[color:var(--color-emerald)]">这些设施心里有数</em>',
+    en: 'On site,<br/><em class="text-[color:var(--color-emerald)]"> here\'s what to expect</em>',
+    es: 'En el lugar,<br/><em class="text-[color:var(--color-emerald)]"> esto es lo que hay</em>',
+    pt: 'No local,<br/><em class="text-[color:var(--color-emerald)]"> é isto que existe</em>',
+  } as T,
+  subtitle: {
+    zh: '以下内容只说明设施的类型与分布规律，帮助访客自行判断；本站不推荐、不链接任何具体商户。',
+    en: 'The notes below describe only the types of facilities and how they are distributed, to help you judge for yourself. This site does not recommend or link any specific business.',
+    es: 'Lo siguiente describe solo los tipos de servicios y su distribución, para que usted decida. Este sitio no recomienda ni enlaza ningún comercio concreto.',
+    pt: 'As notas abaixo descrevem apenas os tipos de serviço e sua distribuição, para você decidir. Este site não recomenda nem indica nenhum estabelecimento específico.',
+  } as T,
+  neutralNote: {
+    zh: '本站为非营利科普项目，所有信息依据公开资料整理，不构成商业推荐或导流。',
+    en: 'This is a non-profit educational project. All information is compiled from public sources and constitutes neither a commercial recommendation nor a referral.',
+    es: 'Este es un proyecto educativo sin ánimo de lucro. La información proviene de fuentes públicas y no constituye recomendación ni derivación comercial.',
+    pt: 'Este é um projeto educativo sem fins lucrativos. As informações vêm de fontes públicas e não constituem recomendação nem encaminhamento comercial.',
+  } as T,
+  items: [
+    {
+      icon: '🚻',
+      title: { zh: '卫生间与更衣', en: 'Toilets & changing', es: 'Baños y vestuarios', pt: 'Banheiros e troca de roupa' } as T,
+      body: {
+        zh: '礁石本体没有固定卫生间。最近的公共卫生间位于伊帕内玛与科帕卡巴纳海滨步道沿线；海滩售货亭通常提供付费使用。更衣与冲淋集中在海滩服务点，步行数分钟可达。',
+        en: 'The rock itself has no permanent toilets. The nearest public restrooms are along the Ipanema and Copacabana seafront promenades; beach kiosks usually offer paid use. Changing rooms and showers are concentrated at beach service points a few minutes\' walk away.',
+        es: 'La roca no tiene baños fijos. Los más cercanos están en el paseo de Ipanema y Copacabana; los quioscos suelen ofrecer uso de pago. Vestuarios y duchas se concentran en los puntos de servicio de la playa, a pocos minutos.',
+        pt: 'A rocha não tem banheiros fixos. Os mais próximos ficam no calçadão de Ipanema e Copacabana; os quiosques costumam oferecer uso pago. Vestiários e chuveiros ficam nos postos de serviço da praia, a poucos minutos.',
+      } as T,
+    },
+    {
+      icon: '🅿️',
+      title: { zh: '停车', en: 'Parking', es: 'Aparcamiento', pt: 'Estacionamento' } as T,
+      body: {
+        zh: '礁石旁没有专属停车场。周边街区多为付费路边停车（划区计时制），旺季与落日时段车位紧张。自驾可考虑街区内陆的商业停车场与立体车库；多数访客选择地铁或公交抵达。',
+        en: 'There is no dedicated car park at the rock. Surrounding streets mostly use paid, metered kerbside parking, which fills up fast in high season and around sunset. Drivers can look for commercial or multi-storey garages inland; most visitors arrive by metro or bus.',
+        es: 'No hay aparcamiento propio junto a la roca. Las calles cercanas usan estacionamiento regulado de pago, que se llena en temporada alta y al atardecer. Los conductores pueden buscar garajes comerciales tierra adentro; la mayoría llega en metro o bus.',
+        pt: 'Não há estacionamento próprio junto à rocha. As ruas ao redor usam estacionamento rotativo pago, que lota na alta temporada e no entardecer. Quem vai de carro pode buscar garagens comerciais mais para dentro do bairro; a maioria chega de metrô ou ônibus.',
+      } as T,
+    },
+    {
+      icon: '🍽️',
+      title: { zh: '餐饮', en: 'Food & drink', es: 'Comida y bebida', pt: 'Alimentação' } as T,
+      body: {
+        zh: '海滨步道沿线分布着海滩售货亭、咖啡馆、按重量计价的自助餐厅与街头小食摊，类型丰富但营业时间差异较大，清晨与深夜选择有限。礁石上没有餐饮点，建议自备饮用水。',
+        en: 'Along the seafront promenade you will find beach kiosks, cafés, pay-by-weight buffet restaurants and street food stalls. Options are varied but opening hours differ widely, and early-morning or late-night choices are limited. There is no food service on the rock itself — bring your own water.',
+        es: 'En el paseo marítimo hay quioscos, cafeterías, restaurantes de buffet por peso y puestos callejeros. La oferta es variada pero los horarios difieren y de madrugada hay poco. En la roca no hay servicio de comida: lleve agua.',
+        pt: 'No calçadão há quiosques, cafés, restaurantes de buffet por quilo e barracas de rua. A oferta é variada, mas os horários variam bastante e de madrugada há pouca opção. Na rocha não há serviço de alimentação — leve água.',
+      } as T,
+    },
+    {
+      icon: '🏨',
+      title: { zh: '住宿', en: 'Accommodation', es: 'Alojamiento', pt: 'Hospedagem' } as T,
+      body: {
+        zh: '伊帕内玛与科帕卡巴纳沿线集中了各档次住宿类型：酒店、青旅、公寓式短租与家庭旅馆，多数步行即可到达礁石。旺季（12 月至次年 3 月、跨年与狂欢节）价格显著上涨，建议提前预订。',
+        en: 'Ipanema and Copacabana offer accommodation at every level: hotels, hostels, serviced apartment rentals and guesthouses, most within walking distance of the rock. Prices rise sharply in high season (December to March, New Year and Carnival), so book early.',
+        es: 'Ipanema y Copacabana concentran alojamiento de todos los niveles: hoteles, hostales, apartamentos turísticos y casas de huéspedes, casi todos a pie de la roca. En temporada alta (diciembre a marzo, Año Nuevo y Carnaval) los precios suben: reserve con antelación.',
+        pt: 'Ipanema e Copacabana concentram hospedagem de todos os níveis: hotéis, hostels, apartamentos por temporada e pousadas, quase todos a pé da rocha. Na alta temporada (dezembro a março, Réveillon e Carnaval) os preços sobem — reserve com antecedência.',
+      } as T,
+    },
+    {
+      icon: '🛒',
+      title: { zh: '商超与药房', en: 'Shops & pharmacy', es: 'Comercios y farmacia', pt: 'Mercados e farmácia' } as T,
+      body: {
+        zh: '街区内陆的商业街一带分布着便利店（含 24 小时类型）、中小型超市与药房，日常补给方便。旅游区的部分便利店营业至深夜，节假日时间可能调整。',
+        en: 'The inland shopping streets of the neighbourhood have convenience stores (including 24-hour formats), small to mid-size supermarkets and pharmacies for everyday supplies. Some tourist-area convenience stores stay open late; holiday hours may change.',
+        es: 'Las calles comerciales tierra adentro tienen tiendas de conveniencia (incluidas de 24 h), supermercados medianos y farmacias. Algunas tiendas de zona turística abren hasta tarde; en festivos los horarios cambian.',
+        pt: 'As ruas comerciais mais para dentro do bairro têm lojas de conveniência (inclusive 24 h), supermercados de pequeno e médio porte e farmácias. Algumas lojas da área turística abrem até tarde; em feriados o horário muda.',
+      } as T,
+    },
+    {
+      icon: '⛽',
+      title: { zh: '加油与充电', en: 'Fuel & EV charging', es: 'Combustible y carga', pt: 'Combustível e recarga' } as T,
+      body: {
+        zh: '礁石周边没有加油站，机动车加油站主要分布在街区内陆与城市干道沿线。电动车充电桩数量有限，多见于商业停车场与酒店车库；如驾驶电动车，建议出发前确认可用点位与接口类型。',
+        en: 'There is no fuel station beside the rock; petrol stations are found inland and along the city\'s main arteries. EV chargers are limited and mostly located in commercial car parks and hotel garages — if you drive electric, confirm an available point and connector type before setting out.',
+        es: 'No hay gasolinera junto a la roca; están tierra adentro y en las vías principales. Los cargadores eléctricos son escasos y suelen estar en aparcamientos comerciales y garajes de hotel: si conduce un eléctrico, confirme punto y conector antes de salir.',
+        pt: 'Não há posto de combustível junto à rocha; eles ficam mais para dentro do bairro e nas vias principais. Carregadores elétricos são poucos e ficam sobretudo em garagens comerciais e de hotéis — se dirige elétrico, confirme ponto e conector antes de sair.',
+      } as T,
+    },
+    {
+      icon: '🚰',
+      title: { zh: '饮水与淋浴', en: 'Drinking water & showers', es: 'Agua y duchas', pt: 'Água e chuveiros' } as T,
+      body: {
+        zh: '海滨步道沿线设有公共饮水点与露天淋浴。礁石上没有任何补给，炎热时段请自备可重复使用的水壶并及时补水，避免正午长时间暴晒。',
+        en: 'Public drinking fountains and open-air showers are spaced along the seafront promenade. There is no supply point on the rock itself — carry a refillable bottle, drink regularly in the heat and avoid long exposure at midday.',
+        es: 'El paseo tiene fuentes públicas y duchas al aire libre. En la roca no hay suministro: lleve botella reutilizable, beba con frecuencia y evite el mediodía.',
+        pt: 'O calçadão tem bebedouros públicos e chuveiros ao ar livre. Na rocha não há ponto de apoio — leve garrafa reutilizável, beba água com frequência e evite o meio-dia.',
+      } as T,
+    },
+    {
+      icon: '♿',
+      title: { zh: '无障碍与婴儿车', en: 'Accessibility & strollers', es: 'Accesibilidad y carritos', pt: 'Acessibilidade e carrinhos' } as T,
+      body: {
+        zh: '海滨步道与礁石下方的平坦区域基本可通行。通往礁石顶部的通道有台阶、沙石与湿滑路面，轮椅与婴儿车通行困难；行动不便的访客建议在步道沿线观景。',
+        en: 'The seafront promenade and the flatter area at the foot of the rock are broadly passable. The path up to the top involves steps, sand, loose stone and wet surfaces, which is difficult for wheelchairs and strollers; visitors with reduced mobility are better off viewing from the promenade.',
+        es: 'El paseo y la zona llana al pie de la roca son transitables. El acceso a la cima tiene escalones, arena, piedra suelta y humedad: difícil para sillas de ruedas y carritos. Con movilidad reducida, mejor contemplar desde el paseo.',
+        pt: 'O calçadão e a área plana ao pé da rocha são em geral acessíveis. A subida ao topo tem degraus, areia, pedra solta e piso molhado — difícil para cadeira de rodas e carrinho de bebê. Com mobilidade reduzida, prefira observar do calçadão.',
+      } as T,
+    },
+    {
+      icon: '🏥',
+      title: { zh: '医疗与急救', en: 'Medical & emergency', es: 'Salud y emergencias', pt: 'Saúde e emergência' } as T,
+      body: {
+        zh: '海滩在旺季设有季节性救生员岗位，礁石本身没有常驻救护点。紧急情况请拨打 192（SAMU 医疗急救）或 193（消防）。最近的综合医院位于街区内陆，建议提前记下位置。',
+        en: 'Seasonal lifeguard posts operate on the beach in high season; the rock itself has no permanent first-aid station. In an emergency call 192 (SAMU ambulance) or 193 (fire service). The nearest general hospital is inland in the neighbourhood — note its location in advance.',
+        es: 'En temporada alta hay puestos de socorristas en la playa; la roca no tiene puesto de primeros auxilios. En emergencia llame al 192 (SAMU) o 193 (bomberos). El hospital general más cercano está tierra adentro: anote su ubicación.',
+        pt: 'Na alta temporada há postos de salva-vidas na praia; a rocha não tem posto fixo de primeiros socorros. Em emergência ligue 192 (SAMU) ou 193 (Bombeiros). O hospital geral mais próximo fica mais para dentro do bairro — anote a localização.',
+      } as T,
+    },
+    {
+      icon: '💳',
+      title: { zh: '支付与取现', en: 'Payment & cash', es: 'Pago y efectivo', pt: 'Pagamento e dinheiro' } as T,
+      body: {
+        zh: '银行卡与 Pix 即时转账普及度高，多数商户接受刷卡与移动支付；街头摊贩可能只收现金，建议随身备少量零钞。街区内陆设有自动取款机，夜间取现请留意周围环境。',
+        en: 'Card payments and instant Pix transfers are widely accepted; street vendors may take cash only, so carry a little change. ATMs are available inland in the neighbourhood — take extra care when withdrawing at night.',
+        es: 'Se aceptan tarjetas y pagos Pix; los vendedores callejeros pueden aceptar solo efectivo, lleve cambio. Hay cajeros tierra adentro; al retirar de noche, extreme la precaución.',
+        pt: 'Cartão e Pix são amplamente aceitos; vendedores de rua podem aceitar apenas dinheiro — leve trocado. Há caixas eletrônicos mais para dentro do bairro; ao sacar à noite, redobre a atenção.',
+      } as T,
+    },
+    {
+      icon: '🎒',
+      title: { zh: '寄存与租赁', en: 'Storage & rentals', es: 'Consigna y alquiler', pt: 'Guarda-volumes e aluguel' } as T,
+      body: {
+        zh: '海滩沿线有付费的储物、沙滩椅与遮阳伞租赁服务，也有城市公共自行车共享站点。贵重物品建议随身携带，不要留在礁石上无人看管。',
+        en: 'Paid storage, beach chairs and parasol rentals are available along the beach, alongside the city bike-share stations. Keep valuables on you rather than leaving them unattended on the rock.',
+        es: 'Hay consigna de pago, alquiler de sillas y sombrillas, y estaciones de bici pública. Lleve consigo los objetos de valor; no los deje sin vigilancia en la roca.',
+        pt: 'Há guarda-volumes pago, aluguel de cadeiras e guarda-sóis, além das estações de bike compartilhada. Leve objetos de valor com você; não os deixe sem vigilância na rocha.',
+      } as T,
+    },
+    {
+      icon: '🌂',
+      title: { zh: '雨具与防晒', en: 'Rain gear & sun protection', es: 'Paraguas y protección solar', pt: 'Chuva e proteção solar' } as T,
+      body: {
+        zh: '里约天气多变，夏季（12 月至 3 月）午后常见短时强降雨，冬季则可能遇到海雾与大风。建议随身携带轻便雨具、防晒霜、帽子与一件挡风外套。',
+        en: 'Rio\'s weather shifts quickly: summer afternoons (December to March) often bring short, heavy showers, while winter can bring sea fog and strong wind. Carry light rain gear, sunscreen, a hat and a windproof layer.',
+        es: 'El tiempo cambia rápido: en verano (diciembre a marzo) hay chubascos fuertes por la tarde; en invierno, niebla marina y viento. Lleve paraguas ligero, protector solar, sombrero y una capa cortavientos.',
+        pt: 'O tempo muda rápido: no verão (dezembro a março) as tardes trazem pancadas fortes; no inverno pode haver névoa marítima e vento. Leve capa leve, protetor solar, boné e uma jaqueta corta-vento.',
+      } as T,
+    },
+  ],
+};
+
+// ── Timeline (历史编年) ──
+export const timeline = {
+  sectionNum: { zh: '历史编年', en: 'Chronology', es: 'Cronología', pt: 'Cronologia' } as T,
+  heading: {
+    zh: '五个世纪，<br/><em class="text-[color:var(--color-emerald)]">一块礁石的位置</em>',
+    en: 'Five centuries,<br/><em class="text-[color:var(--color-emerald)]"> one rock\'s position</em>',
+    es: 'Cinco siglos,<br/><em class="text-[color:var(--color-emerald)]"> la posición de una roca</em>',
+    pt: 'Cinco séculos,<br/><em class="text-[color:var(--color-emerald)]"> a posição de uma rocha</em>',
+  } as T,
+  subtitle: {
+    zh: '从欧洲航海者的到来，到捕鲸时代、城市扩张、冲浪文化的兴起，再到今天的观景与生态保护——礁石始终在同一坐标上，见证海岸的每一次转身。',
+    en: 'From the arrival of European navigators to the whaling era, urban expansion, the rise of surf culture and today\'s conservation — the rock has never moved, watching every turn of the coast.',
+    es: 'Desde la llegada de los navegantes europeos hasta la era ballenera, la expansión urbana, el surf y la conservación actual: la roca nunca se movió y observó cada giro de la costa.',
+    pt: 'Da chegada dos navegadores europeus à era baleeira, à expansão urbana, à cultura do surf e à conservação atual — a rocha nunca saiu do lugar e assistiu a cada virada do litoral.',
+  } as T,
+  disclaimer: {
+    zh: '以下年份依据公开史料与官方机构资料整理，用于梳理脉络；具体日期请以权威档案为准。',
+    en: 'The dates below are compiled from public historical records and official institutional sources to outline the sequence; for precise dates please consult authoritative archives.',
+    es: 'Las fechas provienen de fuentes históricas públicas y datos institucionales para trazar la secuencia; para fechas precisas consulte archivos autorizados.',
+    pt: 'As datas abaixo vêm de registros históricos públicos e fontes institucionais, para traçar a sequência; para datas precisas, consulte arquivos autorizados.',
+  } as T,
+  events: [
+    {
+      year: '1502',
+      title: { zh: '海湾得名 "Rio de Janeiro"', en: 'The bay is named "Rio de Janeiro"', es: 'La bahía recibe el nombre "Rio de Janeiro"', pt: 'A baía ganha o nome "Rio de Janeiro"' } as T,
+      body: { zh: '葡萄牙航海者抵达瓜纳巴拉湾，误将海湾当作河口，因而命名为"一月之河"（Rio de Janeiro）。伊帕内玛一带当时仍是图皮语族原住民活动的海岸。', en: 'Portuguese navigators reached Guanabara Bay and mistook it for a river mouth, naming it "River of January" (Rio de Janeiro). The Ipanema shore was then still Tupi-speaking indigenous territory.', es: 'Los navegantes portugueses llegaron a la bahía de Guanabara y la tomaron por un río: "Río de Enero". La costa de Ipanema era aún territorio indígena de lengua tupí.', pt: 'Navegadores portugueses chegaram à baía de Guanabara e a confundiram com um rio, batizando-a "Rio de Janeiro". A orla de Ipanema era ainda território indígena de língua tupi.' } as T,
+    },
+    {
+      year: '1565',
+      title: { zh: '里约建城', en: 'The city is founded', es: 'Se funda la ciudad', pt: 'A cidade é fundada' } as T,
+      body: { zh: 'Estácio de Sá 在瓜纳巴拉湾口建立 São Sebastião do Rio de Janeiro，城市正式奠基。此后两个世纪，人口与防御工事都集中在湾内的老城区。', en: 'Estácio de Sá founded São Sebastião do Rio de Janeiro at the mouth of Guanabara Bay. For the next two centuries, population and defences stayed concentrated in the old town inside the bay.', es: 'Estácio de Sá fundó São Sebastião do Rio de Janeiro en la boca de la bahía. Durante dos siglos, población y defensas se concentraron en el casco antiguo interior.', pt: 'Estácio de Sá fundou São Sebastião do Rio de Janeiro na boca da baía. Por dois séculos, população e defesas ficaram no centro antigo, dentro da baía.' } as T,
+    },
+    {
+      year: '17–18',
+      title: { zh: '捕鲸时代与"鱼叉手"之名', en: 'The whaling era and the "harpooner" name', es: 'La era ballenera y el nombre "arpoador"', pt: 'A era baleeira e o nome "arpoador"' } as T,
+      body: { zh: '捕鲸活动在里约海岸兴盛，鲸群沿伊帕内玛外海迁徙。这块便于瞭望的礁石成为捕鲸人潜伏与投叉的位置，"Arpoador"（鱼叉手）由此成为地名。', en: 'Whaling flourished along the Rio coast as whales migrated past Ipanema. This rock, ideal for keeping watch, became the whalers\' lurking and harpooning point — giving the place its name, "Arpoador" (harpooner).', es: 'La caza de ballenas prosperó en la costa carioca, con migraciones frente a Ipanema. Esta roca, buen observatorio, fue el punto de acecho y arpón: de ahí el topónimo "Arpoador" (arponero).', pt: 'A caça de baleias prosperou no litoral carioca, com migrações frente a Ipanema. Esta rocha, ótima para vigiar, virou ponto de espera e arpão — daí o topônimo "Arpoador".' } as T,
+    },
+    {
+      year: '1894',
+      title: { zh: '科帕卡巴纳炮台建成', en: 'Forte de Copacabana is completed', es: 'Se completa el Fuerte de Copacabana', pt: 'Conclui-se o Forte de Copacabana' } as T,
+      body: { zh: '海岸防御体系强化，科帕卡巴纳炮台落成。伊帕内玛与科帕卡巴纳之间这片原本荒僻的沙岸，开始被纳入城市的视野。', en: 'The coastal defence system was reinforced with the completion of Forte de Copacabana. The once-remote sandy shore between Ipanema and Copacabana began to enter the city\'s field of view.', es: 'Se refuerza la defensa costera con el Fuerte de Copacabana. La antes remota orilla arenosa entre Ipanema y Copacabana empieza a mirarse desde la ciudad.', pt: 'O sistema defensivo costeiro é reforçado com o Forte de Copacabana. A orla arenosa então remota entre Ipanema e Copacabana começa a entrar no horizonte da cidade.' } as T,
+    },
+    {
+      year: '1900s',
+      title: { zh: '有轨电车把海滩变成城市客厅', en: 'Trams turn the beach into a city living room', es: 'El tranvía convierte la playa en salón urbano', pt: 'O bonde transforma a praia em sala de estar' } as T,
+      body: { zh: '随着有轨电车与海滨道路延伸，伊帕内玛从荒僻海岸转变为城市休闲空间，礁石成为市民散步、观海与垂钓的日常去处。', en: 'As trams and coastal roads extended, Ipanema shifted from remote shore to urban leisure space, and the rock became an everyday spot for walking, sea-gazing and fishing.', es: 'Con el tranvía y las vías costeras, Ipanema pasó de orilla remota a espacio de ocio urbano; la roca se volvió lugar cotidiano para pasear, mirar el mar y pescar.', pt: 'Com o bonde e as vias costeiras, Ipanema deixou de ser orla remota e virou espaço de lazer urbano; a rocha tornou-se ponto cotidiano de caminhada, contemplação e pesca.' } as T,
+    },
+    {
+      year: '1962',
+      title: { zh: '《伊帕内玛女孩》与 Bossa Nova', en: '"The Girl from Ipanema" and Bossa Nova', es: '"Garota de Ipanema" y la bossa nova', pt: '"Garota de Ipanema" e a bossa nova' } as T,
+      body: { zh: 'Tom Jobim 与 Vinicius de Moraes 创作《Garota de Ipanema》，灵感来自常经过这一带的少女；1964 年的国际录音版本让伊帕内玛成为全球流行文化地标。', en: 'Tom Jobim and Vinicius de Moraes wrote "Garota de Ipanema", inspired by a young woman who often passed this way; the 1964 international recording turned Ipanema into a global pop-culture landmark.', es: 'Tom Jobim y Vinicius de Moraes compusieron "Garota de Ipanema", inspirada en una joven que pasaba por aquí; la grabación internacional de 1964 convirtió Ipanema en icono global.', pt: 'Tom Jobim e Vinicius de Moraes compuseram "Garota de Ipanema", inspirada em uma jovem que passava por aqui; a gravação internacional de 1964 tornou Ipanema um marco pop global.' } as T,
+    },
+    {
+      year: '1960s',
+      title: { zh: '冲浪传入里约', en: 'Surfing arrives in Rio', es: 'El surf llega a Río', pt: 'O surfe chega ao Rio' } as T,
+      body: { zh: '冲浪运动经由外来水手与留学生传入里约。Arpoador 因礁石外稳定的右跑浪，成为最早被本地人练习与聚集的浪点之一。', en: 'Surfing reached Rio through visiting sailors and students abroad. Thanks to the steady right-hand point break off the rock, Arpoador became one of the first breaks where locals practised and gathered.', es: 'El surf llegó a Río con marinos y estudiantes en el extranjero. Por su derecha estable, Arpoador fue una de las primeras rompientes donde los locales practicaron y se reunieron.', pt: 'O surfe chegou ao Rio com marinheiros e estudantes no exterior. Pela direita constante junto à rocha, o Arpoador foi uma das primeiras quebras onde os locais treinaram e se reuniram.' } as T,
+    },
+    {
+      year: '1970s',
+      title: { zh: '冲浪文化成形与"落日之掌声"', en: 'Surf culture takes shape & the Sunset Applause', es: 'Cuaja la cultura del surf y el Aplauso del Sol', pt: 'A cultura do surfe se firma e surge o Aplauso do Sol' } as T,
+      body: { zh: 'Arpoador 成为里约冲浪文化的核心地带，礁石上的日落聚会逐渐固定为自发鼓掌的仪式，即后来广为人知的 "Aplauso do Sol"。', en: 'Arpoador became the heart of Rio\'s surf culture, and sunset gatherings on the rock gradually settled into the ritual of spontaneous applause later known as the "Aplauso do Sol".', es: 'Arpoador se volvió el corazón del surf carioca y las reuniones al atardecer se fijaron como el rito de aplausos conocido como "Aplauso del Sol".', pt: 'O Arpoador virou o coração do surfe carioca, e os encontros ao entardecer se firmaram como o rito de aplausos conhecido como "Aplauso do Sol".' } as T,
+    },
+    {
+      year: '1987',
+      title: { zh: '巴西立法全面禁止捕鲸', en: 'Brazil bans whaling', es: 'Brasil prohíbe la caza de ballenas', pt: 'O Brasil proíbe a caça de baleias' } as T,
+      body: { zh: '巴西通过法律全面禁止捕鲸活动，南大西洋的鲸类种群获得恢复机会。此后数十年，鲸类在里约近海的目击记录逐步增加，捕鲸的历史以另一种方式被记住。', en: 'Brazil passed legislation banning whaling outright, giving South Atlantic whale populations a chance to recover. Over the following decades sightings off Rio gradually increased, and the whaling past is remembered in a different way.', es: 'Brasil prohibió por ley la caza de ballenas, dando oportunidad de recuperación a las poblaciones del Atlántico Sur. Décadas después, los avistamientos frente a Río aumentaron y la historia ballenera se recuerda de otro modo.', pt: 'O Brasil proibiu por lei a caça de baleias, dando chance de recuperação às populações do Atlântico Sul. Nas décadas seguintes, os avistamentos frente ao Rio aumentaram e a história baleeira passou a ser lembrada de outro modo.' } as T,
+    },
+    {
+      year: '20C late',
+      title: { zh: '礁石后方的雨林被保留为城市绿地', en: 'The rainforest behind the rock is kept as green space', es: 'La selva tras la roca se conserva como espacio verde', pt: 'A mata atrás da rocha é mantida como área verde' } as T,
+      body: { zh: '随着南区城市建设密度上升，礁石后方残存的大西洋雨林小块被保留为城市绿地（Parque Garota de Ipanema），成为观景、休憩与生态教育的场所。', en: 'As the South Zone grew denser, the small remnant of Atlantic Rainforest behind the rock was kept as urban green space (Parque Garota de Ipanema), serving for viewpoints, rest and ecological education.', es: 'Al densificarse la Zona Sur, el remanente de Mata Atlântica tras la roca se conservó como espacio verde (Parque Garota de Ipanema): mirador, descanso y educación ecológica.', pt: 'Com a densificação da Zona Sul, o remanescente de Mata Atlântica atrás da rocha foi mantido como área verde (Parque Garota de Ipanema): mirante, descanso e educação ecológica.' } as T,
+    },
+    {
+      year: '2016',
+      title: { zh: '里约奥运会与全球目光', en: 'Rio Olympics and global attention', es: 'Los Juegos de Río y la mirada global', pt: 'As Olimpíadas do Rio e o olhar global' } as T,
+      body: { zh: '里约举办夏季奥运会，帆船赛事在瓜纳巴拉湾举行。伊帕内玛与 Arpoador 一带的海岸景观获得新一轮国际关注。', en: 'Rio hosted the Summer Olympics, with sailing events on Guanabara Bay. The coastline around Ipanema and Arpoador drew a new wave of international attention.', es: 'Río acogió los Juegos Olímpicos, con vela en la bahía de Guanabara. El litoral de Ipanema y Arpoador recibió nueva atención internacional.', pt: 'O Rio sediou os Jogos Olímpicos, com as regatas na baía de Guanabara. A orla de Ipanema e do Arpoador ganhou nova atenção internacional.' } as T,
+    },
+    {
+      year: '2021',
+      title: { zh: '冲浪成为奥运正式项目', en: 'Surfing becomes an Olympic sport', es: 'El surf entra en los Juegos', pt: 'O surfe vira esporte olímpico' } as T,
+      body: { zh: '冲浪首次作为正式项目登上奥运赛场（东京），里约的浪点文化与传统受到新一轮关注。Arpoador 作为巴西冲浪的重要起点，再次被写进这项运动的叙事。', en: 'Surfing debuted as an official Olympic event (Tokyo), renewing interest in Rio\'s break culture and tradition. As a key starting point for Brazilian surfing, Arpoador was written into the sport\'s story once more.', es: 'El surf debutó como deporte olímpico (Tokio), renovando el interés por la cultura de rompientes de Río. Como punto de partida del surf brasileño, Arpoador volvió al relato del deporte.', pt: 'O surfe estreou como esporte olímpico (Tóquio), renovando o interesse pela cultura de quebras do Rio. Ponto de partida do surfe brasileiro, o Arpoador voltou à narrativa do esporte.' } as T,
+    },
+  ],
+};
+
+// ── Legends (民间传说：明确标注为非史料的当地叙事) ──
+export const legends = {
+  sectionNum: { zh: '民间传说', en: 'Local Legends', es: 'Leyendas locales', pt: 'Lendas locais' } as T,
+  heading: {
+    zh: '人们怎样<em class="text-[color:var(--color-emerald)]">讲述这块石头</em>',
+    en: 'How people<em class="text-[color:var(--color-emerald)]"> tell this rock</em>',
+    es: 'Cómo se<em class="text-[color:var(--color-emerald)]"> cuenta esta roca</em>',
+    pt: 'Como se<em class="text-[color:var(--color-emerald)]"> conta esta rocha</em>',
+  } as T,
+  subtitle: {
+    zh: '地名往往比史料更早被讲述。以下内容属于当地口述传统与民间叙事，用于理解地名与文化意象，不作为史实依据。',
+    en: 'Place names are often told long before they are documented. What follows belongs to local oral tradition and folk narrative — useful for understanding the name and its imagery, not as historical evidence.',
+    es: 'Los topónimos se cuentan antes de documentarse. Lo siguiente pertenece a la tradición oral y la narrativa popular: sirve para entender el nombre y su imaginería, no como prueba histórica.',
+    pt: 'Topônimos são contados antes de serem documentados. O que segue pertence à tradição oral e à narrativa popular — ajuda a entender o nome e seu imaginário, não como prova histórica.',
+  } as T,
+  badge: { zh: '民间叙事 · 非史料', en: 'Folk narrative · not a record', es: 'Narrativa popular · no histórica', pt: 'Narrativa popular · não histórica' } as T,
+  items: [
+    {
+      icon: '🌊',
+      title: { zh: '"Guanabara" 的两种读法', en: 'Two readings of "Guanabara"', es: 'Dos lecturas de "Guanabara"', pt: 'Duas leituras de "Guanabara"' } as T,
+      body: {
+        zh: '语言学上，Guanabara 一般被认为源自图皮语，常被解释为"海之湾"或"像海一样的湾"。而在当地的讲述里，它还有另一层想象：一位张开双臂、把大海抱在怀里的巨人，礁石与群山是他的骨架。',
+        en: 'Linguistically, Guanabara is generally traced to Tupi and often rendered as "arm of the sea" or "bay like the sea". Local storytelling adds another layer: a giant with open arms embracing the ocean, with the rock and the mountains as his frame.',
+        es: 'Lingüísticamente, Guanabara se remonta al tupí y suele traducirse como "brazo de mar" o "bahía como el mar". El relato local añade otra capa: un gigante con los brazos abiertos abrazando el océano, con la roca y los montes como esqueleto.',
+        pt: 'Linguisticamente, Guanabara é geralmente ligada ao tupi e traduzida como "braço de mar" ou "baía como o mar". A narrativa local acrescenta outra camada: um gigante de braços abertos abraçando o oceano, tendo a rocha e os morros como esqueleto.',
+      } as T,
+    },
+    {
+      icon: '🗿',
+      title: { zh: '被定格在海陆之间的守望者', en: 'A sentinel frozen between land and sea', es: 'Un centinela fijo entre tierra y mar', pt: 'Um vigia parado entre terra e mar' } as T,
+      body: {
+        zh: '在伊帕内玛渔民家庭的口头讲述中，这块礁石常被拟人化为"守望者"——他站在陆地与海洋的交界处，替出海的人看护归航的船。故事没有文献记载，却解释了为什么这里总有人愿意停下来望向海面。',
+        en: 'In the oral storytelling of Ipanema fishing families, the rock is often personified as a sentinel — standing where land meets sea, watching over boats returning home. The story is undocumented, yet it explains why people still stop here to look out at the water.',
+        es: 'En la tradición oral de las familias pescadoras de Ipanema, la roca se personifica como centinela: de pie donde tierra y mar se tocan, cuidando el regreso de las barcas. No está documentado, pero explica por qué la gente se detiene aquí a mirar el mar.',
+        pt: 'Na tradição oral das famílias de pescadores de Ipanema, a rocha é personificada como vigia — de pé onde terra e mar se tocam, cuidando o retorno dos barcos. Não há registro escrito, mas explica por que as pessoas param aqui para olhar o mar.',
+      } as T,
+    },
+    {
+      icon: '👏',
+      title: { zh: '掌声从哪里来', en: 'Where the applause comes from', es: 'De dónde viene el aplauso', pt: 'De onde vem o aplauso' } as T,
+      body: {
+        zh: '关于"落日之掌声"的起源，流传着不止一种说法：有人说是渔民向海致谢的旧俗，有人说是 1970 年代海滩青年即兴而起，也有人认为是随影像与社交传播被放大的城市默契。没有定论，但它如今确实属于每一个在场的人。',
+        en: 'More than one account circulates about the origin of the Sunset Applause: some say it is an old fishermen\'s custom of thanking the sea, some that it began as an impromptu gesture among beach youth in the 1970s, others that it grew as a shared urban understanding amplified by film and social media. There is no settled answer — and today it belongs to everyone present.',
+        es: 'Sobre el origen del Aplauso del Sol circula más de una versión: una costumbre antigua de pescadores que agradecían al mar; una improvisación juvenil de los años 70; o un acuerdo urbano amplificado por el cine y las redes. No hay respuesta cerrada, y hoy pertenece a quien esté allí.',
+        pt: 'Sobre a origem do Aplauso do Sol circula mais de uma versão: costume antigo de pescadores agradecendo ao mar; gesto improvisado da juventude praiana nos anos 70; ou um acordo urbano amplificado pelo cinema e pelas redes. Não há resposta fechada — e hoje ele pertence a quem está ali.',
+      } as T,
+    },
+    {
+      icon: '🌑',
+      title: { zh: '魔鬼海滩的名字', en: 'The name of Devil\'s Beach', es: 'El nombre de la Playa del Diablo', pt: 'O nome da Praia do Diabo' } as T,
+      body: {
+        zh: '礁石东侧的 Praia do Diabo（魔鬼海滩）以湍急的浪涌著称，关于名字的民间解释也不止一种：有人归因于浪形险恶、下水危险，也有人把它与旧时海难与失事船只的记忆联系起来。无论哪种说法，它都提醒人们尊重这片海的力量。',
+        en: 'Praia do Diabo, on the east side of the rock, is known for its churning surf, and folk explanations of the name vary: some attribute it to the dangerous waves, others link it to memories of shipwrecks and losses at sea. Whichever account you hear, it is a reminder to respect the power of this water.',
+        es: 'La Praia do Diabo, al este de la roca, es famosa por su oleaje revuelto, y las explicaciones populares del nombre varían: unos lo atribuyen al peligro de las olas, otros a recuerdos de naufragios. En cualquier versión, recuerda respetar la fuerza del mar.',
+        pt: 'A Praia do Diabo, a leste da rocha, é conhecida pela arrebentação forte, e as explicações populares do nome variam: uns atribuem ao perigo das ondas, outros a memórias de naufrágios. Em qualquer versão, é um lembrete para respeitar a força do mar.',
+      } as T,
+    },
+  ],
+};
+
+// ── Byline (编辑署名与更新信息：E-E-A-T) ──
+export const byline = {
+  updated: { zh: '最后更新', en: 'Last updated', es: 'Última actualización', pt: 'Última atualização' } as T,
+  lastUpdate: { zh: '2026 年 9 月', en: 'September 2026', es: 'Septiembre de 2026', pt: 'Setembro de 2026' } as T,
+  readingTime: { zh: '阅读时长', en: 'Reading time', es: 'Tiempo de lectura', pt: 'Tempo de leitura' } as T,
+  minutes: { zh: '约 {n} 分钟', en: 'about {n} min', es: 'unos {n} min', pt: 'cerca de {n} min' } as T,
+  reviewedBy: { zh: '由独立编辑团队整理与审校', en: 'Compiled and reviewed by an independent editorial team', es: 'Elaborado y revisado por un equipo editorial independiente', pt: 'Elaborado e revisado por uma equipe editorial independente' } as T,
+  reviewedByShort: { zh: '独立编辑团队审校', en: 'Independent editorial review', es: 'Revisión editorial independiente', pt: 'Revisão editorial independente' } as T,
+  onSiteNote: { zh: '现场信息可能随季节与天气变化，请以实地公告为准。', en: 'On-site information may change with season and weather — follow local notices.', es: 'La información puede variar según temporada y clima: siga los avisos locales.', pt: 'As informações podem mudar conforme estação e clima — siga os avisos locais.' } as T,
 };

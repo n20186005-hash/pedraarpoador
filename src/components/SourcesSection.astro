@@ -1,0 +1,58 @@
+---
+import type { Lang } from '../i18n/utils';
+import { sources, partners, footer } from '../i18n/translations';
+import { SITE } from '../data/site';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const _ = (s: any) => (typeof s === 'string' ? s : (s[lang] || s.pt || ''));
+
+const extraSources = [
+  {
+    name: { zh: '巴西旅游部（官方旅游门户）', en: 'Brazil Ministry of Tourism', es: 'Ministerio de Turismo de Brasil', pt: 'Ministério do Turismo do Brasil' },
+    url: SITE.ministryTourismUrl,
+    abbr: 'GOV.BR',
+    note: { zh: '国家级官方旅游信息', en: 'National official tourism information', es: 'Información turística oficial nacional', pt: 'Informação turística oficial nacional' },
+  },
+  {
+    name: { zh: 'Visit.Rio（里约官方旅游官网）', en: 'Visit.Rio — Official Rio Tourism', es: 'Visit.Rio — Turismo oficial de Río', pt: 'Visit.Rio — Turismo oficial do Rio' },
+    url: SITE.visitRioUrl,
+    abbr: 'VISIT.RIO',
+    note: { zh: '里约官方旅游与活动日历', en: 'Official Rio tourism & events', es: 'Turismo y eventos oficiales de Río', pt: 'Turismo e eventos oficiais do Rio' },
+  },
+];
+
+const allSources = [...partners.items, ...extraSources];
+---
+<section id="sources" class="max-w-7xl mx-auto px-6 py-24 md:py-32">
+  <div class="max-w-3xl">
+    <div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)]">— {_(sources.sectionNum)} —</div>
+    <h2 class="font-display text-4xl md:text-6xl mt-4 leading-tight" set:html={_(sources.heading)} />
+    <p class="mt-6 text-[color:var(--color-moss)]/80">{_(sources.subtitle)}</p>
+  </div>
+
+  <h3 class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-emerald)] mt-14 mb-6">{_(sources.linksHeading)}</h3>
+  <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {allSources.map((s: any) => (
+      <li>
+        <a
+          href={s.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block h-full rounded-2xl bg-white border border-black/5 p-5 card-hover"
+        >
+          <div class="partner-abbr font-display text-lg text-[color:var(--color-emerald)]">{s.abbr}</div>
+          <div class="mt-1 text-sm font-medium text-[color:var(--color-ink)]">{_(s.name)}</div>
+          <div class="mt-2 text-xs text-[color:var(--color-moss)]/70 leading-relaxed">{_(s.note)}</div>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <!-- Image credits -->
+  <div class="mt-14 rounded-3xl bg-[color:var(--color-mist)] border border-black/10 p-8 md:p-10">
+    <h3 class="font-display text-2xl">{_(sources.imageRightsHeading)}</h3>
+    <p class="mt-4 text-[color:var(--color-moss)] leading-relaxed">© {_(footer.imageRights)}</p>
+    <p class="mt-4 text-sm text-[color:var(--color-moss)]/70 leading-relaxed">{_(sources.editorial)}</p>
+  </div>
+</section>

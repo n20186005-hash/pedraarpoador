@@ -1,0 +1,33 @@
+{
+  "name": "Pedra do Arpoador — Visitor Guide",
+  "short_name": "Arpoador",
+  "description": "Visitor guide to Pedra do Arpoador, the iconic sunset and surf rock at Ipanema, Rio de Janeiro, Brazil.",
+  "lang": "pt-BR",
+  "start_url": "/pt/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F7F3EA",
+  "theme_color": "#0B1F1A",
+  "categories": ["travel", "navigation", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/gallery/pedra-do-arpoador%20(1).jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
