@@ -585,9 +585,9 @@ export const ecology = {
   ],
 };
 
-// ── FAQ (官方访客指南与常见问题) ──
+// ── FAQ (独立访客指南与常见问题) ──
 export const faq = {
-  sectionNum: { zh: '官方访客指南', en: 'Official Visitor Guide', es: 'Guía Oficial del Visitante', pt: 'Guia Oficial do Visitante' } as T,
+  sectionNum: { zh: '独立访客指南', en: 'Independent Visitor Guide', es: 'Guía Independiente del Visitante', pt: 'Guia Independente do Visitante' } as T,
   heading: { zh: '访客指南与<em class="text-[color:var(--color-emerald)]">常见问题</em>', en: 'Visitor Guide &<em class="text-[color:var(--color-emerald)]"> FAQ</em>', es: 'Guía del visitante &<em class="text-[color:var(--color-emerald)]"> preguntas frecuentes</em>', pt: 'Guia do visitante &<em class="text-[color:var(--color-emerald)]"> perguntas frequentes</em>' } as T,
   disclaimer: {
     zh: '以下信息由 pedraarpoador 独立科普团队根据公开资料整理，仅供访客参考。出行前请通过里约热内卢官方旅游渠道核实最新政策。',
@@ -965,7 +965,7 @@ export const entity = {
   breadcrumbNeighborhood: { zh: '伊帕内玛', en: 'Ipanema', es: 'Ipanema', pt: 'Ipanema' } as T,
   breadcrumbCity: { zh: '里约热内卢', en: 'Rio de Janeiro', es: 'Río de Janeiro', pt: 'Rio de Janeiro' } as T,
   breadcrumbCountry: { zh: '巴西', en: 'Brazil', es: 'Brasil', pt: 'Brasil' } as T,
-  kicker: { zh: '官方访客指南', en: 'Official Visitor Guide', es: 'Guía Oficial del Visitante', pt: 'Guia Oficial do Visitante' } as T,
+  kicker: { zh: '独立访客指南', en: 'Independent Visitor Guide', es: 'Guía Independiente del Visitante', pt: 'Guia Independente do Visitante' } as T,
   h1: {
     zh: 'Pedra do Arpoador（里约热内卢 · 伊帕内玛）',
     en: 'Pedra do Arpoador (Rio de Janeiro)',
