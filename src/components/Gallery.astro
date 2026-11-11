@@ -7,6 +7,11 @@ const { lang } = Astro.props;
 const _ = (s: any) => typeof s === 'string' ? s : (s[lang] || s.pt || '');
 const idx = [1,2,3,4,5,6,7,8,9,11,12,16,17,18,19,20,21,24,26,27];
 const imgs = idx.map(n => `/gallery/pedra-do-arpoador (${n}).jpg`);
+const rioturPhotos = [
+  { file: 'arpoador-beach-macieira.jpg', link: 'https://flic.kr/p/2qd11nA', caption: { pt: 'Praia e Pedra do Arpoador', en: 'Arpoador beach and rock', es: 'Playa y Pedra do Arpoador', zh: 'Arpoador 海滩与岩岬' } },
+  { file: 'arpoador-ocean-macieira.jpg', link: 'https://flic.kr/p/2qd11nk', caption: { pt: 'Vista para o mar no Arpoador', en: 'Ocean view at Arpoador', es: 'Vista al mar en Arpoador', zh: 'Arpoador 海景' } },
+  { file: 'arpoador-ipanema-macieira.jpg', link: 'https://flic.kr/p/2qcZkiH', caption: { pt: 'Vista em direção a Ipanema e ao Morro Dois Irmãos', en: 'View toward Ipanema and Morro Dois Irmãos', es: 'Vista hacia Ipanema y Morro Dois Irmãos', zh: '眺望伊帕内玛海岸与双兄弟山' } },
+];
 const gmapsUrl = 'https://maps.app.goo.gl/QkqmJ96Y6g84iAzK6';
 const bento = [
   'col-span-8 row-span-2 aspect-[16/10]','col-span-4 aspect-square','col-span-4 aspect-square',
@@ -22,6 +27,19 @@ const bento = [
     <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
       <div><div class="text-xs uppercase tracking-[0.25em] text-[color:var(--color-sun)]">12 — {_(gallery.sectionNum)}</div>
       <h2 class="font-display text-4xl md:text-6xl mt-4">{_(gallery.heading)}</h2></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8" aria-label="Riotur">
+      {rioturPhotos.map(photo => (
+        <figure class="rounded-2xl overflow-hidden bg-white/5">
+          <a href={photo.link} target="_blank" rel="noopener noreferrer" class="block">
+            <img src={`/gallery/riotur/${photo.file}`} alt={_(photo.caption)} width="1024" height="683" loading="lazy" decoding="async" class="w-full aspect-[3/2] object-cover" />
+          </a>
+          <figcaption class="p-4 text-sm leading-relaxed">
+            <span class="block">{_(photo.caption)}</span>
+            <a href={photo.link} target="_blank" rel="noopener noreferrer" class="text-white/70 hover:text-[color:var(--color-sun)] underline underline-offset-4">Alexandre Macieira | Riotur</a>
+          </figcaption>
+        </figure>
+      ))}
     </div>
     <div class="grid grid-cols-12 gap-3 md:gap-4">
       {imgs.map((src, i) => (
